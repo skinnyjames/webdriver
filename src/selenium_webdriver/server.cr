@@ -1,52 +1,44 @@
 require "http/client"
 require "log"
 require "json"
+require "./command"
 
 module SeleniumWebdriver
-  abstract class Capabilities
-    def self.default(browser : Symbol)
-      return Chrome.new(browser_name: "chrome", browser_version: "0.0.1", platform_name: "Linux", platform_version: "something", ssl: true)
+  module Navigation
+    def goto(url : String)
+      server.command.visit_url(url)
     end
 
-    def json
-    end
-  end
-
-  class Chrome < Capabilities
-
-    @opts : NamedTuple(
-      browser_name: String,
-      browser_version: String,
-      platform_name: String,
-      platform_version: String,
-      ssl: Bool
-    )
-
-    def initialize(**opts)
-      @opts = opts
+    def url
+      server.command.get_url
     end
 
-    def to_h
-      {
-        browserName: @opts[:browser_name],
-        browserVersion: @opts[:browser_version],
-        platformName: @opts[:platform_name],
-        platformVersion: @opts[:platform_version],
-        acceptSslCerts: @opts[:ssl]
-      }
+    def back
+      server.command.go_back
+    end
+
+    def title
+      server.command.get_title
+    end
+
+    def forward
+      server.command.go_forward
+    end
+
+    def refresh
+      server.command.refresh
     end
   end
 
   class Browser
+    include Navigation
+    getter :server
+
     def initialize(@server : Server)
     end
 
-    def goto(url : String)
-      res = HTTP::Client.post("#{session_url}/url", body: { url: url }.to_json)
-    end
-
-    def session_url
-      "#{@server.service_url}/session/#{@server.session_id}"
+    def quit
+      server.command.delete_session
     end
   end
 
@@ -55,8 +47,9 @@ module SeleniumWebdriver
       new(browser, **opts).run!
     end
 
-    @session_id : String = ""
-    getter :session_id
+    @@process : Process | Nil 
+
+    getter :command
 
     def initialize(browser : Symbol, *,
       @host = "127.0.0.1",
@@ -67,6 +60,7 @@ module SeleniumWebdriver
       @capabilities : Capabilities = Capabilities.default(browser)
     )
       @browser = browser
+      @command = Command.new(service_url)
     end
 
     def driver_mapping
@@ -89,18 +83,19 @@ module SeleniumWebdriver
       ["--host=#{@host}", "--port=#{@port}"]
     end
 
-    def start_session!
-      res = HTTP::Client.post("#{service_url}/session",  body: { capabilities: @capabilities.to_h }.to_json)
-      Log.debug { "Response #{res.body}" }
-      @session_id = JSON.parse(res.body)["value"]["sessionId"].as_s
-      Log.debug { "Session #{session_id}"}
-      Browser.new(self)
+    def ready?
+      command.session_status["ready"]
     end
     
     def run!
       Log.info { "Starting #{driver_command} with #{args}" }
-      Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
+      @@process ||= Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
       start_session!
+    end
+
+    def start_session!
+      @command.start_session(@capabilities)
+      Browser.new(self)
     end
   end
 end
