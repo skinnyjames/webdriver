@@ -1,6 +1,6 @@
 # selenium_webdriver
 
-Implementation of Selenium Webdriver Protocol in Crystal 
+Implementation of Selenium Webdriver Protocol in Crystal, inspired by Watir
 
 ## Installation
 
