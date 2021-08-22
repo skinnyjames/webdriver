@@ -38,7 +38,7 @@ currently in wip
 
 
 ## Todo
-
+### Webdriver protocol
 * [x] session
 * [x] navigation
 * [ ] windows
@@ -51,6 +51,10 @@ currently in wip
 * [ ] actions
 * [ ] user prompts
 * [ ] screen capture
+
+### Browsers
+* [ ] chrome
+* [ ] firefox
 
 ## Contributing
 
