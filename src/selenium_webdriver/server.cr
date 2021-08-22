@@ -3,6 +3,7 @@ require "log"
 require "json"
 require "./command"
 require "./windows"
+require "./wait"
 
 module SeleniumWebdriver
   module Navigation
@@ -33,7 +34,7 @@ module SeleniumWebdriver
 
   class Browser
     include Navigation
-    getter :server, windows
+    getter :server, :windows
 
     def initialize(@server : Server)
       window_handle = current_window_handle
@@ -108,10 +109,15 @@ module SeleniumWebdriver
     def ready?
       command.session_status["ready"]
     end
+
+    def wait_until_ready
+      SeleniumWebdriver::Wait.wait_until(interval: 0.5, timeout: 30, object: self, &.ready?) 
+    end
     
     def run!
       Log.info { "Starting #{driver_command} with #{args}" }
       @@process ||= Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
+      wait_until_ready
       start_session!
     end
 

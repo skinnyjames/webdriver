@@ -11,7 +11,7 @@ browser.use(third_window)
 browser.goto "https://www.facebook.com"
 browser.close(third_window)
 browser.close(first_window)
-browser.close(window)
+# browser.close(window)
 
 
 
