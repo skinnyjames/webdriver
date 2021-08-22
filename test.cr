@@ -5,12 +5,20 @@ first_window = browser.windows[0]
 browser.goto "http://www.google.com"
 window = browser.windows.new
 third_window = browser.windows.new
+browser.minimize
+browser.maximize
 browser.use(window)
 browser.goto "https://www.yahoo.com"
 browser.use(third_window)
 browser.goto "https://www.facebook.com"
 browser.close(third_window)
 browser.close(first_window)
+
+size = browser.windows.size
+size.width = 300
+size.height = 300
+size.x = 20
+browser.windows.resize(size)
 # browser.close(window)
 
 

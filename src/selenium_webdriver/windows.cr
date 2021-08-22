@@ -1,6 +1,12 @@
 require "./command"
 
 module SeleniumWebdriver
+  struct WindowRect
+    property :width, :height, :x, :y
+    def initialize(@width : Int32, @height : Int32, @x : Int32, @y : Int32)
+    end
+  end
+
   struct Window
     getter :handle, :type
     def initialize(@handle : String, @type : Symbol = :tab)
@@ -22,6 +28,19 @@ module SeleniumWebdriver
       window = Window.new(handle, type)
       @collection << window
       window
+    end
+
+    def size
+      sizing = command.get_window_rect
+      width = sizing["width"].as_i
+      height = sizing["height"].as_i
+      x = sizing["x"].as_i
+      y = sizing["y"].as_i
+      WindowRect.new(width: width, height: height, x: x, y: y)
+    end
+
+    def resize(rect : WindowRect)
+      command.set_window_rect(rect)
     end
 
     def remove(window : Window)

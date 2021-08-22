@@ -41,6 +41,14 @@ module SeleniumWebdriver
       @windows = Windows.new([Window.new(window_handle)], command: server.command)
     end
 
+    def maximize
+      server.command.maximize_window
+    end
+
+    def minimize
+      server.command.minimize_window
+    end
+
     def use(window : Window)
       server.command.use_window(window.handle)
     end
