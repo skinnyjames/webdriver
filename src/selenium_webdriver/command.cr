@@ -50,6 +50,27 @@ module SeleniumWebdriver
       JSON.parse(res.body)["value"]
     end
 
+    # contexts
+    def get_window_handle
+      get_value_from_response HTTP::Client.get("#{session_url}/window")
+    end
+
+    def new_window
+      get_value_from_response HTTP::Client.post("#{session_url}/window/new", body: empty_body)
+    end
+
+    def delete_window
+      HTTP::Client.delete("#{session_url}/window")
+    end
+
+    def use_window(handle)
+      HTTP::Client.post("#{session_url}/window", body: { handle: handle }.to_json)
+    end
+
+    private def get_value_from_response(res)
+      JSON.parse(res.body)["value"]
+    end
+  
     private def empty_body
       JSON.build do |json|
         json.object do 
