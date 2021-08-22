@@ -14,7 +14,6 @@ module SeleniumWebdriver
     def initialize(@base_url : String)
     end
 
-
     def set_window_rect(rect : WindowRect)
       body = { width: rect.width, height: rect.height, x: rect.x, y: rect.y }.to_json
       HTTP::Client.post("#{session_url}/window/rect", body: body)

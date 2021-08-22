@@ -28,6 +28,10 @@ module SeleniumWebdriver
       def minimize_window
         HTTP::Client.post("#{session_url}/window/minimize", body: empty_body)
       end
+
+      def fullscreen_window
+        HTTP::Client.post("#{session_url}/window/fullscreen", body: empty_body)
+      end
   
       def get_window_rect
         get_value_from_response HTTP::Client.get("#{session_url}/window/rect")

@@ -6,7 +6,7 @@ require "./windows"
 require "./wait"
 
 module SeleniumWebdriver
-  module Navigation
+  module BrowserNavigation
     def goto(url : String)
       server.command.visit_url(url)
     end
@@ -32,8 +32,24 @@ module SeleniumWebdriver
     end
   end
 
+  module BrowserWindow
+    def maximize
+      server.command.maximize_window
+    end
+
+    def minimize
+      server.command.minimize_window
+    end
+
+    def fullscreen
+      server.command.fullscreen_window
+    end
+  end
+
   class Browser
-    include Navigation
+    include BrowserNavigation
+    include BrowserWindow
+    
     getter :server, :windows
 
     def self.start(browser = :chrome, **opts)
@@ -43,14 +59,6 @@ module SeleniumWebdriver
     def initialize(@server : Server)
       window_handle = current_window_handle
       @windows = Windows.new([Window.new(window_handle)], command: server.command)
-    end
-
-    def maximize
-      server.command.maximize_window
-    end
-
-    def minimize
-      server.command.minimize_window
     end
 
     def use(window : Window)

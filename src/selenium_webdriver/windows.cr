@@ -41,6 +41,15 @@ module SeleniumWebdriver
 
     def resize(rect : WindowRect)
       command.set_window_rect(rect)
+    end 
+
+    def resize(*, width : Int32?, height : Int32?, x : Int32?, y : Int32?)
+      rect = size
+      rect.width = width if width
+      rect.height = height if height
+      rect.x = x if x
+      rect.y = y if y
+      resize(rect)
     end
 
     def remove(window : Window)

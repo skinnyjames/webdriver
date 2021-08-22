@@ -13,12 +13,8 @@ browser.use(third_window)
 browser.goto "https://www.facebook.com"
 browser.close(third_window)
 browser.close(first_window)
-
-size = browser.windows.size
-size.width = 300
-size.height = 300
-size.x = 20
-browser.windows.resize(size)
+browser.windows.resize(width: 300, height: 300, x: 100, y: 200)
+#browser.fullscreen
 # browser.close(window)
 
 
