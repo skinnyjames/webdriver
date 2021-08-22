@@ -36,6 +36,10 @@ module SeleniumWebdriver
     include Navigation
     getter :server, :windows
 
+    def self.start(browser = :chrome, **opts)
+      Server.new(browser, **opts).run!
+    end
+
     def initialize(@server : Server)
       window_handle = current_window_handle
       @windows = Windows.new([Window.new(window_handle)], command: server.command)
@@ -74,10 +78,6 @@ module SeleniumWebdriver
   end
 
   class Server
-    def self.start(browser = :chrome, **opts)
-      new(browser, **opts).run!
-    end
-
     @@process : Process?
 
     getter :command

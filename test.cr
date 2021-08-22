@@ -1,6 +1,6 @@
 require "./src/selenium_webdriver/server"
 
-browser = SeleniumWebdriver::Server.start
+browser = SeleniumWebdriver::Browser.start :chrome
 first_window = browser.windows[0]
 browser.goto "http://www.google.com"
 window = browser.windows.new
