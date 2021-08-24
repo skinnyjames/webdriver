@@ -17,35 +17,62 @@ module SeleniumWebdriver
       end
 
       def tokenize
-        @scanner.scan /(?<start>\^)?(?<content>.*)(?<end>\$)?/
+        @scanner.scan /(?<start>\^)?(?<content>[a-zA-Z\-0-9]*)(?<end>\$$)?/
         @start_anchor = !!@scanner["start"]? 
         @end_anchor = !!@scanner["end"]?
         @content = sanitize_content @scanner["content"]?
         self
       end
     
-      def sanitize_content(content : String?)
+      def sanitize_content(content : String?) : String
         raise "Regex can't be nil" if content.nil?
-        content.gsub(/\\s/, "")
+        content.gsub(/\\s/, " ")
       end
+    end
+  end
+
+  module Container
+    def element(**locator)
+      Element.new(self, server, **locator)
     end
   end
 
   class Element
-    def inititalize(@context : Element | Browser, data)
+    include Container
+    getter :server, :context
+    
+    @xpath : String 
+
+    def initialize(@context : Element | Browser, @server : Server, **locator)
+      @xpath = "//*[#{ElementLocator.convert_all_to_xpath(**locator)}]"
+    end
+
+    def locate 
+      puts server.command.find_element(using: "xpath", value: @xpath)
     end
   end
 
   class ElementLocator
-    def inititalize(@context : Element | Browser, **locator_tuple)
-      xpath = convert_all_to_xpath(**locator_tuple)
-      Element.new(@context, @context.find_element(xpath))
+    def self.convert_all_to_xpath(**locator)
+      paths = locator.map do |key, value|
+        value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
+      end.join(" and ")
+      paths
     end
 
-    def convert_all_to_xpath(**locator)
-      locator.each do |key, value|
+    def self.convert_string_to_xpath(key, str)
+      "@#{key}='#{str}'"
+    end
+
+    def self.convert_regex_to_xpath(key, regex, lexer : RegexToXpath::Lexer = RegexToXpath.tokenize(regex))
+      raise "No content" unless content = lexer.content
+      if lexer.start_anchor
+        lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
+      elsif lexer.end_anchor
+        lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
+      else
+        lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
       end
     end
   end
 end
-
