@@ -9,7 +9,7 @@ module SeleniumWebdriver
     include Commands::Navigation
     include Commands::Window
     
-    @session_id : String | Nil
+    @session_id : String?
 
     def initialize(@base_url : String)
     end
