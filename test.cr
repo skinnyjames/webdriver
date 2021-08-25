@@ -2,9 +2,8 @@ require "./src/selenium_webdriver/server"
 
 browser = SeleniumWebdriver::Browser.start :chrome
 
-first_window = browser.windows[0]
 browser.goto "http://www.google.com"
-browser.element(title: /earc/).locate
+puts browser.div(class: /gb_pa/).a(class: /gb_f/).click
 
 
 

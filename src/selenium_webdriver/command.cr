@@ -2,12 +2,14 @@ require "./capabilities"
 require "./commands/session"
 require "./commands/navigation"
 require "./commands/window"
+require "./commands/elements"
 
 module SeleniumWebdriver
   struct Command
     include Commands::Session
     include Commands::Navigation
     include Commands::Window
+    include Commands::Elements
     
     @session_id : String?
 
@@ -19,9 +21,6 @@ module SeleniumWebdriver
       HTTP::Client.post("#{session_url}/window/rect", body: body)
     end
 
-    def find_element(using : String, value : String)
-      get_value_from_response HTTP::Client.post("#{session_url}/element", body: { using: using, value: value}.to_json)
-    end
 
     private def get_value_from_response(res)
       JSON.parse(res.body)["value"]
