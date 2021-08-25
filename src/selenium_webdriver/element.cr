@@ -31,12 +31,21 @@ module SeleniumWebdriver
         server.command.click_element(id)
       end
     end
+
+    module Waitable
+      def wait_until(interval : Float64 = 0.5, timeout : Int32 = 60, &block)
+        SeleniumWebdriver::Wait.wait_until(interval, timeout, object: self) do |element|
+          yield element
+        end
+      end
+    end
   end
 
 
   module Dom
     class Element
       include Container
+      
       getter :server, :context
       
       @@node : String = "*"
@@ -44,7 +53,7 @@ module SeleniumWebdriver
       @id : String?
 
       def initialize(@context : Element | Browser, @server : Server, **locator)
-        @xpath = "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        @xpath = translate_locator(context, **locator)
       end
 
       def locate
@@ -63,6 +72,14 @@ module SeleniumWebdriver
         server.command.get_element_text(id) 
       end
 
+      protected def translate_locator(context : Element | Browser, **locator)
+        if context.is_a? Browser
+          "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        else
+          ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        end
+      end
+
       protected def locate_or_throw_error : String
         id = locate
         raise "cannot locate element" if id.nil?
@@ -70,11 +87,11 @@ module SeleniumWebdriver
       end
     end
 
-    class HtmlElement < Element; end
+    class HtmlElement < Element; include Clickable; include Waitable; end
     class Div < HtmlElement; @@node = "div"; end
-    class Link < HtmlElement; @@node = "a"; include Clickable; end
+    class Link < HtmlElement; @@node = "a"; end
     class TextField < HtmlElement; @@node="input"; end
-    class Button < HtmlElement; @@node="Button"; include Clickable; end
-    class Input < HtmlElement; @@node="input"; include Clickable; end
+    class Button < HtmlElement; @@node="Button"; end
+    class Input < HtmlElement; @@node="input"; end
   end
 end

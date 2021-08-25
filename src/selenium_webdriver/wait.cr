@@ -1,3 +1,4 @@
+require "./element"
 module SeleniumWebdriver
   class TimeoutException < Exception; end
   module Wait
@@ -6,7 +7,7 @@ module SeleniumWebdriver
       while (Time.local - time).seconds < timeout
         begin
           result = yield(object)
-          return if !!result
+          return result if !!result
         rescue ex : Exception
           sleep interval
         end
