@@ -1,21 +1,12 @@
 require "./src/selenium_webdriver/server"
 
 browser = SeleniumWebdriver::Browser.start :chrome
-first_window = browser.windows[0]
+
 browser.goto "http://www.google.com"
-window = browser.windows.new
-third_window = browser.windows.new
-browser.minimize
-browser.maximize
-browser.use(window)
-browser.goto "https://www.yahoo.com"
-browser.use(third_window)
-browser.goto "https://www.facebook.com"
-browser.close(third_window)
-browser.close(first_window)
-browser.windows.resize(width: 300, height: 300, x: 100, y: 200)
-#browser.fullscreen
-# browser.close(window)
+puts browser.div(class: /gb_pa/).a(class: /gb_f/).click
+
+
+
 
 
 

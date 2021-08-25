@@ -2,14 +2,16 @@ require "./capabilities"
 require "./commands/session"
 require "./commands/navigation"
 require "./commands/window"
+require "./commands/elements"
 
 module SeleniumWebdriver
   struct Command
     include Commands::Session
     include Commands::Navigation
     include Commands::Window
+    include Commands::Elements
     
-    @session_id : String | Nil
+    @session_id : String?
 
     def initialize(@base_url : String)
     end
@@ -18,6 +20,7 @@ module SeleniumWebdriver
       body = { width: rect.width, height: rect.height, x: rect.x, y: rect.y }.to_json
       HTTP::Client.post("#{session_url}/window/rect", body: body)
     end
+
 
     private def get_value_from_response(res)
       JSON.parse(res.body)["value"]

@@ -4,6 +4,7 @@ require "json"
 require "./command"
 require "./windows"
 require "./wait"
+require "./element"
 
 module SeleniumWebdriver
   module BrowserNavigation
@@ -49,7 +50,8 @@ module SeleniumWebdriver
   class Browser
     include BrowserNavigation
     include BrowserWindow
-    
+    include Container
+
     getter :server, :windows
 
     def self.start(browser = :chrome, **opts)
