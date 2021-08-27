@@ -1,16 +1,30 @@
 module SeleniumWebdriver
   module Commands
     module Elements
-      def find_element(using : String, value : String)
-        get_value_from_response HTTP::Client.post("#{session_url}/element", body: { using: using, value: value}.to_json)
+      begin
+        def find_element(using : String, value : String)
+          get_value_from_response HTTP::Client.post("#{session_url}/element", body: { using: using, value: value}.to_json)
+        rescue exception
+          Log.info { exception }
+          raise exception
+        end
       end
 
       def find_elements(using : String, value : String)
-        get_value_from_response HTTP::Client.post("#{session_url}/elements", body: { using: using, value: value }.to_json)
+        begin
+          get_value_from_response HTTP::Client.post("#{session_url}/elements", body: { using: using, value: value }.to_json)
+        rescue exception
+          puts exception
+        end
       end
 
       def find_element_from_element(element_id : String, using : String, value : String)
-        get_value_from_response HTTP::Client.post("#{session_url}/element/#{element_id}/element", body: { using: using, value: value }.to_json)
+        begin
+          get_value_from_response HTTP::Client.post("#{session_url}/element/#{element_id}/element", body: { using: using, value: value }.to_json)
+        rescue exception
+          Log.info { exception }
+          raise exception
+        end
       end
 
       def find_elements_from_element(element_id : String, using : String, value : String)
@@ -26,7 +40,11 @@ module SeleniumWebdriver
       end
 
       def click_element(element_id : String)
-        HTTP::Client.post("#{session_url}/element/#{element_id}/click", body: empty_body)
+        begin
+          HTTP::Client.post("#{session_url}/element/#{element_id}/click", body: empty_body)
+        rescue ex
+          raise ex
+        end
       end
     end
   end

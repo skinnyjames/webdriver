@@ -27,8 +27,11 @@ module SeleniumWebdriver
   module Dom
     module Clickable
       def click
-        id = locate_or_throw_error
-        server.command.click_element(id)
+        server.command.click_element locate_or_throw_error
+      end
+
+      def click!
+        server.command.click_element locate_or_throw_error(true)
       end
     end
 
@@ -56,15 +59,21 @@ module SeleniumWebdriver
         @xpath = translate_locator(context, **locator)
       end
 
-      def locate
+      def locate(force : Bool = false)
         ctx = context
+        return @id if !@id.nil? && force
         if ctx.is_a? Browser
-          @id ||= server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
+          @id = server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
         else
-          parent_id = ctx.locate_or_throw_error
-          @id ||= server.command.find_element_from_element(parent_id, using: "xpath", value: @xpath).as_h.values.first.as_s
+          parent_id = ctx.locate_or_throw_error(force)
+          @id = server.command.find_element_from_element(parent_id, using: "xpath", value: @xpath).as_h.values.first.as_s
         end
         @id
+      end
+
+      def text!
+        id = locate_or_throw_error(true)
+        server.command.get_element_text(id)
       end
 
       def text
@@ -80,8 +89,8 @@ module SeleniumWebdriver
         end
       end
 
-      protected def locate_or_throw_error : String
-        id = locate
+      protected def locate_or_throw_error(force : Bool = false) : String
+        id = locate(force)
         raise "cannot locate element" if id.nil?
         id
       end
