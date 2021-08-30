@@ -83,9 +83,9 @@ module SeleniumWebdriver
 
       protected def translate_locator(context : Element | Browser, **locator)
         if context.is_a? Browser
-          "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          locator.empty? ? "//#{@@node}" : "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
         else
-          ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          locator.empty? ? "//#{@@node}" : ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
         end
       end
 
