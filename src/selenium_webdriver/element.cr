@@ -27,8 +27,19 @@ module SeleniumWebdriver
   module Dom
     module Clickable
       def click
-        id = locate_or_throw_error
-        server.command.click_element(id)
+        server.command.click_element locate_or_throw_error
+      end
+
+      def click!
+        server.command.click_element locate_or_throw_error(true)
+      end
+    end
+
+    module Waitable
+      def wait_until(interval : Float64 = 0.5, timeout : Int32 = 60, &block)
+        SeleniumWebdriver::Wait.wait_until(interval, timeout, object: self) do |element|
+          yield element
+        end
       end
     end
   end
@@ -37,6 +48,7 @@ module SeleniumWebdriver
   module Dom
     class Element
       include Container
+      
       getter :server, :context
       
       @@node : String = "*"
@@ -44,18 +56,24 @@ module SeleniumWebdriver
       @id : String?
 
       def initialize(@context : Element | Browser, @server : Server, **locator)
-        @xpath = "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        @xpath = translate_locator(context, **locator)
       end
 
-      def locate
+      def locate(force : Bool = false)
         ctx = context
+        return @id if !@id.nil? && force
         if ctx.is_a? Browser
-          @id ||= server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
+          @id = server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
         else
-          parent_id = ctx.locate_or_throw_error
-          @id ||= server.command.find_element_from_element(parent_id, using: "xpath", value: @xpath).as_h.values.first.as_s
+          parent_id = ctx.locate_or_throw_error(force)
+          @id = server.command.find_element_from_element(parent_id, using: "xpath", value: @xpath).as_h.values.first.as_s
         end
         @id
+      end
+
+      def text!
+        id = locate_or_throw_error(true)
+        server.command.get_element_text(id)
       end
 
       def text
@@ -63,18 +81,26 @@ module SeleniumWebdriver
         server.command.get_element_text(id) 
       end
 
-      protected def locate_or_throw_error : String
-        id = locate
+      protected def translate_locator(context : Element | Browser, **locator)
+        if context.is_a? Browser
+          "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        else
+          ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        end
+      end
+
+      protected def locate_or_throw_error(force : Bool = false) : String
+        id = locate(force)
         raise "cannot locate element" if id.nil?
         id
       end
     end
 
-    class HtmlElement < Element; end
+    class HtmlElement < Element; include Clickable; include Waitable; end
     class Div < HtmlElement; @@node = "div"; end
-    class Link < HtmlElement; @@node = "a"; include Clickable; end
+    class Link < HtmlElement; @@node = "a"; end
     class TextField < HtmlElement; @@node="input"; end
-    class Button < HtmlElement; @@node="Button"; include Clickable; end
-    class Input < HtmlElement; @@node="input"; include Clickable; end
+    class Button < HtmlElement; @@node="Button"; end
+    class Input < HtmlElement; @@node="input"; end
   end
 end
