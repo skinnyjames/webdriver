@@ -61,7 +61,7 @@ module SeleniumWebdriver
 
       def locate(force : Bool = false)
         ctx = context
-        return @id if !@id.nil? && force
+        return @id unless @id.nil? || force
         if ctx.is_a? Browser
           @id = server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
         else
@@ -85,7 +85,7 @@ module SeleniumWebdriver
         if context.is_a? Browser
           locator.empty? ? "//#{@@node}" : "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
         else
-          locator.empty? ? "//#{@@node}" : ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          locator.empty? ? ".//#{@@node}" : ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
         end
       end
 
