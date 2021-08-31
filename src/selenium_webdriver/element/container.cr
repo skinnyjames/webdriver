@@ -4,8 +4,8 @@ module SeleniumWebdriver
 
       macro define_element_method(method_name, class_name, **extra_location)
         def {{ method_name }}(**locator)
-          {% if !extra_location.empty? %} 
-            locator = locator.merge(extra_location) 
+          {% if !extra_location.empty? %}
+            locator = locator.merge({{ extra_location }}) 
           {% end %}
           {{ class_name }}.new(self, server, **locator)
         end
@@ -20,7 +20,6 @@ module SeleniumWebdriver
       define_element_method li, Dom::Li
       define_element_method section, Dom::Section
       define_element_method p, Dom::P
-      define_element_method h1, Dom::H1
       define_element_method a, Dom::Link
       define_element_method div, Dom::Div
 

@@ -34,6 +34,7 @@ module SeleniumWebdriver
   class LocatorHelper
     def self.convert_all_to_xpath(**locator)
       paths = locator.map do |key, value|
+        return convert_index_to_xpath(key, value) if key == :index && value.is_a? Int
         value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
       end.join(" and ")
       paths
@@ -41,6 +42,10 @@ module SeleniumWebdriver
 
     def self.convert_string_to_xpath(key, str)
       "@#{key}='#{str}'"
+    end
+
+    def self.convert_index_to_xpath(key, index : Int)
+      "position()=#{index + 1}"
     end
 
     def self.convert_regex_to_xpath(key, regex, lexer : RegexToXpath::Lexer = RegexToXpath.tokenize(regex))

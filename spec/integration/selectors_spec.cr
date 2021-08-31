@@ -14,7 +14,9 @@ describe SeleniumWebdriver do
 
     it "locates all elements" do
       with_browser("html_patterns.html") do |browser|
-        browser.body
+        browser.body.should_not be(nil)
+        browser.header.h1(class: /mega-ns/).text.should eq("HTML")
+        browser.header(index: 1).a(title: /site title/i).text.should eq("Site title")
       end
     end
   end
