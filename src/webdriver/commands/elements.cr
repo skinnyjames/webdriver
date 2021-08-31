@@ -14,7 +14,8 @@ module Webdriver
         begin
           get_value_from_response HTTP::Client.post("#{session_url}/elements", body: { using: using, value: value }.to_json)
         rescue exception
-          puts exception
+          Log.info { exception }
+          raise exception
         end
       end
 
@@ -37,6 +38,50 @@ module Webdriver
 
       def get_element_text(element_id : String)
         get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/text")
+      end
+
+      def get_element_selected(element_id : String)
+        get_value_from_response HTP::Client.get("#{session_url}/element/#{element_id}/selected")
+      end
+
+      def get_element_attribute(element_id : String, name : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/attribute/#{name}")
+      end
+
+      def get_element_property(element_id : String, name : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/property/#{name}")
+      end
+
+      def get_element_css_value(element_id : String, css_property : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/css/#{css_property}")
+      end
+
+      def get_element_tag_name(element_id : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/name")
+      end
+
+      def get_element_rect(element_id : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/rect")
+      end
+
+      def get_element_enabled(element_id : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/enabled")
+      end
+
+      def get_element_computed_label(element_id : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/computedlabel")
+      end
+
+      def get_element_computed_role(element_id : String)
+        get_value_from_response HTTP::Client.get("#{session_url}/element/#{element_id}/computedrole")
+      end
+
+      def clear_element(element_id : String)
+        HTTP::Client.post("#{session_url}/element/#{element_id}/clear", body: empty_body)
+      end
+
+      def send_keys_to_element(element_id : String, body : Hash)
+        get_value_from_response HTTP::Client.post("#{session_url}/element/#{element_id}/value", body: body.to_json)
       end
 
       def click_element(element_id : String)
