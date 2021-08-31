@@ -1,6 +1,6 @@
 require "./command"
 
-module SeleniumWebdriver
+module Webdriver
   struct WindowRect
     property :width, :height, :x, :y
     def initialize(@width : Int32, @height : Int32, @x : Int32, @y : Int32)

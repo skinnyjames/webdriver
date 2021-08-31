@@ -1,5 +1,5 @@
 require "spec"
-require "../src/selenium_webdriver"
+require "../src/webdriver"
 require "http/server"
 
 PORT = 8083
@@ -39,7 +39,7 @@ end
 
 
 def with_browser(page, &block)
-  browser = SeleniumWebdriver::Browser.start :chrome
+  browser = Webdriver::Browser.start :chrome
   browser.goto "http://localhost:#{PORT}/#{page}"
   yield browser
   browser.quit

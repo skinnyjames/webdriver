@@ -1,4 +1,4 @@
-module SeleniumWebdriver
+module Webdriver
   abstract class Capabilities
     def self.default(browser : Symbol)
       return Chrome.new(browser_name: "chrome", browser_version: "0.0.1", platform_name: "Linux", platform_version: "something", ssl: true)

@@ -5,7 +5,7 @@ require "./commands/window"
 require "./commands/elements"
 require "./errors"
 
-module SeleniumWebdriver
+module Webdriver
   struct Command
     include Commands::Session
     include Commands::Navigation

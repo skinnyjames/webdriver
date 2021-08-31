@@ -1,6 +1,6 @@
 require "../spec_helper"
 
-describe SeleniumWebdriver do
+describe Webdriver do
   describe "Basic selectors" do
     it "selects by attribute" do
       with_browser("selectors.html") do |browser|

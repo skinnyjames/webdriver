@@ -1,4 +1,4 @@
-module SeleniumWebdriver
+module Webdriver
   module Dom
     module Clickable
       def click
@@ -12,7 +12,7 @@ module SeleniumWebdriver
 
     module Waitable
       def wait_until(interval : Float64 = 0.5, timeout : Int32 = 60, &block)
-        SeleniumWebdriver::Wait.wait_until(interval, timeout, object: self) do |element|
+        Webdriver::Wait.wait_until(interval, timeout, object: self) do |element|
           yield element
         end
       end

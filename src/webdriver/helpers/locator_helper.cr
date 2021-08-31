@@ -1,5 +1,5 @@
 require "string_scanner"
-module SeleniumWebdriver
+module Webdriver
   module RegexToXpath
     def self.tokenize(regex)
       Lexer.new(regex).tokenize

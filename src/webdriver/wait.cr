@@ -1,5 +1,5 @@
 require "./element"
-module SeleniumWebdriver
+module Webdriver
   class TimeoutException < Exception; end
   module Wait
     def self.wait_until(interval : Float, timeout : Int32, object : Object = nil, &block)

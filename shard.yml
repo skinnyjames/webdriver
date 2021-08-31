@@ -1,14 +1,9 @@
-name: selenium_webdriver
+name: webdriver
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - sean gregory <sean.christopher.gregory@gmail.com>
 
 crystal: 1.0.0
 
 license: MIT
-
-development_dependencies:
-  spectator:
-    gitlab: arctic-fox/spectator
-    version: ~> 0.10.0

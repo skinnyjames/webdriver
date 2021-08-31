@@ -1,6 +1,6 @@
-# selenium_webdriver
+# webdriver
 
-Implementation of Selenium Webdriver Client in Crystal, inspired by Watir
+Implementation of Webdriver Client in Crystal, inspired by Watir
 
 ## Installation
 
@@ -8,8 +8,8 @@ Implementation of Selenium Webdriver Client in Crystal, inspired by Watir
 
    ```yaml
    dependencies:
-     selenium_webdriver:
-       github: skinnyjames/selenium_webdriver
+     webdriver:
+       github: skinnyjames/webdriver
    ```
 
 2. Run `shards install`
@@ -17,9 +17,9 @@ Implementation of Selenium Webdriver Client in Crystal, inspired by Watir
 ## Usage
 
 ```crystal
-require "selenium_webdriver"
+require "webdriver"
 
-browser = SeleniumWebdriver::Browser.start :chrome
+browser = Webdriver::Browser.start :chrome
 browser.goto "https://www.google.com"
 browser.url # => https://www.google.com
 browser.goto "https://www.yahoo.com"
@@ -58,7 +58,7 @@ currently in wip
 
 ## Contributing
 
-1. Fork it (<https://github.com/skinnyjames/selenium_webdriver/fork>)
+1. Fork it (<https://github.com/skinnyjames/webdriver/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

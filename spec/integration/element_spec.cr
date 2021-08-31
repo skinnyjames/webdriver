@@ -1,6 +1,6 @@
 require "../spec_helper"
 
-describe SeleniumWebdriver do
+describe Webdriver do
   describe "element behavior" do
     it "should navigate on link click" do
       with_browser("link_start.html") do |browser|

@@ -1,4 +1,4 @@
-module SeleniumWebdriver
+module Webdriver
   module Commands
     module Navigation
       def visit_url(url : String) 

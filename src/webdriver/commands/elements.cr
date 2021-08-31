@@ -1,4 +1,4 @@
-module SeleniumWebdriver
+module Webdriver
   module Commands
     module Elements
       begin

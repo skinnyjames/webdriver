@@ -2,7 +2,7 @@ require "./helpers/locator_helper"
 require "./element/container"
 require "./element/dom"
 
-module SeleniumWebdriver
+module Webdriver
   module Dom
     macro register_html_element(class_name, node, mixins=[] of Object)
       class {{ class_name }} < HtmlElement

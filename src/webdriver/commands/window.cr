@@ -1,4 +1,4 @@
-module SeleniumWebdriver
+module Webdriver
   module Commands
     module Window
       def get_window_handle

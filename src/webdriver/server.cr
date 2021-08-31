@@ -6,7 +6,7 @@ require "./windows"
 require "./wait"
 require "./element"
 
-module SeleniumWebdriver
+module Webdriver
   module BrowserNavigation
     def goto(url : String)
       server.command.visit_url(url)
@@ -129,7 +129,7 @@ module SeleniumWebdriver
     end
 
     def wait_until_ready
-      SeleniumWebdriver::Wait.wait_until(interval: 0.5, timeout: 30, object: self, &.ready?) 
+      Webdriver::Wait.wait_until(interval: 0.5, timeout: 30, object: self, &.ready?) 
     end
     
     def run!
