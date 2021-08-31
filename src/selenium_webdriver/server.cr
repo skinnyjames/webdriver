@@ -50,7 +50,7 @@ module SeleniumWebdriver
   class Browser
     include BrowserNavigation
     include BrowserWindow
-    include Container
+    include Dom::Container
 
     getter :server, :windows
 

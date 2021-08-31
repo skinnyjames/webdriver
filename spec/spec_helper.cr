@@ -1,6 +1,8 @@
-require "spectator"
+require "spec"
 require "../src/selenium_webdriver"
 require "http/server"
+
+PORT = 8083
 
 class TestServer
 
@@ -28,9 +30,17 @@ class TestServer
 end
 
 spawn same_thread: true do 
-  TestServer.init "127.0.0.1", 8083
+  TestServer.init "127.0.0.1", PORT
 end
 
 at_exit do
   TestServer.close
+end
+
+
+def with_browser(page, &block)
+  browser = SeleniumWebdriver::Browser.start :chrome
+  browser.goto "http://localhost:#{PORT}/#{page}"
+  yield browser
+  browser.quit
 end
