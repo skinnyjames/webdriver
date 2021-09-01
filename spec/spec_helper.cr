@@ -2,7 +2,7 @@ require "spec"
 require "../src/webdriver"
 require "http/server"
 
-PORT = 8083
+PORT = 8084
 
 class TestServer
 
@@ -41,6 +41,9 @@ end
 def with_browser(page, &block)
   browser = Webdriver::Browser.start :chrome
   browser.goto "http://localhost:#{PORT}/#{page}"
-  yield browser
-  browser.quit
+  begin
+    yield browser
+  ensure
+    browser.quit
+  end
 end

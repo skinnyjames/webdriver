@@ -9,6 +9,13 @@ module Webdriver
           {% end %}
           {{ class_name }}.new(self, server, **locator)
         end
+
+        def {{ method_name }}s(**locator)
+          {% if !extra_location.empty? %}
+            locator = locator.merge({{ extra_location }})
+          {% end %}
+          {{ class_name }}s.new(self, server, **locator)
+        end
       end
 
       define_element_method element, Dom::Element
@@ -20,7 +27,7 @@ module Webdriver
       define_element_method li, Dom::Li
       define_element_method section, Dom::Section
       define_element_method p, Dom::P
-      define_element_method a, Dom::Link
+      define_element_method link, Dom::Link
       define_element_method div, Dom::Div
 
       define_element_method h1, Dom::H1
