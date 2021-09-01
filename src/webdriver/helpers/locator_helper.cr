@@ -55,12 +55,22 @@ module Webdriver
 
     def self.convert_regex_to_xpath(key, regex, lexer : RegexToXpath::Lexer = RegexToXpath.tokenize(regex)) : String
       raise "No content" unless content = lexer.content
-      if lexer.start_anchor
-        lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
-      elsif lexer.end_anchor
-        lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
-      else
-        lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
+      if key == :visible_text
+        if lexer.start_anchor
+          lexer.ignore_case ? "text()[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "text()[starts-with(normalize-space(.),'#{content}')]"
+        elsif lexer.end_anchor
+          lexer.ignore_case ? "[ends-with(normalize-space(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "[ends-with(normalize-space(text()),'#{content}')]"
+        else
+          lexer.ignore_case ? "text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')]" : "text()[contains(., '#{content}')]"
+        end
+      else 
+        if lexer.start_anchor
+          lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
+        elsif lexer.end_anchor
+          lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
+        else
+          lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
+        end
       end
     end
   end

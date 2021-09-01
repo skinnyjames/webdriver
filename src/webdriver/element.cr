@@ -19,7 +19,6 @@ module Webdriver
       end
     end
 
-  
     class Element
       include Container
       
@@ -125,8 +124,9 @@ module Webdriver
     end
 
     class HtmlElement < Element
-       include Clickable
-       include Waitable
+      include Clickable
+      include Waitable
+      include Attributable
     end
 
     register_html_element Body, "body"

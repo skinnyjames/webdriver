@@ -22,6 +22,9 @@ describe Webdriver do
         end
         raise "Li is nil" if li.nil?
         li.text.should eq "Contact"
+        li.link.attr("title").should eq "Contact"
+
+
       end
     end
   end
