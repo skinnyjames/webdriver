@@ -24,7 +24,8 @@ describe Webdriver do
         li.text.should eq "Contact"
         li.link.attr("title").should eq "Contact"
 
-
+        text = browser.section.h1(visible_text: /First Header/, index: 1).text
+        text.should eq("First Header h1")
       end
     end
   end
