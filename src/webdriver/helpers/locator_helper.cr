@@ -32,30 +32,45 @@ module Webdriver
   end
 
   class LocatorHelper
-    def self.convert_all_to_xpath(**locator)
+    def self.convert_all_to_xpath(**locator) : String
       paths = locator.map do |key, value|
-        return convert_index_to_xpath(key, value) if key == :index && value.is_a? Int
-        value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
-      end.join(" and ")
+        if key == :xpath
+          nil
+        elsif key == :index && value.is_a? Int32
+          convert_index_to_xpath(key, value)
+        else
+          value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
+        end
+      end.reject(&.nil?).join(" and ")
       paths
     end
 
-    def self.convert_string_to_xpath(key, str)
+    def self.convert_string_to_xpath(key, str) : String
       "@#{key}='#{str}'"
     end
 
-    def self.convert_index_to_xpath(key, index : Int)
+    def self.convert_index_to_xpath(key, index : Int) : String
       "position()=#{index + 1}"
     end
 
-    def self.convert_regex_to_xpath(key, regex, lexer : RegexToXpath::Lexer = RegexToXpath.tokenize(regex))
+    def self.convert_regex_to_xpath(key, regex, lexer : RegexToXpath::Lexer = RegexToXpath.tokenize(regex)) : String
       raise "No content" unless content = lexer.content
-      if lexer.start_anchor
-        lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
-      elsif lexer.end_anchor
-        lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
-      else
-        lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
+      if key == :visible_text
+        if lexer.start_anchor
+          lexer.ignore_case ? "text()[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "text()[starts-with(normalize-space(.),'#{content}')]"
+        elsif lexer.end_anchor
+          lexer.ignore_case ? "[ends-with(normalize-space(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "[ends-with(normalize-space(text()),'#{content}')]"
+        else
+          lexer.ignore_case ? "text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')]" : "text()[contains(., '#{content}')]"
+        end
+      else 
+        if lexer.start_anchor
+          lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
+        elsif lexer.end_anchor
+          lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
+        else
+          lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
+        end
       end
     end
   end

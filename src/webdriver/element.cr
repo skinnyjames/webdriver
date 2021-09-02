@@ -13,6 +13,10 @@ module Webdriver
           end
         {% end %}
       end
+
+      class {{ class_name }}s < ElementCollection({{class_name}})
+        @@node = {{ node }}
+      end
     end
 
     class Element
@@ -21,11 +25,15 @@ module Webdriver
       getter :server, :context
       
       @@node : String = "*"
-      @xpath : String 
+      @xpath : String
+      @context : Browser | Element
+      @server : Server
+
       @id : String?
 
-      def initialize(@context : Element | Browser, @server : Server, **locator)
+      def initialize(@context, @server, element_id : String? = nil, **locator)
         @xpath = translate_locator(context, **locator)
+        @id = element_id
       end
 
       def locate(force : Bool = false)
@@ -50,7 +58,10 @@ module Webdriver
         server.command.get_element_text(id) 
       end
 
-      protected def translate_locator(context : Element | Browser, **locator)
+      protected def translate_locator(context : Element | Browser, **locator) : String
+        if locator.has_key?(:xpath)
+          return "#{locator[:xpath]?}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        end
         if context.is_a? Browser
           locator.empty? ? "//#{@@node}" : "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
         else
@@ -65,9 +76,57 @@ module Webdriver
       end
     end
 
+
+    class ElementCollection(T)
+      include Container
+      include Enumerable(T)
+
+      @@node : String = "*"
+      @xpath : String
+      @located : Bool = false
+      @ids : Array(String) = [] of String
+      getter :server, :context
+
+      def initialize(@context : Browser | Element, @server : Server, **locator)
+        @xpath = translate_locator(@context, **locator)
+      end
+
+      def locate(force : Bool = false)
+        ctx = @context
+        return @ids unless !@located || force
+        if ctx.is_a? Browser
+          @ids = server.command.find_elements(using: "xpath", value: @xpath).as_a.map do |json_hash|
+            json_hash.as_h.values.first.as_s
+          end
+        else
+          parent_id = ctx.locate_or_throw_error(force)
+          @ids = server.command.find_elements_from_element(parent_id, using: "xpath", value: @xpath).as_a.map do |json_hash|
+            json_hash.as_h.values.first.as_s
+          end
+        end
+        @located = true
+        @ids
+      end
+
+      def each
+        locate.each_with_index do |id, idx|
+          yield T.new(@context, @server, id, xpath: @xpath, index: idx)
+        end
+      end
+
+      protected def translate_locator(context : Element | Browser, **locator)
+        if context.is_a? Browser
+          locator.empty? ? "//#{@@node}" : "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        else
+          locator.empty? ? ".//#{@@node}" : ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+        end
+      end
+    end
+
     class HtmlElement < Element
-       include Clickable
-       include Waitable
+      include Clickable
+      include Waitable
+      include Attributable
     end
 
     register_html_element Body, "body"

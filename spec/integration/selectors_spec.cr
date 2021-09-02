@@ -4,7 +4,7 @@ describe Webdriver do
   describe "Basic selectors" do
     it "selects by attribute" do
       with_browser("selectors.html") do |browser|
-        link = browser.a(class: "link-destination")
+        link = browser.link(class: "link-destination")
         link.text.should eq "Link"
 
         div = browser.div(id: "div1")
@@ -16,7 +16,16 @@ describe Webdriver do
       with_browser("html_patterns.html") do |browser|
         browser.body.should_not be(nil)
         browser.header.h1(class: /mega-ns/).text.should eq("HTML")
-        browser.header(index: 1).a(title: /site title/i).text.should eq("Site title")
+        browser.header(index: 1).link(title: /site title/i).text.should eq("Site title")
+        li = browser.nav.lis.find do |li|
+          li.text == "Contact"
+        end
+        raise "Li is nil" if li.nil?
+        li.text.should eq "Contact"
+        li.link.attr("title").should eq "Contact"
+
+        text = browser.section.h1(visible_text: /First Header/, index: 1).text
+        text.should eq("First Header h1")
       end
     end
   end
