@@ -4,13 +4,11 @@ require "./element/dom"
 
 module Webdriver
   module Dom
-    macro register_html_element(class_name, node, mixins=[] of Object)
+    macro register_html_element(class_name, node, mixins=[] of Dom)
       class {{ class_name }} < HtmlElement
         @@node = {{ node }}
-        {% if !mixins.empty? %}
-          mixins.each do |mixin|
+        {% for mixin in mixins %}
             include {{ mixin }}
-          end
         {% end %}
       end
 
@@ -180,7 +178,7 @@ module Webdriver
 
     register_html_element Input, "input"
     register_html_element Button, "button"
-    register_html_element TextField, "input"
+    register_html_element TextField, "input", [Inputable]
     register_html_element PasswordField, "input"
   end
 end
