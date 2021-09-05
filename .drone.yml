@@ -2,8 +2,17 @@ kind: pipeline
 name: default
 type: kubernetes
 
+services:
+- name: selenium
+  image: selenium/standalone-chrome
+  network_mode: host
+  detach: true
+
 steps:
 - name: server
   image: crystallang/crystal:1.1.1
+  network_mode: host
+  environment: 
+    CI: true
   commands: 
     - crystal spec

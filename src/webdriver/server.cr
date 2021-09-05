@@ -89,6 +89,7 @@ module Webdriver
 
   class Server
     @@process : Process?
+    @remote : String?
 
     getter :command
 
@@ -97,6 +98,7 @@ module Webdriver
       @role = "standalone",
       @port = "4444",
       @timeout = "30",
+      @remote = nil,
       @background = true,
       @capabilities : Capabilities = Capabilities.default(browser)
     )
@@ -117,7 +119,7 @@ module Webdriver
     end
 
     def service_url
-      "http://#{@host}:#{@port}"
+      @remote || "http://#{@host}:#{@port}"
     end
 
     def args 
@@ -134,8 +136,10 @@ module Webdriver
     
     def run!
       Log.info { "Starting #{driver_command} with #{args}" }
-      @@process ||= Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
-      wait_until_ready
+      unless @remote
+        @@process ||= Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
+        wait_until_ready
+      end
       start_session!
     end
 
