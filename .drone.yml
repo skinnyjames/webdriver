@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+type: kubernetes
+
+steps:
+- name: server
+  image: crystallang/crystal:1.1.1
+  commands: 
+    - crystal spec
