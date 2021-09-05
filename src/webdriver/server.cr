@@ -144,7 +144,7 @@ module Webdriver
     end
 
     def start_session!
-      @command.start_session(@capabilities)
+      @command.start_session(@capabilities, !!@remote)
       Browser.new(self)
     end
   end
