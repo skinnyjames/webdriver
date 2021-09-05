@@ -40,7 +40,7 @@ end
 
 def with_browser(page, &block)
   browser = ENV["CI"]? ? Webdriver::Browser.start(:chrome, remote: "http://selenium:4444") : Webdriver::Browser.start(:chrome)
-  browser.goto "http://tests:#{PORT}/#{page}"
+  browser.goto ENV["CI"]? ? "http://tests:#{PORT}/#{page}" : "http://localhost:#{PORT}/#{page}"
   begin
     yield browser
   ensure
