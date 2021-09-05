@@ -138,8 +138,8 @@ module Webdriver
       Log.info { "Starting #{driver_command} with #{args}" }
       unless @remote
         @@process ||= Process.new(driver_command, args, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
-        wait_until_ready
       end
+      wait_until_ready
       start_session!
     end
 
