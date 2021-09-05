@@ -35,6 +35,8 @@ spawn same_thread: true do
   TestServer.init "127.0.0.1", PORT
 end
 
+puts "after spawn"
+
 at_exit do
   TestServer.close
 end
