@@ -8,7 +8,7 @@ services:
     - name: droneshm
       path: /dev/shm
   environment: 
-    SE_OPTS: "--host 127.0.0.1 --log-level FINE"
+    SE_OPTS: "--host 127.0.0.1 --log-level FINEST"
     SE_NODE_MAX_SESSIONS: 10
     START_XVFB: false
 
