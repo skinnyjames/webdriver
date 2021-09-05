@@ -9,6 +9,7 @@ services:
       path: /dev/shm
   environment: 
     SE_OPTS: "--host 127.0.0.1 --log-level FINE"
+    SE_NODE_MAX_SESSIONS: 10
 
 steps:
 - name: tests
