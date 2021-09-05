@@ -1,6 +1,6 @@
 kind: pipeline
 name: default
-type: docker
+type: kubernetes
 
 steps:
 - name: selenium
