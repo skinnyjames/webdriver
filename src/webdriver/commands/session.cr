@@ -3,7 +3,6 @@ module Webdriver
     module Session
       def start_session(capabilities : Capabilities, @remote : Bool = false)
         res = HTTP::Client.post("#{base_url}/session",  body: { capabilities: capabilities.to_h, desiredCapabilities: capabilities.to_h }.to_json)
-        puts res.body
         body = JSON.parse(res.body)
         @session_id = @remote ? body["sessionId"].as_s : body["value"]["sessionId"].as_s
         body

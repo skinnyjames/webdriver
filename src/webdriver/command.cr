@@ -24,6 +24,7 @@ module Webdriver
 
 
     private def get_value_from_response(res)
+      puts res.body
       body = JSON.parse(res.body)
       handle_error(body)
       body["value"]
