@@ -1,17 +1,16 @@
 kind: pipeline
 name: default
 type: kubernetes
-
-steps:
+services:
 - name: selenium
   image: selenium/standalone-chrome:4.0.0-rc-1-20210902
-  detach: true
   volumes:
     - name: droneshm
       path: /dev/shm
   environment: 
     SE_OPTS: "--host 127.0.0.1 --log-level FINE"
 
+steps:
 - name: tests
   image: crystallang/crystal:1.1.1
   environment: 
