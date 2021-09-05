@@ -23,12 +23,13 @@ module Webdriver
     end
 
     def to_h
-      {
-        browserName: @opts[:browser_name],
-        browserVersion: @opts[:browser_version],
-        platformName: @opts[:platform_name],
-        platformVersion: @opts[:platform_version],
-        acceptSslCerts: @opts[:ssl]
+      Hash(String, String | Bool | Hash(String, Array(String))){
+        "browserName" => @opts[:browser_name],
+        "browserVersion" => @opts[:browser_version],
+        "platformName" => @opts[:platform_name],
+        "platformVersion" => @opts[:platform_version],
+        "acceptSslCerts" => @opts[:ssl],
+        "goog:chromeOptions" => { "args" => ["--headless"] }
       }
     end
   end
