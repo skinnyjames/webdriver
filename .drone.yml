@@ -6,6 +6,8 @@ services:
 - name: selenium
   image: selenium/standalone-chrome:4.0.0-rc-1-20210902
   network_mode: host
+  environment: 
+    SE_OPTS: "-host 0.0.0.0"
   detach: true
 
 steps:
