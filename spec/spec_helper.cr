@@ -29,6 +29,8 @@ class TestServer
   end
 end
 
+puts "spawning"
+
 spawn same_thread: true do 
   TestServer.init "127.0.0.1", PORT
 end
@@ -40,7 +42,7 @@ end
 
 def with_browser(page, &block)
   browser = ENV["CI"]? ? Webdriver::Browser.start(:chrome, remote: "http://localhost:4444") : Webdriver::Browser.start(:chrome)
-  browser.goto ENV["CI"]? ? "http://localhost:#{PORT}/#{page}" : "http://localhost:#{PORT}/#{page}"
+  browser.goto "http://localhost:#{PORT}/#{page}"
   begin
     yield browser
   ensure
