@@ -39,7 +39,7 @@ end
 
 
 def with_browser(page, &block)
-  browser = ENV["CI"]? ? Webdriver::Browser.start(:chrome, remote: "http://localhost:4444") : Webdriver::Browser.start(:chrome)
+  browser = ENV["CI"]? ? Webdriver::Browser.start(:chrome, remote: "http://localhost:4444/wd/hub") : Webdriver::Browser.start(:chrome)
   browser.goto "http://localhost:#{PORT}/#{page}"
   begin
     yield browser
