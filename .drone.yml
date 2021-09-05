@@ -6,6 +6,9 @@ steps:
 - name: selenium
   image: selenium/standalone-chrome:4.0.0-rc-1-20210902
   detach: true
+  volumes:
+    - name: droneshm
+      path: /dev/shm
   environment: 
     SE_OPTS: "--host 127.0.0.1 --log-level FINE"
 
@@ -15,3 +18,6 @@ steps:
     CI: true
   commands: 
     - crystal spec
+volumes:
+  - name: droneshm
+    temp: {}
