@@ -22,13 +22,10 @@ module Webdriver
       end
     end
 
-    module Inputable
-      def included?(klass)
-        klass.include Keyable
-      end
-      
+    module Inputable      
       def value
-        server.command.get_element_property locate_or_throw_error, "value"
+        val = server.command.get_element_property(locate_or_throw_error, "value")
+        Array(String).from_json(val.as_s).join("")
       end
 
       def set(text)

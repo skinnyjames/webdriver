@@ -8,7 +8,7 @@ module Webdriver
       class {{ class_name }} < HtmlElement
         @@node = {{ node }}
         {% for mixin in mixins %}
-            include {{ mixin }}
+          include {{ mixin }}
         {% end %}
       end
 
@@ -178,7 +178,7 @@ module Webdriver
 
     register_html_element Input, "input"
     register_html_element Button, "button"
-    register_html_element TextField, "input", [Inputable]
+    register_html_element TextField, "input", [Keyable, Inputable]
     register_html_element PasswordField, "input"
   end
 end

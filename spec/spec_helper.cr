@@ -2,7 +2,7 @@ require "spec"
 require "../src/webdriver"
 require "http/server"
 
-PORT = 8084
+PORT = 8082
 
 class TestServer
 
