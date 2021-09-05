@@ -1,10 +1,11 @@
 module Webdriver
   module Commands
     module Session
-      def start_session(capabilities : Capabilities, @w3c : Bool = true)
-        res = HTTP::Client.post("#{base_url}/session",  body: { capabilities: capabilities.to_h, desiredCapabilities: capabilities.to_h }.to_json)
+      def start_session(capabilities : Capabilities)
+        res = HTTP::Client.post("#{base_url}/session",  body: { capabilities: capabilities.to_h }.to_json)
         body = JSON.parse(res.body)
         @session_id = body["value"]["sessionId"].as_s
+        puts @session_id
         body
       end
   
