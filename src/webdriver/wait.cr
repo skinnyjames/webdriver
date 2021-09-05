@@ -9,6 +9,7 @@ module Webdriver
           result = yield(object)
           return result if !!result
         rescue ex : Exception
+          Log.info { ex }
           sleep interval
         end
       end
