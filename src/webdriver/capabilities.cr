@@ -1,7 +1,7 @@
 module Webdriver
   abstract class Capabilities
     def self.default(browser : Symbol)
-      return Chrome.new(browser_name: "chrome", browser_version: "0.0.1", platform_name: "Linux", platform_version: "something", ssl: true)
+      return Chrome.new(browser_name: "chrome", browser_version: "", platform_name: "Linux", platform_version: "", ssl: true)
     end
 
     def to_h
@@ -29,7 +29,6 @@ module Webdriver
         "platformName" => @opts[:platform_name],
         "platformVersion" => @opts[:platform_version],
         "acceptSslCerts" => @opts[:ssl],
-        "goog:chromeOptions" => { "args" => ["--headless"] }
       }
     end
   end
