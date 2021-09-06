@@ -1,7 +1,7 @@
 module Webdriver
   abstract class Capabilities
     def self.default(browser : Symbol)
-      return Chrome.new(browser_name: "chrome", browser_version: "", platform_name: "Linux", platform_version: "", ssl: true)
+      return Chrome.new(browser_name: "chrome", browser_version: "93.0", platform_name: "Linux", platform_version: "", ssl: true)
     end
 
     def to_h
