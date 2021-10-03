@@ -17,19 +17,18 @@ module Webdriver
     end
 
     module Keyable
-      def send_keys(*keys)
-        server.command.send_keys_to_element locate_or_throw_error, Hash{ "text" => keys.join("") }
+      def send_keys(text)
+        server.command.send_keys_to_element locate_or_throw_error, Hash{ "text" => text }
       end
     end
 
     module Inputable      
       def value
-        val = server.command.get_element_property(locate_or_throw_error, "value")
-        Array(String).from_json(val.as_s).join("")
+        server.command.get_element_property(locate_or_throw_error, "value")
       end
 
       def set(text)
-        send_keys text.split("")
+        send_keys text
       end
     end
 

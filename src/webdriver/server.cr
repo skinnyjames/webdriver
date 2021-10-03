@@ -123,7 +123,7 @@ module Webdriver
     end
 
     def args 
-      ["--host=#{@host}", "--port=#{@port}"]
+      ["--host=#{@host}", "--port=#{@port}"].concat(@capabilities.args)
     end
 
     def ready?
@@ -144,7 +144,7 @@ module Webdriver
     end
 
     def start_session!
-      @command.start_session(@capabilities)
+      @command.start_session(@capabilities, !!@remote)
       Browser.new(self)
     end
   end
