@@ -6,6 +6,7 @@ module Webdriver
         json = { capabilities: { alwaysMatch: { browserName: "chrome" }} }.to_json
         res = HTTP::Client.post("#{base_url}/session",  body: json, headers: headers)
         body = JSON.parse(res.body)
+        pp body
         @session_id = body["value"]["sessionId"].as_s
       end
   
