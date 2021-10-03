@@ -22,12 +22,24 @@ module Webdriver
       HTTP::Client.post("#{session_url}/window/rect", body: body)
     end
 
-
     private def get_value_from_response(res)
-      puts res.body
+      Log.debug { res.body }
       body = JSON.parse(res.body)
       handle_error(body)
       body["value"]
+    end
+
+    private def make_get_request(path)
+      get_value_from_response HTTP::Client.get("#{session_url}/#{path}")
+    end
+
+    private def make_delete_request(path)
+      get_value_from_response HTTP::Client.delete("#{session_url}/#{path}")
+    end
+
+    private def make_post_request(path, body = nil)
+      body = body ? body.to_json : empty_body
+      get_value_from_response HTTP::Client.post("#{session_url}/#{path}", body: body)
     end
 
     private def handle_error(body)
@@ -35,6 +47,7 @@ module Webdriver
         error = body["value"]
         raise InvalidSelectorException.new(error["message"].as_s) if error["error"]? == "invalid selector"
         raise ElementNotFoundException.new(error["message"].as_s) if error["error"]? == "no such element"
+        raise InvalidArgumentException.new(error["message"].as_s) if error["error"]? == "invalid argument"
       end
     end
   
