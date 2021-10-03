@@ -3,7 +3,7 @@ module Webdriver
     module Session
       def start_session(capabilities : Capabilities)
         headers = HTTP::Headers{"Content-Type" => "application/json", "Connection" => "Keep-Alive", "Accept-Encoding" => "gzip" }
-        json = { capabilities: { alwaysMatch: { browserName: "chrome" }} }.to_json
+        json = { capabilities: { alwaysMatch: { browserName: "chrome", "goog:chromeOptions": { "args": ["--disable-dev-shm-usage"]} }} }.to_json
         res = HTTP::Client.post("#{base_url}/session",  body: json, headers: headers)
         body = JSON.parse(res.body)
         pp body
