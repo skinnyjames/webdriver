@@ -3,7 +3,7 @@ name: default
 type: kubernetes
 services:
 - name: selenium
-  image: selenium/standalone-chrome:4.0.0-rc-1-20210902
+  image: selenium/standalone-chrome:4.0.0-rc-2-20210930
   volumes:
     - name: droneshm
       path: /dev/shm
