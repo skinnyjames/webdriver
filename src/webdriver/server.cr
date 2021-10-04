@@ -5,6 +5,8 @@ require "./command"
 require "./windows"
 require "./wait"
 require "./element"
+require "./document"
+require "./cookies"
 
 module Webdriver
   module BrowserNavigation
@@ -50,6 +52,8 @@ module Webdriver
   class Browser
     include BrowserNavigation
     include BrowserWindow
+    include Document
+    include Cookies
     include Dom::Container
 
     getter :server, :windows

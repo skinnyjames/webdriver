@@ -3,6 +3,8 @@ require "./commands/session"
 require "./commands/navigation"
 require "./commands/window"
 require "./commands/elements"
+require "./commands/document"
+require "./commands/cookies"
 require "./errors"
 
 module Webdriver
@@ -11,6 +13,8 @@ module Webdriver
     include Commands::Navigation
     include Commands::Window
     include Commands::Elements
+    include Commands::Document
+    include Commands::Cookies
     
     @session_id : String?
 
