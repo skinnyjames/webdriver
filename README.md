@@ -43,16 +43,17 @@ currently in wip
 ### Webdriver protocol
 * [x] session
 * [x] navigation
-* [ ] windows
+* [/] windows
   * [x] window actions
   * [x] window sizing
   * [ ] frames 
-* [ ] elements
-* [ ] document
-* [ ] cookies
+* [/] elements
+* [X] document
+* [X] cookies
 * [ ] actions
-* [ ] user prompts
-* [ ] screen capture
+* [X] user prompts
+* [X] screen capture
+* [ ] print
 
 ### Browsers
 * [ ] chrome
