@@ -5,6 +5,8 @@ require "./commands/window"
 require "./commands/elements"
 require "./commands/document"
 require "./commands/cookies"
+require "./commands/alerts"
+require "./commands/screenshot"
 require "./errors"
 
 module Webdriver
@@ -15,6 +17,8 @@ module Webdriver
     include Commands::Elements
     include Commands::Document
     include Commands::Cookies
+    include Commands::Alerts
+    include Commands::Screenshot
     
     @session_id : String?
 
@@ -52,6 +56,7 @@ module Webdriver
         raise InvalidSelectorException.new(error["message"].as_s) if error["error"]? == "invalid selector"
         raise ElementNotFoundException.new(error["message"].as_s) if error["error"]? == "no such element"
         raise InvalidArgumentException.new(error["message"].as_s) if error["error"]? == "invalid argument"
+        raise UnexpectedAlertException.new(error["message"].as_s) if error["error"]? == "unexpected alert open"
       end
     end
   
