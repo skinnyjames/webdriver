@@ -33,6 +33,10 @@ module Webdriver
         @xpath = translate_locator(context, **locator)
         @id = element_id
       end
+      
+      def screenshot
+        server.command.capture_element_screenshot(locate_or_throw_error).as_s
+      end
 
       def locate(force : Bool = false)
         ctx = context

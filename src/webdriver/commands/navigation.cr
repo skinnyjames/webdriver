@@ -2,29 +2,27 @@ module Webdriver
   module Commands
     module Navigation
       def visit_url(url : String) 
-        res = HTTP::Client.post("#{session_url}/url", body: { url: url }.to_json)
+        make_post_request("url", { url: url })
       end
   
       def get_url
-        res = HTTP::Client.get("#{session_url}/url")
-        JSON.parse(res.body)["value"]
+        make_get_request("url")
       end
   
       def go_back
-        HTTP::Client.post("#{session_url}/back", body: empty_body)
+        make_post_request("back")
       end
   
       def go_forward
-        HTTP::Client.post("#{session_url}/forward", body: empty_body)
+        make_post_request("forward")
       end
   
       def refresh
-        HTTP::Client.post("#{session_url}/refresh", body: empty_body)
+        make_post_request("refresh")
       end
       
       def get_title
-        res = HTTP::Client.get("#{session_url}/title", body: empty_body)
-        JSON.parse(res.body)["value"]
+        make_get_request("title")
       end
     end
   end

@@ -5,6 +5,9 @@ require "./command"
 require "./windows"
 require "./wait"
 require "./element"
+require "./document"
+require "./cookies"
+require "./alerts"
 
 module Webdriver
   module BrowserNavigation
@@ -50,6 +53,9 @@ module Webdriver
   class Browser
     include BrowserNavigation
     include BrowserWindow
+    include Document
+    include Cookies
+    include Alerts
     include Dom::Container
 
     getter :server, :windows
@@ -76,6 +82,10 @@ module Webdriver
         switch_to = windows.find_closest_index(window_index)
         switch_to.nil? ? quit : use(windows[switch_to])
       end
+    end
+
+    def screenshot
+      server.command.capture_screenshot.as_s
     end
 
     def quit
