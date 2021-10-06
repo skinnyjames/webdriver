@@ -1,0 +1,2786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="refactor_commands-dev">
+<meta name="crystal_docs.project_name" content="webdriver">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="webdriver">
+  <title>Webdriver::Dom::Container - webdriver refactor_commands-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          webdriver
+        </a>
+      </h1>
+
+      <span class="project-version">
+        refactor_commands-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="webdriver/Webdriver" data-name="webdriver">
+      <a href="../../Webdriver.html">Webdriver</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Alerts" data-name="webdriver::alerts">
+      <a href="../../Webdriver/Alerts.html">Alerts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Browser" data-name="webdriver::browser">
+      <a href="../../Webdriver/Browser.html">Browser</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/BrowserNavigation" data-name="webdriver::browsernavigation">
+      <a href="../../Webdriver/BrowserNavigation.html">BrowserNavigation</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/BrowserWindow" data-name="webdriver::browserwindow">
+      <a href="../../Webdriver/BrowserWindow.html">BrowserWindow</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
+      <a href="../../Webdriver/Capabilities.html">Capabilities</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Chrome" data-name="webdriver::chrome">
+      <a href="../../Webdriver/Chrome.html">Chrome</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Command" data-name="webdriver::command">
+      <a href="../../Webdriver/Command.html">Command</a>
+      
+    </li>
+  
+  <li class="parent " data-id="webdriver/Webdriver/Commands" data-name="webdriver::commands">
+      <a href="../../Webdriver/Commands.html">Commands</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Alerts" data-name="webdriver::commands::alerts">
+      <a href="../../Webdriver/Commands/Alerts.html">Alerts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Cookies" data-name="webdriver::commands::cookies">
+      <a href="../../Webdriver/Commands/Cookies.html">Cookies</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Document" data-name="webdriver::commands::document">
+      <a href="../../Webdriver/Commands/Document.html">Document</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Elements" data-name="webdriver::commands::elements">
+      <a href="../../Webdriver/Commands/Elements.html">Elements</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Navigation" data-name="webdriver::commands::navigation">
+      <a href="../../Webdriver/Commands/Navigation.html">Navigation</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Print" data-name="webdriver::commands::print">
+      <a href="../../Webdriver/Commands/Print.html">Print</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Screenshot" data-name="webdriver::commands::screenshot">
+      <a href="../../Webdriver/Commands/Screenshot.html">Screenshot</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Session" data-name="webdriver::commands::session">
+      <a href="../../Webdriver/Commands/Session.html">Session</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Window" data-name="webdriver::commands::window">
+      <a href="../../Webdriver/Commands/Window.html">Window</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Cookie" data-name="webdriver::cookie">
+      <a href="../../Webdriver/Cookie.html">Cookie</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Cookies" data-name="webdriver::cookies">
+      <a href="../../Webdriver/Cookies.html">Cookies</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Document" data-name="webdriver::document">
+      <a href="../../Webdriver/Document.html">Document</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="webdriver/Webdriver/Dom" data-name="webdriver::dom">
+      <a href="../../Webdriver/Dom.html">Dom</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Abbr" data-name="webdriver::dom::abbr">
+      <a href="../../Webdriver/Dom/Abbr.html">Abbr</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Abbrs" data-name="webdriver::dom::abbrs">
+      <a href="../../Webdriver/Dom/Abbrs.html">Abbrs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/AddressField" data-name="webdriver::dom::addressfield">
+      <a href="../../Webdriver/Dom/AddressField.html">AddressField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/AddressFields" data-name="webdriver::dom::addressfields">
+      <a href="../../Webdriver/Dom/AddressFields.html">AddressFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Article" data-name="webdriver::dom::article">
+      <a href="../../Webdriver/Dom/Article.html">Article</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Articles" data-name="webdriver::dom::articles">
+      <a href="../../Webdriver/Dom/Articles.html">Articles</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Attributable" data-name="webdriver::dom::attributable">
+      <a href="../../Webdriver/Dom/Attributable.html">Attributable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Blockquote" data-name="webdriver::dom::blockquote">
+      <a href="../../Webdriver/Dom/Blockquote.html">Blockquote</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Blockquotes" data-name="webdriver::dom::blockquotes">
+      <a href="../../Webdriver/Dom/Blockquotes.html">Blockquotes</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Body" data-name="webdriver::dom::body">
+      <a href="../../Webdriver/Dom/Body.html">Body</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Bodys" data-name="webdriver::dom::bodys">
+      <a href="../../Webdriver/Dom/Bodys.html">Bodys</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Button" data-name="webdriver::dom::button">
+      <a href="../../Webdriver/Dom/Button.html">Button</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Buttons" data-name="webdriver::dom::buttons">
+      <a href="../../Webdriver/Dom/Buttons.html">Buttons</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Caption" data-name="webdriver::dom::caption">
+      <a href="../../Webdriver/Dom/Caption.html">Caption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Captions" data-name="webdriver::dom::captions">
+      <a href="../../Webdriver/Dom/Captions.html">Captions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Clickable" data-name="webdriver::dom::clickable">
+      <a href="../../Webdriver/Dom/Clickable.html">Clickable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Code" data-name="webdriver::dom::code">
+      <a href="../../Webdriver/Dom/Code.html">Code</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Codes" data-name="webdriver::dom::codes">
+      <a href="../../Webdriver/Dom/Codes.html">Codes</a>
+      
+    </li>
+  
+  <li class=" current" data-id="webdriver/Webdriver/Dom/Container" data-name="webdriver::dom::container">
+      <a href="../../Webdriver/Dom/Container.html">Container</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dd" data-name="webdriver::dom::dd">
+      <a href="../../Webdriver/Dom/Dd.html">Dd</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dds" data-name="webdriver::dom::dds">
+      <a href="../../Webdriver/Dom/Dds.html">Dds</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Div" data-name="webdriver::dom::div">
+      <a href="../../Webdriver/Dom/Div.html">Div</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Divs" data-name="webdriver::dom::divs">
+      <a href="../../Webdriver/Dom/Divs.html">Divs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dl" data-name="webdriver::dom::dl">
+      <a href="../../Webdriver/Dom/Dl.html">Dl</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dls" data-name="webdriver::dom::dls">
+      <a href="../../Webdriver/Dom/Dls.html">Dls</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dt" data-name="webdriver::dom::dt">
+      <a href="../../Webdriver/Dom/Dt.html">Dt</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dts" data-name="webdriver::dom::dts">
+      <a href="../../Webdriver/Dom/Dts.html">Dts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Element" data-name="webdriver::dom::element">
+      <a href="../../Webdriver/Dom/Element.html">Element</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/ElementCollection" data-name="webdriver::dom::elementcollection(t)">
+      <a href="../../Webdriver/Dom/ElementCollection.html">ElementCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Fieldset" data-name="webdriver::dom::fieldset">
+      <a href="../../Webdriver/Dom/Fieldset.html">Fieldset</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Fieldsets" data-name="webdriver::dom::fieldsets">
+      <a href="../../Webdriver/Dom/Fieldsets.html">Fieldsets</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Figure" data-name="webdriver::dom::figure">
+      <a href="../../Webdriver/Dom/Figure.html">Figure</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/FigureCaption" data-name="webdriver::dom::figurecaption">
+      <a href="../../Webdriver/Dom/FigureCaption.html">FigureCaption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/FigureCaptions" data-name="webdriver::dom::figurecaptions">
+      <a href="../../Webdriver/Dom/FigureCaptions.html">FigureCaptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Figures" data-name="webdriver::dom::figures">
+      <a href="../../Webdriver/Dom/Figures.html">Figures</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Footer" data-name="webdriver::dom::footer">
+      <a href="../../Webdriver/Dom/Footer.html">Footer</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Footers" data-name="webdriver::dom::footers">
+      <a href="../../Webdriver/Dom/Footers.html">Footers</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Form" data-name="webdriver::dom::form">
+      <a href="../../Webdriver/Dom/Form.html">Form</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Forms" data-name="webdriver::dom::forms">
+      <a href="../../Webdriver/Dom/Forms.html">Forms</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H1" data-name="webdriver::dom::h1">
+      <a href="../../Webdriver/Dom/H1.html">H1</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H1s" data-name="webdriver::dom::h1s">
+      <a href="../../Webdriver/Dom/H1s.html">H1s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H2" data-name="webdriver::dom::h2">
+      <a href="../../Webdriver/Dom/H2.html">H2</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H2s" data-name="webdriver::dom::h2s">
+      <a href="../../Webdriver/Dom/H2s.html">H2s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H3" data-name="webdriver::dom::h3">
+      <a href="../../Webdriver/Dom/H3.html">H3</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H3s" data-name="webdriver::dom::h3s">
+      <a href="../../Webdriver/Dom/H3s.html">H3s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H4" data-name="webdriver::dom::h4">
+      <a href="../../Webdriver/Dom/H4.html">H4</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H4s" data-name="webdriver::dom::h4s">
+      <a href="../../Webdriver/Dom/H4s.html">H4s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H5" data-name="webdriver::dom::h5">
+      <a href="../../Webdriver/Dom/H5.html">H5</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H5s" data-name="webdriver::dom::h5s">
+      <a href="../../Webdriver/Dom/H5s.html">H5s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H6" data-name="webdriver::dom::h6">
+      <a href="../../Webdriver/Dom/H6.html">H6</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H6s" data-name="webdriver::dom::h6s">
+      <a href="../../Webdriver/Dom/H6s.html">H6s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Header" data-name="webdriver::dom::header">
+      <a href="../../Webdriver/Dom/Header.html">Header</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Headers" data-name="webdriver::dom::headers">
+      <a href="../../Webdriver/Dom/Headers.html">Headers</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/HtmlElement" data-name="webdriver::dom::htmlelement">
+      <a href="../../Webdriver/Dom/HtmlElement.html">HtmlElement</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Image" data-name="webdriver::dom::image">
+      <a href="../../Webdriver/Dom/Image.html">Image</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Images" data-name="webdriver::dom::images">
+      <a href="../../Webdriver/Dom/Images.html">Images</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Input" data-name="webdriver::dom::input">
+      <a href="../../Webdriver/Dom/Input.html">Input</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Inputable" data-name="webdriver::dom::inputable">
+      <a href="../../Webdriver/Dom/Inputable.html">Inputable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Inputs" data-name="webdriver::dom::inputs">
+      <a href="../../Webdriver/Dom/Inputs.html">Inputs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Keyable" data-name="webdriver::dom::keyable">
+      <a href="../../Webdriver/Dom/Keyable.html">Keyable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Label" data-name="webdriver::dom::label">
+      <a href="../../Webdriver/Dom/Label.html">Label</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Labels" data-name="webdriver::dom::labels">
+      <a href="../../Webdriver/Dom/Labels.html">Labels</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Legend" data-name="webdriver::dom::legend">
+      <a href="../../Webdriver/Dom/Legend.html">Legend</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Legends" data-name="webdriver::dom::legends">
+      <a href="../../Webdriver/Dom/Legends.html">Legends</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Li" data-name="webdriver::dom::li">
+      <a href="../../Webdriver/Dom/Li.html">Li</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Link" data-name="webdriver::dom::link">
+      <a href="../../Webdriver/Dom/Link.html">Link</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Links" data-name="webdriver::dom::links">
+      <a href="../../Webdriver/Dom/Links.html">Links</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Lis" data-name="webdriver::dom::lis">
+      <a href="../../Webdriver/Dom/Lis.html">Lis</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Nav" data-name="webdriver::dom::nav">
+      <a href="../../Webdriver/Dom/Nav.html">Nav</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Navs" data-name="webdriver::dom::navs">
+      <a href="../../Webdriver/Dom/Navs.html">Navs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ol" data-name="webdriver::dom::ol">
+      <a href="../../Webdriver/Dom/Ol.html">Ol</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ols" data-name="webdriver::dom::ols">
+      <a href="../../Webdriver/Dom/Ols.html">Ols</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/P" data-name="webdriver::dom::p">
+      <a href="../../Webdriver/Dom/P.html">P</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/PasswordField" data-name="webdriver::dom::passwordfield">
+      <a href="../../Webdriver/Dom/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/PasswordFields" data-name="webdriver::dom::passwordfields">
+      <a href="../../Webdriver/Dom/PasswordFields.html">PasswordFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Pre" data-name="webdriver::dom::pre">
+      <a href="../../Webdriver/Dom/Pre.html">Pre</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Pres" data-name="webdriver::dom::pres">
+      <a href="../../Webdriver/Dom/Pres.html">Pres</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Progress" data-name="webdriver::dom::progress">
+      <a href="../../Webdriver/Dom/Progress.html">Progress</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Progresss" data-name="webdriver::dom::progresss">
+      <a href="../../Webdriver/Dom/Progresss.html">Progresss</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ps" data-name="webdriver::dom::ps">
+      <a href="../../Webdriver/Dom/Ps.html">Ps</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Radio" data-name="webdriver::dom::radio">
+      <a href="../../Webdriver/Dom/Radio.html">Radio</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Radios" data-name="webdriver::dom::radios">
+      <a href="../../Webdriver/Dom/Radios.html">Radios</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Section" data-name="webdriver::dom::section">
+      <a href="../../Webdriver/Dom/Section.html">Section</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Sections" data-name="webdriver::dom::sections">
+      <a href="../../Webdriver/Dom/Sections.html">Sections</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectList" data-name="webdriver::dom::selectlist">
+      <a href="../../Webdriver/Dom/SelectList.html">SelectList</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectLists" data-name="webdriver::dom::selectlists">
+      <a href="../../Webdriver/Dom/SelectLists.html">SelectLists</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectOption" data-name="webdriver::dom::selectoption">
+      <a href="../../Webdriver/Dom/SelectOption.html">SelectOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectOptions" data-name="webdriver::dom::selectoptions">
+      <a href="../../Webdriver/Dom/SelectOptions.html">SelectOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SmallTag" data-name="webdriver::dom::smalltag">
+      <a href="../../Webdriver/Dom/SmallTag.html">SmallTag</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SmallTags" data-name="webdriver::dom::smalltags">
+      <a href="../../Webdriver/Dom/SmallTags.html">SmallTags</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Span" data-name="webdriver::dom::span">
+      <a href="../../Webdriver/Dom/Span.html">Span</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Spans" data-name="webdriver::dom::spans">
+      <a href="../../Webdriver/Dom/Spans.html">Spans</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Table" data-name="webdriver::dom::table">
+      <a href="../../Webdriver/Dom/Table.html">Table</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableBody" data-name="webdriver::dom::tablebody">
+      <a href="../../Webdriver/Dom/TableBody.html">TableBody</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableBodys" data-name="webdriver::dom::tablebodys">
+      <a href="../../Webdriver/Dom/TableBodys.html">TableBodys</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableDefinition" data-name="webdriver::dom::tabledefinition">
+      <a href="../../Webdriver/Dom/TableDefinition.html">TableDefinition</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableDefinitions" data-name="webdriver::dom::tabledefinitions">
+      <a href="../../Webdriver/Dom/TableDefinitions.html">TableDefinitions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableFooter" data-name="webdriver::dom::tablefooter">
+      <a href="../../Webdriver/Dom/TableFooter.html">TableFooter</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableFooters" data-name="webdriver::dom::tablefooters">
+      <a href="../../Webdriver/Dom/TableFooters.html">TableFooters</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHead" data-name="webdriver::dom::tablehead">
+      <a href="../../Webdriver/Dom/TableHead.html">TableHead</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeader" data-name="webdriver::dom::tableheader">
+      <a href="../../Webdriver/Dom/TableHeader.html">TableHeader</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeaders" data-name="webdriver::dom::tableheaders">
+      <a href="../../Webdriver/Dom/TableHeaders.html">TableHeaders</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeads" data-name="webdriver::dom::tableheads">
+      <a href="../../Webdriver/Dom/TableHeads.html">TableHeads</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableRow" data-name="webdriver::dom::tablerow">
+      <a href="../../Webdriver/Dom/TableRow.html">TableRow</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableRows" data-name="webdriver::dom::tablerows">
+      <a href="../../Webdriver/Dom/TableRows.html">TableRows</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Tables" data-name="webdriver::dom::tables">
+      <a href="../../Webdriver/Dom/Tables.html">Tables</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TextField" data-name="webdriver::dom::textfield">
+      <a href="../../Webdriver/Dom/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TextFields" data-name="webdriver::dom::textfields">
+      <a href="../../Webdriver/Dom/TextFields.html">TextFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ul" data-name="webdriver::dom::ul">
+      <a href="../../Webdriver/Dom/Ul.html">Ul</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Uls" data-name="webdriver::dom::uls">
+      <a href="../../Webdriver/Dom/Uls.html">Uls</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Waitable" data-name="webdriver::dom::waitable">
+      <a href="../../Webdriver/Dom/Waitable.html">Waitable</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/ElementNotFoundException" data-name="webdriver::elementnotfoundexception">
+      <a href="../../Webdriver/ElementNotFoundException.html">ElementNotFoundException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/InvalidArgumentException" data-name="webdriver::invalidargumentexception">
+      <a href="../../Webdriver/InvalidArgumentException.html">InvalidArgumentException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/InvalidSelectorException" data-name="webdriver::invalidselectorexception">
+      <a href="../../Webdriver/InvalidSelectorException.html">InvalidSelectorException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/LocatorHelper" data-name="webdriver::locatorhelper">
+      <a href="../../Webdriver/LocatorHelper.html">LocatorHelper</a>
+      
+    </li>
+  
+  <li class="parent " data-id="webdriver/Webdriver/RegexToXpath" data-name="webdriver::regextoxpath">
+      <a href="../../Webdriver/RegexToXpath.html">RegexToXpath</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/RegexToXpath/Lexer" data-name="webdriver::regextoxpath::lexer">
+      <a href="../../Webdriver/RegexToXpath/Lexer.html">Lexer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Server" data-name="webdriver::server">
+      <a href="../../Webdriver/Server.html">Server</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/TimeoutException" data-name="webdriver::timeoutexception">
+      <a href="../../Webdriver/TimeoutException.html">TimeoutException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/UnexpectedAlertException" data-name="webdriver::unexpectedalertexception">
+      <a href="../../Webdriver/UnexpectedAlertException.html">UnexpectedAlertException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/UnknownException" data-name="webdriver::unknownexception">
+      <a href="../../Webdriver/UnknownException.html">UnknownException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Wait" data-name="webdriver::wait">
+      <a href="../../Webdriver/Wait.html">Wait</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Window" data-name="webdriver::window">
+      <a href="../../Webdriver/Window.html">Window</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/WindowRect" data-name="webdriver::windowrect">
+      <a href="../../Webdriver/WindowRect.html">WindowRect</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Windows" data-name="webdriver::windows">
+      <a href="../../Webdriver/Windows.html">Windows</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Webdriver::Dom::Container
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Webdriver/Browser.html">Webdriver::Browser</a></li>
+    
+      <li class="other-type"><a href="../../Webdriver/Dom/Element.html">Webdriver::Dom::Element</a></li>
+    
+      <li class="other-type"><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection(T)</a></li>
+    
+  </ul>
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      webdriver/element/container.cr
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#abbr(**locator)-instance-method" class="signature"><strong>#abbr</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#abbrs(**locator)-instance-method" class="signature"><strong>#abbrs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#address(**locator)-instance-method" class="signature"><strong>#address</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#addresss(**locator)-instance-method" class="signature"><strong>#addresss</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#article(**locator)-instance-method" class="signature"><strong>#article</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#articles(**locator)-instance-method" class="signature"><strong>#articles</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#blockquote(**locator)-instance-method" class="signature"><strong>#blockquote</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#blockquotes(**locator)-instance-method" class="signature"><strong>#blockquotes</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#body(**locator)-instance-method" class="signature"><strong>#body</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bodys(**locator)-instance-method" class="signature"><strong>#bodys</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#caption(**locator)-instance-method" class="signature"><strong>#caption</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#captions(**locator)-instance-method" class="signature"><strong>#captions</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#code(**locator)-instance-method" class="signature"><strong>#code</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#codes(**locator)-instance-method" class="signature"><strong>#codes</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dd(**locator)-instance-method" class="signature"><strong>#dd</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dds(**locator)-instance-method" class="signature"><strong>#dds</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#div(**locator)-instance-method" class="signature"><strong>#div</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#divs(**locator)-instance-method" class="signature"><strong>#divs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dl(**locator)-instance-method" class="signature"><strong>#dl</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dls(**locator)-instance-method" class="signature"><strong>#dls</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dt(**locator)-instance-method" class="signature"><strong>#dt</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dts(**locator)-instance-method" class="signature"><strong>#dts</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#element(**locator)-instance-method" class="signature"><strong>#element</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#elements(**locator)-instance-method" class="signature"><strong>#elements</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fieldset(**locator)-instance-method" class="signature"><strong>#fieldset</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fieldsets(**locator)-instance-method" class="signature"><strong>#fieldsets</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#figure(**locator)-instance-method" class="signature"><strong>#figure</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#figures(**locator)-instance-method" class="signature"><strong>#figures</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#footer(**locator)-instance-method" class="signature"><strong>#footer</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#footers(**locator)-instance-method" class="signature"><strong>#footers</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#form(**locator)-instance-method" class="signature"><strong>#form</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#forms(**locator)-instance-method" class="signature"><strong>#forms</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h1(**locator)-instance-method" class="signature"><strong>#h1</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h1s(**locator)-instance-method" class="signature"><strong>#h1s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h2(**locator)-instance-method" class="signature"><strong>#h2</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h2s(**locator)-instance-method" class="signature"><strong>#h2s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h3(**locator)-instance-method" class="signature"><strong>#h3</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h3s(**locator)-instance-method" class="signature"><strong>#h3s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h4(**locator)-instance-method" class="signature"><strong>#h4</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h4s(**locator)-instance-method" class="signature"><strong>#h4s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h5(**locator)-instance-method" class="signature"><strong>#h5</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h5s(**locator)-instance-method" class="signature"><strong>#h5s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h6(**locator)-instance-method" class="signature"><strong>#h6</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#h6s(**locator)-instance-method" class="signature"><strong>#h6s</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#header(**locator)-instance-method" class="signature"><strong>#header</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#headers(**locator)-instance-method" class="signature"><strong>#headers</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#img(**locator)-instance-method" class="signature"><strong>#img</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#imgs(**locator)-instance-method" class="signature"><strong>#imgs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input(**locator)-instance-method" class="signature"><strong>#input</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inputs(**locator)-instance-method" class="signature"><strong>#inputs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label(**locator)-instance-method" class="signature"><strong>#label</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#labels(**locator)-instance-method" class="signature"><strong>#labels</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#legend(**locator)-instance-method" class="signature"><strong>#legend</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#legends(**locator)-instance-method" class="signature"><strong>#legends</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#li(**locator)-instance-method" class="signature"><strong>#li</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#link(**locator)-instance-method" class="signature"><strong>#link</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#links(**locator)-instance-method" class="signature"><strong>#links</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lis(**locator)-instance-method" class="signature"><strong>#lis</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#nav(**locator)-instance-method" class="signature"><strong>#nav</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#navs(**locator)-instance-method" class="signature"><strong>#navs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ol(**locator)-instance-method" class="signature"><strong>#ol</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ols(**locator)-instance-method" class="signature"><strong>#ols</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#option(**locator)-instance-method" class="signature"><strong>#option</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options(**locator)-instance-method" class="signature"><strong>#options</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#p(**locator)-instance-method" class="signature"><strong>#p</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#password_field(**locator)-instance-method" class="signature"><strong>#password_field</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#password_fields(**locator)-instance-method" class="signature"><strong>#password_fields</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pre(**locator)-instance-method" class="signature"><strong>#pre</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pres(**locator)-instance-method" class="signature"><strong>#pres</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#progress(**locator)-instance-method" class="signature"><strong>#progress</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#progresss(**locator)-instance-method" class="signature"><strong>#progresss</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ps(**locator)-instance-method" class="signature"><strong>#ps</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#radio(**locator)-instance-method" class="signature"><strong>#radio</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#radios(**locator)-instance-method" class="signature"><strong>#radios</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#section(**locator)-instance-method" class="signature"><strong>#section</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sections(**locator)-instance-method" class="signature"><strong>#sections</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select_list(**locator)-instance-method" class="signature"><strong>#select_list</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select_lists(**locator)-instance-method" class="signature"><strong>#select_lists</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#small(**locator)-instance-method" class="signature"><strong>#small</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#smalls(**locator)-instance-method" class="signature"><strong>#smalls</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#span(**locator)-instance-method" class="signature"><strong>#span</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#spans(**locator)-instance-method" class="signature"><strong>#spans</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#td(**locator)-instance-method" class="signature"><strong>#td</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tds(**locator)-instance-method" class="signature"><strong>#tds</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#text_field(**locator)-instance-method" class="signature"><strong>#text_field</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#text_fields(**locator)-instance-method" class="signature"><strong>#text_fields</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tfoot(**locator)-instance-method" class="signature"><strong>#tfoot</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tfoots(**locator)-instance-method" class="signature"><strong>#tfoots</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#th(**locator)-instance-method" class="signature"><strong>#th</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#thead(**locator)-instance-method" class="signature"><strong>#thead</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#theads(**locator)-instance-method" class="signature"><strong>#theads</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ths(**locator)-instance-method" class="signature"><strong>#ths</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tr(**locator)-instance-method" class="signature"><strong>#tr</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#trs(**locator)-instance-method" class="signature"><strong>#trs</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ul(**locator)-instance-method" class="signature"><strong>#ul</strong>(**locator)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#uls(**locator)-instance-method" class="signature"><strong>#uls</strong>(**locator)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#define_element_method(method_name,class_name,**extra_location)-macro" class="signature"><strong>define_element_method</strong>(method_name, class_name, **extra_location)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="abbr(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>abbr</strong>(**locator)
+
+        <a class="method-permalink" href="#abbr(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="abbrs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>abbrs</strong>(**locator)
+
+        <a class="method-permalink" href="#abbrs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="address(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>address</strong>(**locator)
+
+        <a class="method-permalink" href="#address(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="addresss(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>addresss</strong>(**locator)
+
+        <a class="method-permalink" href="#addresss(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="article(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>article</strong>(**locator)
+
+        <a class="method-permalink" href="#article(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="articles(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>articles</strong>(**locator)
+
+        <a class="method-permalink" href="#articles(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="blockquote(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>blockquote</strong>(**locator)
+
+        <a class="method-permalink" href="#blockquote(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="blockquotes(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>blockquotes</strong>(**locator)
+
+        <a class="method-permalink" href="#blockquotes(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="body(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>body</strong>(**locator)
+
+        <a class="method-permalink" href="#body(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bodys(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>bodys</strong>(**locator)
+
+        <a class="method-permalink" href="#bodys(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="caption(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>caption</strong>(**locator)
+
+        <a class="method-permalink" href="#caption(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="captions(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>captions</strong>(**locator)
+
+        <a class="method-permalink" href="#captions(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="code(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>code</strong>(**locator)
+
+        <a class="method-permalink" href="#code(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="codes(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>codes</strong>(**locator)
+
+        <a class="method-permalink" href="#codes(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dd(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dd</strong>(**locator)
+
+        <a class="method-permalink" href="#dd(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dds(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dds</strong>(**locator)
+
+        <a class="method-permalink" href="#dds(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="div(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>div</strong>(**locator)
+
+        <a class="method-permalink" href="#div(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="divs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>divs</strong>(**locator)
+
+        <a class="method-permalink" href="#divs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dl(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dl</strong>(**locator)
+
+        <a class="method-permalink" href="#dl(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dls(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dls</strong>(**locator)
+
+        <a class="method-permalink" href="#dls(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dt(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dt</strong>(**locator)
+
+        <a class="method-permalink" href="#dt(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dts(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>dts</strong>(**locator)
+
+        <a class="method-permalink" href="#dts(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="element(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>element</strong>(**locator)
+
+        <a class="method-permalink" href="#element(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="elements(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>elements</strong>(**locator)
+
+        <a class="method-permalink" href="#elements(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fieldset(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>fieldset</strong>(**locator)
+
+        <a class="method-permalink" href="#fieldset(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fieldsets(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>fieldsets</strong>(**locator)
+
+        <a class="method-permalink" href="#fieldsets(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="figure(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>figure</strong>(**locator)
+
+        <a class="method-permalink" href="#figure(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="figures(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>figures</strong>(**locator)
+
+        <a class="method-permalink" href="#figures(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="footer(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>footer</strong>(**locator)
+
+        <a class="method-permalink" href="#footer(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="footers(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>footers</strong>(**locator)
+
+        <a class="method-permalink" href="#footers(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="form(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>form</strong>(**locator)
+
+        <a class="method-permalink" href="#form(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="forms(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>forms</strong>(**locator)
+
+        <a class="method-permalink" href="#forms(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h1(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h1</strong>(**locator)
+
+        <a class="method-permalink" href="#h1(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h1s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h1s</strong>(**locator)
+
+        <a class="method-permalink" href="#h1s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h2(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h2</strong>(**locator)
+
+        <a class="method-permalink" href="#h2(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h2s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h2s</strong>(**locator)
+
+        <a class="method-permalink" href="#h2s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h3(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h3</strong>(**locator)
+
+        <a class="method-permalink" href="#h3(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h3s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h3s</strong>(**locator)
+
+        <a class="method-permalink" href="#h3s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h4(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h4</strong>(**locator)
+
+        <a class="method-permalink" href="#h4(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h4s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h4s</strong>(**locator)
+
+        <a class="method-permalink" href="#h4s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h5(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h5</strong>(**locator)
+
+        <a class="method-permalink" href="#h5(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h5s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h5s</strong>(**locator)
+
+        <a class="method-permalink" href="#h5s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h6(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h6</strong>(**locator)
+
+        <a class="method-permalink" href="#h6(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="h6s(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>h6s</strong>(**locator)
+
+        <a class="method-permalink" href="#h6s(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="header(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>header</strong>(**locator)
+
+        <a class="method-permalink" href="#header(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="headers(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>headers</strong>(**locator)
+
+        <a class="method-permalink" href="#headers(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="img(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>img</strong>(**locator)
+
+        <a class="method-permalink" href="#img(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="imgs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>imgs</strong>(**locator)
+
+        <a class="method-permalink" href="#imgs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>input</strong>(**locator)
+
+        <a class="method-permalink" href="#input(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inputs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>inputs</strong>(**locator)
+
+        <a class="method-permalink" href="#inputs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>label</strong>(**locator)
+
+        <a class="method-permalink" href="#label(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="labels(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>labels</strong>(**locator)
+
+        <a class="method-permalink" href="#labels(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="legend(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>legend</strong>(**locator)
+
+        <a class="method-permalink" href="#legend(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="legends(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>legends</strong>(**locator)
+
+        <a class="method-permalink" href="#legends(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="li(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>li</strong>(**locator)
+
+        <a class="method-permalink" href="#li(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="link(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>link</strong>(**locator)
+
+        <a class="method-permalink" href="#link(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="links(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>links</strong>(**locator)
+
+        <a class="method-permalink" href="#links(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lis(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>lis</strong>(**locator)
+
+        <a class="method-permalink" href="#lis(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="nav(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>nav</strong>(**locator)
+
+        <a class="method-permalink" href="#nav(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="navs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>navs</strong>(**locator)
+
+        <a class="method-permalink" href="#navs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ol(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>ol</strong>(**locator)
+
+        <a class="method-permalink" href="#ol(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ols(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>ols</strong>(**locator)
+
+        <a class="method-permalink" href="#ols(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="option(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>option</strong>(**locator)
+
+        <a class="method-permalink" href="#option(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>options</strong>(**locator)
+
+        <a class="method-permalink" href="#options(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="p(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>p</strong>(**locator)
+
+        <a class="method-permalink" href="#p(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="password_field(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>password_field</strong>(**locator)
+
+        <a class="method-permalink" href="#password_field(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="password_fields(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>password_fields</strong>(**locator)
+
+        <a class="method-permalink" href="#password_fields(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pre(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>pre</strong>(**locator)
+
+        <a class="method-permalink" href="#pre(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pres(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>pres</strong>(**locator)
+
+        <a class="method-permalink" href="#pres(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="progress(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>progress</strong>(**locator)
+
+        <a class="method-permalink" href="#progress(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="progresss(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>progresss</strong>(**locator)
+
+        <a class="method-permalink" href="#progresss(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ps(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>ps</strong>(**locator)
+
+        <a class="method-permalink" href="#ps(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="radio(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>radio</strong>(**locator)
+
+        <a class="method-permalink" href="#radio(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="radios(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>radios</strong>(**locator)
+
+        <a class="method-permalink" href="#radios(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="section(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>section</strong>(**locator)
+
+        <a class="method-permalink" href="#section(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sections(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>sections</strong>(**locator)
+
+        <a class="method-permalink" href="#sections(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select_list(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>select_list</strong>(**locator)
+
+        <a class="method-permalink" href="#select_list(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select_lists(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>select_lists</strong>(**locator)
+
+        <a class="method-permalink" href="#select_lists(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="small(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>small</strong>(**locator)
+
+        <a class="method-permalink" href="#small(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="smalls(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>smalls</strong>(**locator)
+
+        <a class="method-permalink" href="#smalls(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="span(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>span</strong>(**locator)
+
+        <a class="method-permalink" href="#span(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="spans(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>spans</strong>(**locator)
+
+        <a class="method-permalink" href="#spans(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="td(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>td</strong>(**locator)
+
+        <a class="method-permalink" href="#td(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tds(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>tds</strong>(**locator)
+
+        <a class="method-permalink" href="#tds(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="text_field(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>text_field</strong>(**locator)
+
+        <a class="method-permalink" href="#text_field(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="text_fields(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>text_fields</strong>(**locator)
+
+        <a class="method-permalink" href="#text_fields(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tfoot(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>tfoot</strong>(**locator)
+
+        <a class="method-permalink" href="#tfoot(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tfoots(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>tfoots</strong>(**locator)
+
+        <a class="method-permalink" href="#tfoots(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="th(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>th</strong>(**locator)
+
+        <a class="method-permalink" href="#th(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="thead(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>thead</strong>(**locator)
+
+        <a class="method-permalink" href="#thead(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="theads(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>theads</strong>(**locator)
+
+        <a class="method-permalink" href="#theads(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ths(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>ths</strong>(**locator)
+
+        <a class="method-permalink" href="#ths(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tr(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>tr</strong>(**locator)
+
+        <a class="method-permalink" href="#tr(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="trs(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>trs</strong>(**locator)
+
+        <a class="method-permalink" href="#trs(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ul(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>ul</strong>(**locator)
+
+        <a class="method-permalink" href="#ul(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uls(**locator)-instance-method">
+      <div class="signature">
+        
+        def <strong>uls</strong>(**locator)
+
+        <a class="method-permalink" href="#uls(**locator)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="define_element_method(method_name,class_name,**extra_location)-macro">
+      <div class="signature">
+        
+        macro <strong>define_element_method</strong>(method_name, class_name, **extra_location)
+
+        <a class="method-permalink" href="#define_element_method(method_name,class_name,**extra_location)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

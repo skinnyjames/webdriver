@@ -9,42 +9,54 @@ require "./document"
 require "./cookies"
 require "./alerts"
 
+# mixin for browser navigation
 module Webdriver
   module BrowserNavigation
+
+    # visits the *url*
+    # `browser.goto "https://www.google.com"`
     def goto(url : String)
       server.command.visit_url(url)
     end
 
+    # get the current url
     def url
       server.command.get_url
     end
 
+    # navigates back
     def back
       server.command.go_back
     end
 
+    # gets the title
     def title
       server.command.get_title
     end
 
+    # navigates forward
     def forward
       server.command.go_forward
     end
 
+    # refreshes the browser page
     def refresh
       server.command.refresh
     end
   end
 
   module BrowserWindow
+    # maximizes the browser window
     def maximize
       server.command.maximize_window
     end
 
+    # minimizes the browser window
     def minimize
       server.command.minimize_window
     end
 
+    # makes the browser window fullscreen
     def fullscreen
       server.command.fullscreen_window
     end
@@ -60,6 +72,7 @@ module Webdriver
 
     getter :server, :windows
 
+    # starts the *browser* browser with options
     def self.start(browser = :chrome, **opts)
       Server.new(browser, **opts).run!
     end
@@ -69,10 +82,16 @@ module Webdriver
       @windows = Windows.new([Window.new(window_handle)], command: server.command)
     end
 
+    # switches context to the *window*
     def use(window : Window)
       server.command.use_window(window.handle)
     end
 
+    # closes *window*:
+    #
+    # will try to switch the previous window/tab:
+    #
+    # if there is only one window, closing it will quit the browser
     def close(window : Window)
       use(window)
       server.command.delete_window
@@ -84,10 +103,12 @@ module Webdriver
       end
     end
 
+    # takes a screenshot
     def screenshot
       server.command.capture_screenshot.as_s
     end
 
+    # stops the browser session
     def quit
       server.command.delete_session
     end

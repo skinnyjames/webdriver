@@ -7,6 +7,7 @@ require "./commands/document"
 require "./commands/cookies"
 require "./commands/alerts"
 require "./commands/screenshot"
+require "./commands/print"
 require "./errors"
 
 module Webdriver
@@ -19,6 +20,7 @@ module Webdriver
     include Commands::Cookies
     include Commands::Alerts
     include Commands::Screenshot
+    include Commands::Print
     
     @session_id : String?
 
@@ -57,6 +59,7 @@ module Webdriver
         raise ElementNotFoundException.new(error["message"].as_s) if error["error"]? == "no such element"
         raise InvalidArgumentException.new(error["message"].as_s) if error["error"]? == "invalid argument"
         raise UnexpectedAlertException.new(error["message"].as_s) if error["error"]? == "unexpected alert open"
+        raise UnknownException.new(error["message"].as_s) if error["error"]? == "unknown error"
       end
     end
   

@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="refactor_commands-dev">
+<meta name="crystal_docs.project_name" content="webdriver">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="webdriver">
+  <title>Webdriver::Dom::Abbrs - webdriver refactor_commands-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          webdriver
+        </a>
+      </h1>
+
+      <span class="project-version">
+        refactor_commands-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="webdriver/Webdriver" data-name="webdriver">
+      <a href="../../Webdriver.html">Webdriver</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Alerts" data-name="webdriver::alerts">
+      <a href="../../Webdriver/Alerts.html">Alerts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Browser" data-name="webdriver::browser">
+      <a href="../../Webdriver/Browser.html">Browser</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/BrowserNavigation" data-name="webdriver::browsernavigation">
+      <a href="../../Webdriver/BrowserNavigation.html">BrowserNavigation</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/BrowserWindow" data-name="webdriver::browserwindow">
+      <a href="../../Webdriver/BrowserWindow.html">BrowserWindow</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
+      <a href="../../Webdriver/Capabilities.html">Capabilities</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Chrome" data-name="webdriver::chrome">
+      <a href="../../Webdriver/Chrome.html">Chrome</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Command" data-name="webdriver::command">
+      <a href="../../Webdriver/Command.html">Command</a>
+      
+    </li>
+  
+  <li class="parent " data-id="webdriver/Webdriver/Commands" data-name="webdriver::commands">
+      <a href="../../Webdriver/Commands.html">Commands</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Alerts" data-name="webdriver::commands::alerts">
+      <a href="../../Webdriver/Commands/Alerts.html">Alerts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Cookies" data-name="webdriver::commands::cookies">
+      <a href="../../Webdriver/Commands/Cookies.html">Cookies</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Document" data-name="webdriver::commands::document">
+      <a href="../../Webdriver/Commands/Document.html">Document</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Elements" data-name="webdriver::commands::elements">
+      <a href="../../Webdriver/Commands/Elements.html">Elements</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Navigation" data-name="webdriver::commands::navigation">
+      <a href="../../Webdriver/Commands/Navigation.html">Navigation</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Print" data-name="webdriver::commands::print">
+      <a href="../../Webdriver/Commands/Print.html">Print</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Screenshot" data-name="webdriver::commands::screenshot">
+      <a href="../../Webdriver/Commands/Screenshot.html">Screenshot</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Session" data-name="webdriver::commands::session">
+      <a href="../../Webdriver/Commands/Session.html">Session</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Commands/Window" data-name="webdriver::commands::window">
+      <a href="../../Webdriver/Commands/Window.html">Window</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Cookie" data-name="webdriver::cookie">
+      <a href="../../Webdriver/Cookie.html">Cookie</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Cookies" data-name="webdriver::cookies">
+      <a href="../../Webdriver/Cookies.html">Cookies</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Document" data-name="webdriver::document">
+      <a href="../../Webdriver/Document.html">Document</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="webdriver/Webdriver/Dom" data-name="webdriver::dom">
+      <a href="../../Webdriver/Dom.html">Dom</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Abbr" data-name="webdriver::dom::abbr">
+      <a href="../../Webdriver/Dom/Abbr.html">Abbr</a>
+      
+    </li>
+  
+  <li class=" current" data-id="webdriver/Webdriver/Dom/Abbrs" data-name="webdriver::dom::abbrs">
+      <a href="../../Webdriver/Dom/Abbrs.html">Abbrs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/AddressField" data-name="webdriver::dom::addressfield">
+      <a href="../../Webdriver/Dom/AddressField.html">AddressField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/AddressFields" data-name="webdriver::dom::addressfields">
+      <a href="../../Webdriver/Dom/AddressFields.html">AddressFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Article" data-name="webdriver::dom::article">
+      <a href="../../Webdriver/Dom/Article.html">Article</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Articles" data-name="webdriver::dom::articles">
+      <a href="../../Webdriver/Dom/Articles.html">Articles</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Attributable" data-name="webdriver::dom::attributable">
+      <a href="../../Webdriver/Dom/Attributable.html">Attributable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Blockquote" data-name="webdriver::dom::blockquote">
+      <a href="../../Webdriver/Dom/Blockquote.html">Blockquote</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Blockquotes" data-name="webdriver::dom::blockquotes">
+      <a href="../../Webdriver/Dom/Blockquotes.html">Blockquotes</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Body" data-name="webdriver::dom::body">
+      <a href="../../Webdriver/Dom/Body.html">Body</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Bodys" data-name="webdriver::dom::bodys">
+      <a href="../../Webdriver/Dom/Bodys.html">Bodys</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Button" data-name="webdriver::dom::button">
+      <a href="../../Webdriver/Dom/Button.html">Button</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Buttons" data-name="webdriver::dom::buttons">
+      <a href="../../Webdriver/Dom/Buttons.html">Buttons</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Caption" data-name="webdriver::dom::caption">
+      <a href="../../Webdriver/Dom/Caption.html">Caption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Captions" data-name="webdriver::dom::captions">
+      <a href="../../Webdriver/Dom/Captions.html">Captions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Clickable" data-name="webdriver::dom::clickable">
+      <a href="../../Webdriver/Dom/Clickable.html">Clickable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Code" data-name="webdriver::dom::code">
+      <a href="../../Webdriver/Dom/Code.html">Code</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Codes" data-name="webdriver::dom::codes">
+      <a href="../../Webdriver/Dom/Codes.html">Codes</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Container" data-name="webdriver::dom::container">
+      <a href="../../Webdriver/Dom/Container.html">Container</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dd" data-name="webdriver::dom::dd">
+      <a href="../../Webdriver/Dom/Dd.html">Dd</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dds" data-name="webdriver::dom::dds">
+      <a href="../../Webdriver/Dom/Dds.html">Dds</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Div" data-name="webdriver::dom::div">
+      <a href="../../Webdriver/Dom/Div.html">Div</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Divs" data-name="webdriver::dom::divs">
+      <a href="../../Webdriver/Dom/Divs.html">Divs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dl" data-name="webdriver::dom::dl">
+      <a href="../../Webdriver/Dom/Dl.html">Dl</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dls" data-name="webdriver::dom::dls">
+      <a href="../../Webdriver/Dom/Dls.html">Dls</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dt" data-name="webdriver::dom::dt">
+      <a href="../../Webdriver/Dom/Dt.html">Dt</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Dts" data-name="webdriver::dom::dts">
+      <a href="../../Webdriver/Dom/Dts.html">Dts</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Element" data-name="webdriver::dom::element">
+      <a href="../../Webdriver/Dom/Element.html">Element</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/ElementCollection" data-name="webdriver::dom::elementcollection(t)">
+      <a href="../../Webdriver/Dom/ElementCollection.html">ElementCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Fieldset" data-name="webdriver::dom::fieldset">
+      <a href="../../Webdriver/Dom/Fieldset.html">Fieldset</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Fieldsets" data-name="webdriver::dom::fieldsets">
+      <a href="../../Webdriver/Dom/Fieldsets.html">Fieldsets</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Figure" data-name="webdriver::dom::figure">
+      <a href="../../Webdriver/Dom/Figure.html">Figure</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/FigureCaption" data-name="webdriver::dom::figurecaption">
+      <a href="../../Webdriver/Dom/FigureCaption.html">FigureCaption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/FigureCaptions" data-name="webdriver::dom::figurecaptions">
+      <a href="../../Webdriver/Dom/FigureCaptions.html">FigureCaptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Figures" data-name="webdriver::dom::figures">
+      <a href="../../Webdriver/Dom/Figures.html">Figures</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Footer" data-name="webdriver::dom::footer">
+      <a href="../../Webdriver/Dom/Footer.html">Footer</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Footers" data-name="webdriver::dom::footers">
+      <a href="../../Webdriver/Dom/Footers.html">Footers</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Form" data-name="webdriver::dom::form">
+      <a href="../../Webdriver/Dom/Form.html">Form</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Forms" data-name="webdriver::dom::forms">
+      <a href="../../Webdriver/Dom/Forms.html">Forms</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H1" data-name="webdriver::dom::h1">
+      <a href="../../Webdriver/Dom/H1.html">H1</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H1s" data-name="webdriver::dom::h1s">
+      <a href="../../Webdriver/Dom/H1s.html">H1s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H2" data-name="webdriver::dom::h2">
+      <a href="../../Webdriver/Dom/H2.html">H2</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H2s" data-name="webdriver::dom::h2s">
+      <a href="../../Webdriver/Dom/H2s.html">H2s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H3" data-name="webdriver::dom::h3">
+      <a href="../../Webdriver/Dom/H3.html">H3</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H3s" data-name="webdriver::dom::h3s">
+      <a href="../../Webdriver/Dom/H3s.html">H3s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H4" data-name="webdriver::dom::h4">
+      <a href="../../Webdriver/Dom/H4.html">H4</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H4s" data-name="webdriver::dom::h4s">
+      <a href="../../Webdriver/Dom/H4s.html">H4s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H5" data-name="webdriver::dom::h5">
+      <a href="../../Webdriver/Dom/H5.html">H5</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H5s" data-name="webdriver::dom::h5s">
+      <a href="../../Webdriver/Dom/H5s.html">H5s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H6" data-name="webdriver::dom::h6">
+      <a href="../../Webdriver/Dom/H6.html">H6</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/H6s" data-name="webdriver::dom::h6s">
+      <a href="../../Webdriver/Dom/H6s.html">H6s</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Header" data-name="webdriver::dom::header">
+      <a href="../../Webdriver/Dom/Header.html">Header</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Headers" data-name="webdriver::dom::headers">
+      <a href="../../Webdriver/Dom/Headers.html">Headers</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/HtmlElement" data-name="webdriver::dom::htmlelement">
+      <a href="../../Webdriver/Dom/HtmlElement.html">HtmlElement</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Image" data-name="webdriver::dom::image">
+      <a href="../../Webdriver/Dom/Image.html">Image</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Images" data-name="webdriver::dom::images">
+      <a href="../../Webdriver/Dom/Images.html">Images</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Input" data-name="webdriver::dom::input">
+      <a href="../../Webdriver/Dom/Input.html">Input</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Inputable" data-name="webdriver::dom::inputable">
+      <a href="../../Webdriver/Dom/Inputable.html">Inputable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Inputs" data-name="webdriver::dom::inputs">
+      <a href="../../Webdriver/Dom/Inputs.html">Inputs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Keyable" data-name="webdriver::dom::keyable">
+      <a href="../../Webdriver/Dom/Keyable.html">Keyable</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Label" data-name="webdriver::dom::label">
+      <a href="../../Webdriver/Dom/Label.html">Label</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Labels" data-name="webdriver::dom::labels">
+      <a href="../../Webdriver/Dom/Labels.html">Labels</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Legend" data-name="webdriver::dom::legend">
+      <a href="../../Webdriver/Dom/Legend.html">Legend</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Legends" data-name="webdriver::dom::legends">
+      <a href="../../Webdriver/Dom/Legends.html">Legends</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Li" data-name="webdriver::dom::li">
+      <a href="../../Webdriver/Dom/Li.html">Li</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Link" data-name="webdriver::dom::link">
+      <a href="../../Webdriver/Dom/Link.html">Link</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Links" data-name="webdriver::dom::links">
+      <a href="../../Webdriver/Dom/Links.html">Links</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Lis" data-name="webdriver::dom::lis">
+      <a href="../../Webdriver/Dom/Lis.html">Lis</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Nav" data-name="webdriver::dom::nav">
+      <a href="../../Webdriver/Dom/Nav.html">Nav</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Navs" data-name="webdriver::dom::navs">
+      <a href="../../Webdriver/Dom/Navs.html">Navs</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ol" data-name="webdriver::dom::ol">
+      <a href="../../Webdriver/Dom/Ol.html">Ol</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ols" data-name="webdriver::dom::ols">
+      <a href="../../Webdriver/Dom/Ols.html">Ols</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/P" data-name="webdriver::dom::p">
+      <a href="../../Webdriver/Dom/P.html">P</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/PasswordField" data-name="webdriver::dom::passwordfield">
+      <a href="../../Webdriver/Dom/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/PasswordFields" data-name="webdriver::dom::passwordfields">
+      <a href="../../Webdriver/Dom/PasswordFields.html">PasswordFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Pre" data-name="webdriver::dom::pre">
+      <a href="../../Webdriver/Dom/Pre.html">Pre</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Pres" data-name="webdriver::dom::pres">
+      <a href="../../Webdriver/Dom/Pres.html">Pres</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Progress" data-name="webdriver::dom::progress">
+      <a href="../../Webdriver/Dom/Progress.html">Progress</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Progresss" data-name="webdriver::dom::progresss">
+      <a href="../../Webdriver/Dom/Progresss.html">Progresss</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ps" data-name="webdriver::dom::ps">
+      <a href="../../Webdriver/Dom/Ps.html">Ps</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Radio" data-name="webdriver::dom::radio">
+      <a href="../../Webdriver/Dom/Radio.html">Radio</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Radios" data-name="webdriver::dom::radios">
+      <a href="../../Webdriver/Dom/Radios.html">Radios</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Section" data-name="webdriver::dom::section">
+      <a href="../../Webdriver/Dom/Section.html">Section</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Sections" data-name="webdriver::dom::sections">
+      <a href="../../Webdriver/Dom/Sections.html">Sections</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectList" data-name="webdriver::dom::selectlist">
+      <a href="../../Webdriver/Dom/SelectList.html">SelectList</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectLists" data-name="webdriver::dom::selectlists">
+      <a href="../../Webdriver/Dom/SelectLists.html">SelectLists</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectOption" data-name="webdriver::dom::selectoption">
+      <a href="../../Webdriver/Dom/SelectOption.html">SelectOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SelectOptions" data-name="webdriver::dom::selectoptions">
+      <a href="../../Webdriver/Dom/SelectOptions.html">SelectOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SmallTag" data-name="webdriver::dom::smalltag">
+      <a href="../../Webdriver/Dom/SmallTag.html">SmallTag</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/SmallTags" data-name="webdriver::dom::smalltags">
+      <a href="../../Webdriver/Dom/SmallTags.html">SmallTags</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Span" data-name="webdriver::dom::span">
+      <a href="../../Webdriver/Dom/Span.html">Span</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Spans" data-name="webdriver::dom::spans">
+      <a href="../../Webdriver/Dom/Spans.html">Spans</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Table" data-name="webdriver::dom::table">
+      <a href="../../Webdriver/Dom/Table.html">Table</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableBody" data-name="webdriver::dom::tablebody">
+      <a href="../../Webdriver/Dom/TableBody.html">TableBody</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableBodys" data-name="webdriver::dom::tablebodys">
+      <a href="../../Webdriver/Dom/TableBodys.html">TableBodys</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableDefinition" data-name="webdriver::dom::tabledefinition">
+      <a href="../../Webdriver/Dom/TableDefinition.html">TableDefinition</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableDefinitions" data-name="webdriver::dom::tabledefinitions">
+      <a href="../../Webdriver/Dom/TableDefinitions.html">TableDefinitions</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableFooter" data-name="webdriver::dom::tablefooter">
+      <a href="../../Webdriver/Dom/TableFooter.html">TableFooter</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableFooters" data-name="webdriver::dom::tablefooters">
+      <a href="../../Webdriver/Dom/TableFooters.html">TableFooters</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHead" data-name="webdriver::dom::tablehead">
+      <a href="../../Webdriver/Dom/TableHead.html">TableHead</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeader" data-name="webdriver::dom::tableheader">
+      <a href="../../Webdriver/Dom/TableHeader.html">TableHeader</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeaders" data-name="webdriver::dom::tableheaders">
+      <a href="../../Webdriver/Dom/TableHeaders.html">TableHeaders</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableHeads" data-name="webdriver::dom::tableheads">
+      <a href="../../Webdriver/Dom/TableHeads.html">TableHeads</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableRow" data-name="webdriver::dom::tablerow">
+      <a href="../../Webdriver/Dom/TableRow.html">TableRow</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TableRows" data-name="webdriver::dom::tablerows">
+      <a href="../../Webdriver/Dom/TableRows.html">TableRows</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Tables" data-name="webdriver::dom::tables">
+      <a href="../../Webdriver/Dom/Tables.html">Tables</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TextField" data-name="webdriver::dom::textfield">
+      <a href="../../Webdriver/Dom/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/TextFields" data-name="webdriver::dom::textfields">
+      <a href="../../Webdriver/Dom/TextFields.html">TextFields</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Ul" data-name="webdriver::dom::ul">
+      <a href="../../Webdriver/Dom/Ul.html">Ul</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Uls" data-name="webdriver::dom::uls">
+      <a href="../../Webdriver/Dom/Uls.html">Uls</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Dom/Waitable" data-name="webdriver::dom::waitable">
+      <a href="../../Webdriver/Dom/Waitable.html">Waitable</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/ElementNotFoundException" data-name="webdriver::elementnotfoundexception">
+      <a href="../../Webdriver/ElementNotFoundException.html">ElementNotFoundException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/InvalidArgumentException" data-name="webdriver::invalidargumentexception">
+      <a href="../../Webdriver/InvalidArgumentException.html">InvalidArgumentException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/InvalidSelectorException" data-name="webdriver::invalidselectorexception">
+      <a href="../../Webdriver/InvalidSelectorException.html">InvalidSelectorException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/LocatorHelper" data-name="webdriver::locatorhelper">
+      <a href="../../Webdriver/LocatorHelper.html">LocatorHelper</a>
+      
+    </li>
+  
+  <li class="parent " data-id="webdriver/Webdriver/RegexToXpath" data-name="webdriver::regextoxpath">
+      <a href="../../Webdriver/RegexToXpath.html">RegexToXpath</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/RegexToXpath/Lexer" data-name="webdriver::regextoxpath::lexer">
+      <a href="../../Webdriver/RegexToXpath/Lexer.html">Lexer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Server" data-name="webdriver::server">
+      <a href="../../Webdriver/Server.html">Server</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/TimeoutException" data-name="webdriver::timeoutexception">
+      <a href="../../Webdriver/TimeoutException.html">TimeoutException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/UnexpectedAlertException" data-name="webdriver::unexpectedalertexception">
+      <a href="../../Webdriver/UnexpectedAlertException.html">UnexpectedAlertException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/UnknownException" data-name="webdriver::unknownexception">
+      <a href="../../Webdriver/UnknownException.html">UnknownException</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Wait" data-name="webdriver::wait">
+      <a href="../../Webdriver/Wait.html">Wait</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Window" data-name="webdriver::window">
+      <a href="../../Webdriver/Window.html">Window</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/WindowRect" data-name="webdriver::windowrect">
+      <a href="../../Webdriver/WindowRect.html">WindowRect</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Windows" data-name="webdriver::windows">
+      <a href="../../Webdriver/Windows.html">Windows</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Webdriver::Dom::Abbrs
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Webdriver/Dom/Abbrs.html">Webdriver::Dom::Abbrs</a></li><li class="superclass"><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Abbr.html">Webdriver::Dom::Abbr</a>)</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      webdriver/element.cr
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(context:Browser%7CElement,server:Server,**locator)-class-method" class="signature"><strong>.new</strong>(context : Browser | Element, server : Server, **locator)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Abbr.html">Webdriver::Dom::Abbr</a>)</code></h3>
+  
+  
+    <a href="../../Webdriver/Dom/ElementCollection.html#context-instance-method" class="tooltip">
+      <span>context</span>
+    context</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/ElementCollection.html#each(&)-instance-method" class="tooltip">
+      <span>each(&)</span>
+    each</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/ElementCollection.html#locate(force:Bool=false)-instance-method" class="tooltip">
+      <span>locate(force : Bool = <span class="n">false</span>)</span>
+    locate</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/ElementCollection.html#server-instance-method" class="tooltip">
+      <span>server</span>
+    server</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Abbr.html">Webdriver::Dom::Abbr</a>)</code></h3>
+  
+  
+    <a href="../../Webdriver/Dom/ElementCollection.html#new(context:Browser%7CElement,server:Server,**locator)-class-method" class="tooltip">
+      <span>new(context : Browser | Element, server : Server, **locator)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../../Webdriver/Dom/Container.html">Webdriver::Dom::Container</a></code></h3>
+  
+  
+    <a href="../../Webdriver/Dom/Container.html#abbr(**locator)-instance-method" class="tooltip">
+      <span>abbr(**locator)</span>
+    abbr</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#abbrs(**locator)-instance-method" class="tooltip">
+      <span>abbrs(**locator)</span>
+    abbrs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#address(**locator)-instance-method" class="tooltip">
+      <span>address(**locator)</span>
+    address</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#addresss(**locator)-instance-method" class="tooltip">
+      <span>addresss(**locator)</span>
+    addresss</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#article(**locator)-instance-method" class="tooltip">
+      <span>article(**locator)</span>
+    article</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#articles(**locator)-instance-method" class="tooltip">
+      <span>articles(**locator)</span>
+    articles</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#blockquote(**locator)-instance-method" class="tooltip">
+      <span>blockquote(**locator)</span>
+    blockquote</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#blockquotes(**locator)-instance-method" class="tooltip">
+      <span>blockquotes(**locator)</span>
+    blockquotes</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#body(**locator)-instance-method" class="tooltip">
+      <span>body(**locator)</span>
+    body</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#bodys(**locator)-instance-method" class="tooltip">
+      <span>bodys(**locator)</span>
+    bodys</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#caption(**locator)-instance-method" class="tooltip">
+      <span>caption(**locator)</span>
+    caption</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#captions(**locator)-instance-method" class="tooltip">
+      <span>captions(**locator)</span>
+    captions</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#code(**locator)-instance-method" class="tooltip">
+      <span>code(**locator)</span>
+    code</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#codes(**locator)-instance-method" class="tooltip">
+      <span>codes(**locator)</span>
+    codes</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dd(**locator)-instance-method" class="tooltip">
+      <span>dd(**locator)</span>
+    dd</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dds(**locator)-instance-method" class="tooltip">
+      <span>dds(**locator)</span>
+    dds</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#div(**locator)-instance-method" class="tooltip">
+      <span>div(**locator)</span>
+    div</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#divs(**locator)-instance-method" class="tooltip">
+      <span>divs(**locator)</span>
+    divs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dl(**locator)-instance-method" class="tooltip">
+      <span>dl(**locator)</span>
+    dl</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dls(**locator)-instance-method" class="tooltip">
+      <span>dls(**locator)</span>
+    dls</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dt(**locator)-instance-method" class="tooltip">
+      <span>dt(**locator)</span>
+    dt</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#dts(**locator)-instance-method" class="tooltip">
+      <span>dts(**locator)</span>
+    dts</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#element(**locator)-instance-method" class="tooltip">
+      <span>element(**locator)</span>
+    element</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#elements(**locator)-instance-method" class="tooltip">
+      <span>elements(**locator)</span>
+    elements</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#fieldset(**locator)-instance-method" class="tooltip">
+      <span>fieldset(**locator)</span>
+    fieldset</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#fieldsets(**locator)-instance-method" class="tooltip">
+      <span>fieldsets(**locator)</span>
+    fieldsets</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#figure(**locator)-instance-method" class="tooltip">
+      <span>figure(**locator)</span>
+    figure</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#figures(**locator)-instance-method" class="tooltip">
+      <span>figures(**locator)</span>
+    figures</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#footer(**locator)-instance-method" class="tooltip">
+      <span>footer(**locator)</span>
+    footer</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#footers(**locator)-instance-method" class="tooltip">
+      <span>footers(**locator)</span>
+    footers</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#form(**locator)-instance-method" class="tooltip">
+      <span>form(**locator)</span>
+    form</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#forms(**locator)-instance-method" class="tooltip">
+      <span>forms(**locator)</span>
+    forms</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h1(**locator)-instance-method" class="tooltip">
+      <span>h1(**locator)</span>
+    h1</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h1s(**locator)-instance-method" class="tooltip">
+      <span>h1s(**locator)</span>
+    h1s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h2(**locator)-instance-method" class="tooltip">
+      <span>h2(**locator)</span>
+    h2</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h2s(**locator)-instance-method" class="tooltip">
+      <span>h2s(**locator)</span>
+    h2s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h3(**locator)-instance-method" class="tooltip">
+      <span>h3(**locator)</span>
+    h3</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h3s(**locator)-instance-method" class="tooltip">
+      <span>h3s(**locator)</span>
+    h3s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h4(**locator)-instance-method" class="tooltip">
+      <span>h4(**locator)</span>
+    h4</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h4s(**locator)-instance-method" class="tooltip">
+      <span>h4s(**locator)</span>
+    h4s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h5(**locator)-instance-method" class="tooltip">
+      <span>h5(**locator)</span>
+    h5</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h5s(**locator)-instance-method" class="tooltip">
+      <span>h5s(**locator)</span>
+    h5s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h6(**locator)-instance-method" class="tooltip">
+      <span>h6(**locator)</span>
+    h6</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#h6s(**locator)-instance-method" class="tooltip">
+      <span>h6s(**locator)</span>
+    h6s</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#header(**locator)-instance-method" class="tooltip">
+      <span>header(**locator)</span>
+    header</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#headers(**locator)-instance-method" class="tooltip">
+      <span>headers(**locator)</span>
+    headers</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#img(**locator)-instance-method" class="tooltip">
+      <span>img(**locator)</span>
+    img</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#imgs(**locator)-instance-method" class="tooltip">
+      <span>imgs(**locator)</span>
+    imgs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#input(**locator)-instance-method" class="tooltip">
+      <span>input(**locator)</span>
+    input</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#inputs(**locator)-instance-method" class="tooltip">
+      <span>inputs(**locator)</span>
+    inputs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#label(**locator)-instance-method" class="tooltip">
+      <span>label(**locator)</span>
+    label</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#labels(**locator)-instance-method" class="tooltip">
+      <span>labels(**locator)</span>
+    labels</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#legend(**locator)-instance-method" class="tooltip">
+      <span>legend(**locator)</span>
+    legend</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#legends(**locator)-instance-method" class="tooltip">
+      <span>legends(**locator)</span>
+    legends</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#li(**locator)-instance-method" class="tooltip">
+      <span>li(**locator)</span>
+    li</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#link(**locator)-instance-method" class="tooltip">
+      <span>link(**locator)</span>
+    link</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#links(**locator)-instance-method" class="tooltip">
+      <span>links(**locator)</span>
+    links</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#lis(**locator)-instance-method" class="tooltip">
+      <span>lis(**locator)</span>
+    lis</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#nav(**locator)-instance-method" class="tooltip">
+      <span>nav(**locator)</span>
+    nav</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#navs(**locator)-instance-method" class="tooltip">
+      <span>navs(**locator)</span>
+    navs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#ol(**locator)-instance-method" class="tooltip">
+      <span>ol(**locator)</span>
+    ol</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#ols(**locator)-instance-method" class="tooltip">
+      <span>ols(**locator)</span>
+    ols</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#option(**locator)-instance-method" class="tooltip">
+      <span>option(**locator)</span>
+    option</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#options(**locator)-instance-method" class="tooltip">
+      <span>options(**locator)</span>
+    options</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#p(**locator)-instance-method" class="tooltip">
+      <span>p(**locator)</span>
+    p</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#password_field(**locator)-instance-method" class="tooltip">
+      <span>password_field(**locator)</span>
+    password_field</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#password_fields(**locator)-instance-method" class="tooltip">
+      <span>password_fields(**locator)</span>
+    password_fields</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#pre(**locator)-instance-method" class="tooltip">
+      <span>pre(**locator)</span>
+    pre</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#pres(**locator)-instance-method" class="tooltip">
+      <span>pres(**locator)</span>
+    pres</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#progress(**locator)-instance-method" class="tooltip">
+      <span>progress(**locator)</span>
+    progress</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#progresss(**locator)-instance-method" class="tooltip">
+      <span>progresss(**locator)</span>
+    progresss</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#ps(**locator)-instance-method" class="tooltip">
+      <span>ps(**locator)</span>
+    ps</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#radio(**locator)-instance-method" class="tooltip">
+      <span>radio(**locator)</span>
+    radio</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#radios(**locator)-instance-method" class="tooltip">
+      <span>radios(**locator)</span>
+    radios</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#section(**locator)-instance-method" class="tooltip">
+      <span>section(**locator)</span>
+    section</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#sections(**locator)-instance-method" class="tooltip">
+      <span>sections(**locator)</span>
+    sections</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#select_list(**locator)-instance-method" class="tooltip">
+      <span>select_list(**locator)</span>
+    select_list</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#select_lists(**locator)-instance-method" class="tooltip">
+      <span>select_lists(**locator)</span>
+    select_lists</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#small(**locator)-instance-method" class="tooltip">
+      <span>small(**locator)</span>
+    small</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#smalls(**locator)-instance-method" class="tooltip">
+      <span>smalls(**locator)</span>
+    smalls</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#span(**locator)-instance-method" class="tooltip">
+      <span>span(**locator)</span>
+    span</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#spans(**locator)-instance-method" class="tooltip">
+      <span>spans(**locator)</span>
+    spans</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#td(**locator)-instance-method" class="tooltip">
+      <span>td(**locator)</span>
+    td</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#tds(**locator)-instance-method" class="tooltip">
+      <span>tds(**locator)</span>
+    tds</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#text_field(**locator)-instance-method" class="tooltip">
+      <span>text_field(**locator)</span>
+    text_field</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#text_fields(**locator)-instance-method" class="tooltip">
+      <span>text_fields(**locator)</span>
+    text_fields</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#tfoot(**locator)-instance-method" class="tooltip">
+      <span>tfoot(**locator)</span>
+    tfoot</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#tfoots(**locator)-instance-method" class="tooltip">
+      <span>tfoots(**locator)</span>
+    tfoots</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#th(**locator)-instance-method" class="tooltip">
+      <span>th(**locator)</span>
+    th</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#thead(**locator)-instance-method" class="tooltip">
+      <span>thead(**locator)</span>
+    thead</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#theads(**locator)-instance-method" class="tooltip">
+      <span>theads(**locator)</span>
+    theads</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#ths(**locator)-instance-method" class="tooltip">
+      <span>ths(**locator)</span>
+    ths</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#tr(**locator)-instance-method" class="tooltip">
+      <span>tr(**locator)</span>
+    tr</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#trs(**locator)-instance-method" class="tooltip">
+      <span>trs(**locator)</span>
+    trs</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#ul(**locator)-instance-method" class="tooltip">
+      <span>ul(**locator)</span>
+    ul</a>, 
+    
+  
+    <a href="../../Webdriver/Dom/Container.html#uls(**locator)-instance-method" class="tooltip">
+      <span>uls(**locator)</span>
+    uls</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(context:Browser|Element,server:Server,**locator)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(context : <a href="../../Webdriver/Browser.html">Browser</a> | <a href="../../Webdriver/Dom/Element.html">Element</a>, server : <a href="../../Webdriver/Server.html">Server</a>, **locator)
+
+        <a class="method-permalink" href="#new(context:Browser%7CElement,server:Server,**locator)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
