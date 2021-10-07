@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="wip-dev">
+<meta name="crystal_docs.project_version" content="capabilities-dev">
 <meta name="crystal_docs.project_name" content="webdriver">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="webdriver">
-  <title>Webdriver::Capabilities - webdriver wip-dev</title>
+  <title>Webdriver::Capabilities - webdriver capabilities-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        wip-dev
+        capabilities-dev
       </span>
     </div>
   </div>
@@ -76,13 +76,38 @@
       
     </li>
   
-  <li class=" current" data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
+  <li class="parent open current" data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
       <a href="../Webdriver/Capabilities.html">Capabilities</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Base" data-name="webdriver::capabilities::base">
+      <a href="../Webdriver/Capabilities/Base.html">Base</a>
       
     </li>
   
-  <li class=" " data-id="webdriver/Webdriver/Chrome" data-name="webdriver::chrome">
-      <a href="../Webdriver/Chrome.html">Chrome</a>
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Chrome" data-name="webdriver::capabilities::chrome">
+      <a href="../Webdriver/Capabilities/Chrome.html">Chrome</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Firefox" data-name="webdriver::capabilities::firefox">
+      <a href="../Webdriver/Capabilities/Firefox.html">Firefox</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Proxy" data-name="webdriver::capabilities::proxy">
+      <a href="../Webdriver/Capabilities/Proxy.html">Proxy</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Timeouts" data-name="webdriver::capabilities::timeouts">
+      <a href="../Webdriver/Capabilities/Timeouts.html">Timeouts</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -766,6 +791,11 @@
       
     </li>
   
+  <li class=" " data-id="webdriver/Webdriver/SessionNotCreatedException" data-name="webdriver::sessionnotcreatedexception">
+      <a href="../Webdriver/SessionNotCreatedException.html">SessionNotCreatedException</a>
+      
+    </li>
+  
   <li class=" " data-id="webdriver/Webdriver/TimeoutException" data-name="webdriver::timeoutexception">
       <a href="../Webdriver/TimeoutException.html">TimeoutException</a>
       
@@ -815,12 +845,11 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">abstract class</span> Webdriver::Capabilities
+  <span class="kind">module</span> Webdriver::Capabilities
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Webdriver/Capabilities.html">Webdriver::Capabilities</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -831,21 +860,6 @@
 
 
 
-
-
-  <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Direct Known Subclasses
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../Webdriver/Chrome.html">Webdriver::Chrome</a></li>
-    
-  </ul>
 
 
 
@@ -873,41 +887,7 @@
 
 
 
-  <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#default(browser:Symbol,args:Array(String)=[]ofString)-class-method" class="signature"><strong>.default</strong>(browser : Symbol, args : Array(String) = <span class="o">[]</span> <span class="k">of</span> <span class="t">String</span>)</a>
-        
-      </li>
-    
-  </ul>
 
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#to_h-instance-method" class="signature"><strong>#to_h</strong></a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -915,80 +895,12 @@
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
 
 
-  <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="default(browser:Symbol,args:Array(String)=[]ofString)-class-method">
-      <div class="signature">
-        
-        def self.<strong>default</strong>(browser : Symbol, args : Array(String) = <span class="o">[]</span> <span class="k">of</span> <span class="t">String</span>)
 
-        <a class="method-permalink" href="#default(browser:Symbol,args:Array(String)=[]ofString)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="to_h-instance-method">
-      <div class="signature">
-        
-        def <strong>to_h</strong>
-
-        <a class="method-permalink" href="#to_h-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 

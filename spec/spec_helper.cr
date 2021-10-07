@@ -2,7 +2,7 @@ require "spec"
 require "../src/webdriver"
 require "http/server"
 
-PORT = 8082
+PORT = 8083
 
 class TestServer
 
@@ -44,8 +44,7 @@ end
 
 def with_browser(page, &block)
   if ENV["CI"]?
-    capabilities = Webdriver::Capabilities.default(:chrome, ["no-sandbox","headless", "disable-dev-shm-usage"])
-    browser = Webdriver::Browser.start(:chrome, remote: "http://localhost:4444", capabilities: capabilities)
+    browser = Webdriver::Browser.start(:chrome, remote: "http://localhost:4444", args: ["no-sandbox","headless", "disable-dev-shm-usage"])
   else
     browser = Webdriver::Browser.start(:chrome)
   end

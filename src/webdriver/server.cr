@@ -131,7 +131,8 @@ module Webdriver
       @timeout = "30",
       @remote = nil,
       @background = true,
-      @capabilities : Capabilities = Capabilities.default(browser)
+      @args : Array(String)? = nil,
+      @capabilities : Capabilities::Base = Capabilities::Base.default(browser, args: args)
     )
       @browser = browser
       @command = Command.new(service_url)
@@ -139,7 +140,8 @@ module Webdriver
 
     def driver_mapping
       {
-        chrome: "chromedriver"
+        chrome: "chromedriver",
+        firefox: "geckodriver"
       }
     end
     
@@ -154,7 +156,7 @@ module Webdriver
     end
 
     def args 
-      ["--host=#{@host}", "--port=#{@port}"].concat(@capabilities.args)
+      ["--host=#{@host}", "--port=#{@port}"]
     end
 
     def ready?
@@ -175,7 +177,7 @@ module Webdriver
     end
 
     def start_session!
-      @command.start_session(@capabilities, !!@remote)
+      @command.start_session(@capabilities)
       Browser.new(self)
     end
   end
