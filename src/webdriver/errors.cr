@@ -4,4 +4,5 @@ module Webdriver
   class InvalidArgumentException < Exception; end
   class UnexpectedAlertException < Exception; end
   class UnknownException < Exception; end
+  class SessionNotCreatedException < Exception; end
 end

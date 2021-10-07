@@ -1,12 +1,10 @@
 module Webdriver
   module Commands
     module Session
-      def start_session(capabilities : Capabilities, remote : Bool)
+      def start_session(capabilities : Capabilities::Base)
         headers = HTTP::Headers{"Content-Type" => "application/json", "Connection" => "Keep-Alive", "Accept-Encoding" => "gzip" }
-        json = { capabilities: capabilities.to_h(remote) }.to_json
-        res = HTTP::Client.post("#{base_url}/session",  body: json, headers: headers)
-        body = JSON.parse(res.body)
-        @session_id = body["value"]["sessionId"].as_s
+        res = HTTP::Client.post("#{base_url}/session",  body: capabilities.to_json, headers: headers)
+        @session_id = get_value_from_response(res)["sessionId"].as_s
       end
   
       def delete_session
@@ -14,8 +12,7 @@ module Webdriver
       end
   
       def session_status
-        res = HTTP::Client.get("#{base_url}/status")
-        JSON.parse(res.body)["value"]
+        get_value_from_response HTTP::Client.get("#{base_url}/status")
       end
     end
   end

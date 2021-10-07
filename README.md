@@ -1,6 +1,7 @@
 # webdriver
 
 [![Build Status](http://drone.skinnyjames.net/api/badges/skinnyjames/webdriver/status.svg)](http://drone.skinnyjames.net/skinnyjames/webdriver)
+
 [API Documentation](https://skinnyjames.github.io/webdriver/index.html)
 
 Implementation of a W3C compliant Webdriver client in Crystal, inspired by Watir

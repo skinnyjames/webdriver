@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="wip-dev">
+<meta name="crystal_docs.project_version" content="capabilities-dev">
 <meta name="crystal_docs.project_name" content="webdriver">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="webdriver">
-  <title>Webdriver::Server - webdriver wip-dev</title>
+  <title>Webdriver::Server - webdriver capabilities-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        wip-dev
+        capabilities-dev
       </span>
     </div>
   </div>
@@ -76,13 +76,38 @@
       
     </li>
   
-  <li class=" " data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
+  <li class="parent " data-id="webdriver/Webdriver/Capabilities" data-name="webdriver::capabilities">
       <a href="../Webdriver/Capabilities.html">Capabilities</a>
+      
+        <ul>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Base" data-name="webdriver::capabilities::base">
+      <a href="../Webdriver/Capabilities/Base.html">Base</a>
       
     </li>
   
-  <li class=" " data-id="webdriver/Webdriver/Chrome" data-name="webdriver::chrome">
-      <a href="../Webdriver/Chrome.html">Chrome</a>
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Chrome" data-name="webdriver::capabilities::chrome">
+      <a href="../Webdriver/Capabilities/Chrome.html">Chrome</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Firefox" data-name="webdriver::capabilities::firefox">
+      <a href="../Webdriver/Capabilities/Firefox.html">Firefox</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Proxy" data-name="webdriver::capabilities::proxy">
+      <a href="../Webdriver/Capabilities/Proxy.html">Proxy</a>
+      
+    </li>
+  
+  <li class=" " data-id="webdriver/Webdriver/Capabilities/Timeouts" data-name="webdriver::capabilities::timeouts">
+      <a href="../Webdriver/Capabilities/Timeouts.html">Timeouts</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -766,6 +791,11 @@
       
     </li>
   
+  <li class=" " data-id="webdriver/Webdriver/SessionNotCreatedException" data-name="webdriver::sessionnotcreatedexception">
+      <a href="../Webdriver/SessionNotCreatedException.html">SessionNotCreatedException</a>
+      
+    </li>
+  
   <li class=" " data-id="webdriver/Webdriver/TimeoutException" data-name="webdriver::timeoutexception">
       <a href="../Webdriver/TimeoutException.html">TimeoutException</a>
       
@@ -868,7 +898,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,capabilities:Capabilities=Capabilities.default(browser))-class-method" class="signature"><strong>.new</strong>(browser : Symbol, *, host = <span class="s">&quot;127.0.0.1&quot;</span>, role = <span class="s">&quot;standalone&quot;</span>, port = <span class="s">&quot;4444&quot;</span>, timeout = <span class="s">&quot;30&quot;</span>, remote = <span class="n">nil</span>, background = <span class="n">true</span>, capabilities : Capabilities = <span class="t">Capabilities</span>.default(browser))</a>
+        <a href="#new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,args:Array(String)?=nil,capabilities:Capabilities::Base=Capabilities::Base.default(browser,args:args))-class-method" class="signature"><strong>.new</strong>(browser : Symbol, *, host = <span class="s">&quot;127.0.0.1&quot;</span>, role = <span class="s">&quot;standalone&quot;</span>, port = <span class="s">&quot;4444&quot;</span>, timeout = <span class="s">&quot;30&quot;</span>, remote = <span class="n">nil</span>, background = <span class="n">true</span>, args : Array(String)? = <span class="n">nil</span>, capabilities : Capabilities::Base = <span class="t">Capabilities</span><span class="t">::</span><span class="t">Base</span>.default(browser, args: args))</a>
         
       </li>
     
@@ -973,12 +1003,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,capabilities:Capabilities=Capabilities.default(browser))-class-method">
+    <div class="entry-detail" id="new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,args:Array(String)?=nil,capabilities:Capabilities::Base=Capabilities::Base.default(browser,args:args))-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(browser : Symbol, *, host = <span class="s">&quot;127.0.0.1&quot;</span>, role = <span class="s">&quot;standalone&quot;</span>, port = <span class="s">&quot;4444&quot;</span>, timeout = <span class="s">&quot;30&quot;</span>, remote = <span class="n">nil</span>, background = <span class="n">true</span>, capabilities : <a href="../Webdriver/Capabilities.html">Capabilities</a> = <span class="t">Capabilities</span>.default(browser))
+        def self.<strong>new</strong>(browser : Symbol, *, host = <span class="s">&quot;127.0.0.1&quot;</span>, role = <span class="s">&quot;standalone&quot;</span>, port = <span class="s">&quot;4444&quot;</span>, timeout = <span class="s">&quot;30&quot;</span>, remote = <span class="n">nil</span>, background = <span class="n">true</span>, args : Array(String)? = <span class="n">nil</span>, capabilities : <a href="../Webdriver/Capabilities/Base.html">Capabilities::Base</a> = <span class="t">Capabilities</span><span class="t">::</span><span class="t">Base</span>.default(browser, args: args))
 
-        <a class="method-permalink" href="#new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,capabilities:Capabilities=Capabilities.default(browser))-class-method">#</a>
+        <a class="method-permalink" href="#new(browser:Symbol,*,host=&quot;127.0.0.1&quot;,role=&quot;standalone&quot;,port=&quot;4444&quot;,timeout=&quot;30&quot;,remote=nil,background=true,args:Array(String)?=nil,capabilities:Capabilities::Base=Capabilities::Base.default(browser,args:args))-class-method">#</a>
       </div>
       
       <br/>
