@@ -58,13 +58,8 @@ module Webdriver
         @id
       end
 
-      def text!
-        id = locate_or_throw_error(true)
-        server.command.get_element_text(id)
-      end
-
-      def text
-        id = locate_or_throw_error
+      def text(force : Bool = false)
+        id = locate_or_throw_error(force)
         server.command.get_element_text(id) 
       end
 

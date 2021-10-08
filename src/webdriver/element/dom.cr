@@ -1,34 +1,30 @@
 module Webdriver
   module Dom
     module Clickable
-      def click
-        server.command.click_element locate_or_throw_error
-      end
-
-      def click!
-        server.command.click_element locate_or_throw_error(true)
+      def click(force : Bool = false)
+        server.command.click_element locate_or_throw_error(force)
       end
     end
 
     module Attributable
-      def attr(name)
-        server.command.get_element_attribute locate_or_throw_error, name
+      def attr(name, force : Bool = false)
+        server.command.get_element_attribute locate_or_throw_error(force), name
       end
     end
 
     module Keyable
-      def send_keys(text)
-        server.command.send_keys_to_element locate_or_throw_error, Hash{ "text" => text }
+      def send_keys(text, force : Bool = false)
+        server.command.send_keys_to_element locate_or_throw_error(force), Hash{ "text" => text }
       end
     end
 
     module Inputable      
-      def value
-        server.command.get_element_property(locate_or_throw_error, "value")
+      def value(force : Bool = false)
+        server.command.get_element_property(locate_or_throw_error(force), "value")
       end
 
-      def set(text)
-        send_keys text
+      def set(text, force : Bool = false)
+        send_keys text, force: force
       end
     end
 

@@ -5,4 +5,5 @@ module Webdriver
   class UnexpectedAlertException < Exception; end
   class UnknownException < Exception; end
   class SessionNotCreatedException < Exception; end
+  class StaleElementReferenceException < Exception; end
 end
