@@ -86,6 +86,9 @@ module Webdriver
       )
       end
 
+      protected def options_value(json : JSON::Builder)
+      end
+
       def to_json(json : JSON::Builder)
         json.object do
           json.field "capabilities" do 
@@ -158,7 +161,7 @@ module Webdriver
         self
       end
 
-      def options_value(json : JSON::Builder)
+      protected def options_value(json : JSON::Builder)
         json.object do 
           json.field "binary", @bin_path.to_s if @bin_path
           json.field "args", @args if @args
