@@ -23,14 +23,22 @@ module Webdriver
       getter :server, :context
       
       @@node : String = "*"
-      @xpath : String
+      @locator_value : String
+      @locator_by : String
       @context : Browser | Element
       @server : Server
 
       @id : String?
 
       def initialize(@context, @server, element_id : String? = nil, **locator)
-        @xpath = translate_locator(context, **locator)
+        if locator.has_key?(:css)
+          @locator_by = "css selector"
+          raise "CSS Locator must have a valid value" unless locator[:css]? && locator[:css]?.try { |css| css.is_a?(String) }
+          @locator_value = "#{locator[:css]?}"
+        else
+          @locator_by = "xpath"
+          @locator_value = translate_locator(context, **locator)
+        end
         @id = element_id
       end
       
@@ -42,10 +50,10 @@ module Webdriver
         ctx = context
         return @id unless @id.nil? || force
         if ctx.is_a? Browser
-          @id = server.command.find_element(using: "xpath", value: @xpath).as_h.values.first.as_s
+          @id = server.command.find_element(using: @locator_by, value: @locator_value).as_h.values.first.as_s
         else
           parent_id = ctx.locate_or_throw_error(force)
-          @id = server.command.find_element_from_element(parent_id, using: "xpath", value: @xpath).as_h.values.first.as_s
+          @id = server.command.find_element_from_element(parent_id, using: @locator_by, value: @locator_value).as_h.values.first.as_s
         end
         @id
       end
@@ -84,25 +92,33 @@ module Webdriver
       include Enumerable(T)
 
       @@node : String = "*"
-      @xpath : String
+      @locator_value : String
+      @locator_by : String
       @located : Bool = false
       @ids : Array(String) = [] of String
       getter :server, :context
 
       def initialize(@context : Browser | Element, @server : Server, **locator)
-        @xpath = translate_locator(@context, **locator)
+        if locator.has_key?(:css)
+          @locator_by = "css selector"
+          raise "CSS Locator must have a valid value" unless locator[:css]? && locator[:css]?.try { |css| css.is_a?(String) }
+          @locator_value = "#{locator[:css]?}"
+        else
+          @locator_by = "xpath"
+          @locator_value = translate_locator(context, **locator)
+        end
       end
 
       def locate(force : Bool = false)
         ctx = @context
         return @ids unless !@located || force
         if ctx.is_a? Browser
-          @ids = server.command.find_elements(using: "xpath", value: @xpath).as_a.map do |json_hash|
+          @ids = server.command.find_elements(using: @locator_by, value: @locator_value).as_a.map do |json_hash|
             json_hash.as_h.values.first.as_s
           end
         else
           parent_id = ctx.locate_or_throw_error(force)
-          @ids = server.command.find_elements_from_element(parent_id, using: "xpath", value: @xpath).as_a.map do |json_hash|
+          @ids = server.command.find_elements_from_element(parent_id, using: @locator_by, value: @locator_value).as_a.map do |json_hash|
             json_hash.as_h.values.first.as_s
           end
         end
@@ -110,9 +126,19 @@ module Webdriver
         @ids
       end
 
+      def [](index)
+        locate
+        raise "No element at #{index} idx" unless @ids[index]?
+        @locator_by === "css selector" ? T.new(@context, @server, @ids[index], css: @locator_value, index: index) : T.new(@context, @server, @ids[index], xpath: @locator_value, index: index)
+      end
+
       def each
         locate.each_with_index do |id, idx|
-          yield T.new(@context, @server, id, xpath: @xpath, index: idx)
+          if @locator_by === "css selector"
+            yield T.new(@context, @server, id, css: @locator_value, index: idx)
+          else
+            yield T.new(@context, @server, id, xpath: @locator_value, index: idx)
+          end
         end
       end
 

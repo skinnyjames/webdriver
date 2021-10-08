@@ -4,6 +4,8 @@ require "http/server"
 
 PORT = 8083
 
+SERVER_URL = "http://localhost:#{PORT}"
+
 class TestServer
 
   @@server : HTTP::Server?
@@ -48,7 +50,7 @@ def with_browser(page, &block)
   else
     browser = Webdriver::Browser.start(:chrome)
   end
-  browser.goto "http://localhost:#{PORT}/#{page}"
+  browser.goto "#{SERVER_URL}/#{page}"
   begin
     yield browser
   ensure
