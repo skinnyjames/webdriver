@@ -3,15 +3,15 @@ require "../spec_helper"
 describe Webdriver do
   describe "navigation" do 
     it "should perform basic navigation" do 
-      with_browser("basic.html") do |browser|
-        browser.goto "https://www.google.com" 
-        browser.url.should eq("https://www.google.com/")
+      with_browser("windows/window_one.html") do |browser|
+        browser.goto "#{SERVER_URL}/windows/window_two.html"
+        browser.url.should eq("#{SERVER_URL}/windows/window_two.html")
         browser.back
-        browser.title.should eq("Basic")
+        browser.title.should eq("Window 1")
         browser.forward
-        browser.url.should eq("https://www.google.com/")
+        browser.title.should eq("Window 2")
         browser.refresh
-        browser.url.should eq("https://www.google.com/")
+        browser.title.should eq("Window 2")
       end
     end
   end

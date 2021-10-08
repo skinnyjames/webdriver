@@ -49,9 +49,10 @@ module Webdriver
       define_element_method abbr, Dom::Abbr
       define_element_method figure, Dom::Figure
       define_element_method caption, Dom::FigureCaption
+      define_element_method table, Dom::Table
       define_element_method thead, Dom::TableHeader
       define_element_method tr, Dom::TableRow
-      define_element_method th, Dom::TableHeader
+      define_element_method th, Dom::TableHead
       define_element_method tfoot, Dom::TableFooter
       define_element_method td, Dom::TableDefinition
       define_element_method address, Dom::AddressField
@@ -70,6 +71,7 @@ module Webdriver
       define_element_method input, Dom::Input
       define_element_method text_field, Dom::TextField, type: "text"
       define_element_method password_field, Dom::PasswordField, type: "password"
+      define_element_method button, Dom::Button
     end
   end
 end

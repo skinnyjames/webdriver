@@ -61,6 +61,7 @@ module Webdriver
         raise UnexpectedAlertException.new(error["message"].as_s) if error["error"]? == "unexpected alert open"
         raise UnknownException.new(error["message"].as_s) if error["error"]? == "unknown error"
         raise SessionNotCreatedException.new(error["message"].as_s) if error["error"]? == "session not created"
+        raise StaleElementReferenceException.new(error["message"].as_s) if error["error"]? == "stale element reference"
       end
     end
   

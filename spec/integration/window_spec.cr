@@ -3,21 +3,21 @@ require "../spec_helper"
 describe Webdriver do 
   describe "windows" do 
     it "should handle windows/tabs" do 
-      with_browser("basic.html") do |browser|
+      with_browser("windows/window_one.html") do |browser|
         first_tab = browser.windows[0]
         second_tab = browser.windows.new
         browser.use(second_tab)
-        browser.goto "https://www.google.com"
+        browser.goto "#{SERVER_URL}/windows/window_two.html"
         third_tab = browser.windows.new
         browser.use(third_tab)
-        browser.goto "https://www.yahoo.com"
-        browser.url.should eq "https://www.yahoo.com/"
+        browser.goto "#{SERVER_URL}/windows/window_three.html"
+        browser.title.should eq "Window 3"
         browser.close(third_tab)
-        browser.url.should eq "https://www.google.com/"
+        browser.title.should eq "Window 2"
         browser.use(first_tab)
-        browser.title.should eq "Basic"
+        browser.title.should eq "Window 1"
         browser.close(first_tab)
-        browser.url.should eq "https://www.google.com/"
+        browser.title.should eq "Window 2"
       end
     end
   end
