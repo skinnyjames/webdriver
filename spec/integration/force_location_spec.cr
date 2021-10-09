@@ -5,7 +5,7 @@ describe Webdriver do
         header = browser.header
         header.text.should eq("Header text")
         browser.goto "#{SERVER_URL}/duplicate/twin_two.html"
-        expect_raises(Webdriver::StaleElementReferenceException) do 
+        expect_raises(Webdriver::Command::StaleElementReferenceException) do 
           header.text
         end
         header.text(force: true).should eq("Nested header text")
@@ -17,7 +17,7 @@ describe Webdriver do
         second_li = browser.lis[1]
         second_li.text.should eq("First li text")
         browser.goto "#{SERVER_URL}/duplicate/twin_two.html"
-        expect_raises(Webdriver::StaleElementReferenceException) do 
+        expect_raises(Webdriver::Command::StaleElementReferenceException) do 
           second_li.text
         end
         second_li.text(force: true).should eq("Second li text")
