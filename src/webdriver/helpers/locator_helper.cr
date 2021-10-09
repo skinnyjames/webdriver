@@ -59,7 +59,7 @@ module Webdriver
         if lexer.start_anchor
           lexer.ignore_case ? "text()[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "text()[starts-with(normalize-space(.),'#{content}')]"
         elsif lexer.end_anchor
-          lexer.ignore_case ? "[ends-with(normalize-space(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "[ends-with(normalize-space(text()),'#{content}')]"
+          lexer.ignore_case ? "substring(normalize-space(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), string-length(normalize-space(translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))) - string-length('#{content.downcase}') + 1) = '#{content.downcase}'" : "substring(normalize-space(text()), string-length(normalize-space(text())) - string-length('#{content}' + 1)) = '#{content}'"
         else
           lexer.ignore_case ? "text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')]" : "text()[contains(., '#{content}')]"
         end
@@ -67,7 +67,7 @@ module Webdriver
         if lexer.start_anchor
           lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
         elsif lexer.end_anchor
-          lexer.ignore_case ? "@#{key})[ends-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[ends-with(normalize-space(.),'#{content}')]"
+          lexer.ignore_case ? "@#{key}[substring(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), string-length(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))) - string-length('#{content.downcase}') + 1) = '#{content.downcase}']" : "@#{key}[substring(normalize-space(.), string-length(normalize-space(.)) - string-length('#{content}' + 1)) = '#{content}']"
         else
           lexer.ignore_case ? "contains(translate(@#{key},'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')" : "contains(@#{key}, '#{content}')"
         end

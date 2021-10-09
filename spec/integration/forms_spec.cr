@@ -19,6 +19,8 @@ describe Webdriver do
         select_list = browser.select_list
         select_list.select(/TWO/i)
         select_list.value.should eq("two")
+        browser.radio(id: /IO-1$/i).attr("id").should eq("radio-1")
+        browser.radio(id: /io-1$/).attr("id").should eq("radio-1")
       end
     end
   end

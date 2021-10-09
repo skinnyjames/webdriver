@@ -54,6 +54,8 @@ describe Webdriver do
         browser.address.text.should eq("Address text")
         browser.form.text.should eq("Form text")
         browser.legend.text.should eq("Legend text")
+        browser.form(visible_text: /text$/i).text.should eq("Form text")
+        browser.form(visible_text: /text$/).text.should eq("Form text")
       end
     end
   end
