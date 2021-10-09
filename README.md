@@ -6,6 +6,14 @@
 
 Implementation of a W3C compliant Webdriver client in Crystal, inspired by Watir
 
+## Why Selenium + Crystal?
+
+When doing e2e testing, it is often advantageous to perform arrangement on the server by
+interacting with databases and apis.  This library captializes on crystal's strengths by delivering a Watir like solution to 
+interact with w3c compliant browsers in your e2e tests.
+
+webdriver is in beta, feature requests are welcome and appreciated.
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
@@ -18,7 +26,9 @@ Implementation of a W3C compliant Webdriver client in Crystal, inspired by Watir
 
 2. Run `shards install`
 
-## Usage
+## Basic Usage
+
+for more advanced usage, see the wiki and the api documentation
 
 ```crystal
 require "webdriver"
@@ -55,11 +65,11 @@ currently in wip
 * [ ] actions
 * [X] user prompts
 * [X] screen capture
-* [ ] print
+* [X] print
 
 ### Browsers
-* [ ] chrome
-* [ ] firefox
+* [/] chrome
+* [/] firefox
 
 ## Contributing
 
