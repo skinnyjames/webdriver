@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="webdriver">
-  <title>Webdriver::Dom::P - webdriver forms</title>
+  <title>Webdriver::Dom::Checkboxs - webdriver forms</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -276,7 +276,7 @@
       
     </li>
   
-  <li class=" " data-id="webdriver/Webdriver/Dom/Checkboxs" data-name="webdriver::dom::checkboxs">
+  <li class=" current" data-id="webdriver/Webdriver/Dom/Checkboxs" data-name="webdriver::dom::checkboxs">
       <a href="../../Webdriver/Dom/Checkboxs.html">Checkboxs</a>
       
     </li>
@@ -571,7 +571,7 @@
       
     </li>
   
-  <li class=" current" data-id="webdriver/Webdriver/Dom/P" data-name="webdriver::dom::p">
+  <li class=" " data-id="webdriver/Webdriver/Dom/P" data-name="webdriver::dom::p">
       <a href="../../Webdriver/Dom/P.html">P</a>
       
     </li>
@@ -880,12 +880,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Webdriver::Dom::P
+  <span class="kind">class</span> Webdriver::Dom::Checkboxs
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Webdriver/Dom/P.html">Webdriver::Dom::P</a></li><li class="superclass"><a href="../../Webdriver/Dom/HtmlElement.html">Webdriver::Dom::HtmlElement</a></li><li class="superclass"><a href="../../Webdriver/Dom/Element.html">Webdriver::Dom::Element</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Webdriver/Dom/Checkboxs.html">Webdriver::Dom::Checkboxs</a></li><li class="superclass"><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Checkbox.html">Webdriver::Dom::Checkbox</a>)</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -913,7 +913,7 @@
   </h2>
   
     
-      <a href="https://github.com/skinnyjames/selenium_webdriver/blob/61651d05fead458f88770cced3aced58fca1f600/src/webdriver/element.cr#L165" target="_blank">
+      <a href="https://github.com/skinnyjames/selenium_webdriver/blob/61651d05fead458f88770cced3aced58fca1f600/src/webdriver/element.cr#L204" target="_blank">
         webdriver/element.cr
       </a>
     
@@ -923,6 +923,23 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(context:Browser%7CElement,server:Server,**locator)-class-method" class="signature"><strong>.new</strong>(context : Browser | Element, server : Server, **locator)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -936,108 +953,51 @@
   
     
 
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../../Webdriver/Dom/Attributable.html">Webdriver::Dom::Attributable</a></code></h3>
+  <h3>Instance methods inherited from class <code><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Checkbox.html">Webdriver::Dom::Checkbox</a>)</code></h3>
   
   
-    <a href="../../Webdriver/Dom/Attributable.html#attr(name,force:Bool=false)-instance-method" class="tooltip">
-      <span>attr(name, force : Bool = <span class="n">false</span>)</span>
-    attr</a>
+    <a href="../../Webdriver/Dom/ElementCollection.html#[](index)-instance-method" class="tooltip">
+      <span>[](index)</span>
+    []</a>, 
     
   
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../../Webdriver/Dom/Waitable.html">Webdriver::Dom::Waitable</a></code></h3>
-  
-  
-    <a href="../../Webdriver/Dom/Waitable.html#wait_until(interval:Float64=0.5,timeout:Int32=60,&)-instance-method" class="tooltip">
-      <span>wait_until(interval : Float64 = <span class="n">0.5</span>, timeout : Int32 = <span class="n">60</span>, &)</span>
-    wait_until</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../../Webdriver/Dom/Clickable.html">Webdriver::Dom::Clickable</a></code></h3>
-  
-  
-    <a href="../../Webdriver/Dom/Clickable.html#click(force:Bool=false)-instance-method" class="tooltip">
-      <span>click(force : Bool = <span class="n">false</span>)</span>
-    click</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from class <code><a href="../../Webdriver/Dom/Element.html">Webdriver::Dom::Element</a></code></h3>
-  
-  
-    <a href="../../Webdriver/Dom/Element.html#context:Webdriver::Browser%7CWebdriver::Dom::Element-instance-method" class="tooltip">
-      <span>context : Webdriver::Browser | Webdriver::Dom::Element</span>
+    <a href="../../Webdriver/Dom/ElementCollection.html#context-instance-method" class="tooltip">
+      <span>context</span>
     context</a>, 
     
   
-    <a href="../../Webdriver/Dom/Element.html#screenshot-instance-method" class="tooltip">
-      <span>screenshot</span>
-    screenshot</a>, 
+    <a href="../../Webdriver/Dom/ElementCollection.html#each(&)-instance-method" class="tooltip">
+      <span>each(&)</span>
+    each</a>, 
     
   
-    <a href="../../Webdriver/Dom/Element.html#server:Webdriver::Server-instance-method" class="tooltip">
-      <span>server : Webdriver::Server</span>
-    server</a>, 
-    
-  
-    <a href="../../Webdriver/Dom/Element.html#text(force:Bool=false)-instance-method" class="tooltip">
-      <span>text(force : Bool = <span class="n">false</span>)</span>
-    text</a>
+    <a href="../../Webdriver/Dom/ElementCollection.html#server-instance-method" class="tooltip">
+      <span>server</span>
+    server</a>
     
   
 
 
     
 
-  <h3>Constructor methods inherited from class <code><a href="../../Webdriver/Dom/Element.html">Webdriver::Dom::Element</a></code></h3>
+  <h3>Constructor methods inherited from class <code><a href="../../Webdriver/Dom/ElementCollection.html">Webdriver::Dom::ElementCollection</a>(<a href="../../Webdriver/Dom/Checkbox.html">Webdriver::Dom::Checkbox</a>)</code></h3>
   
   
-    <a href="../../Webdriver/Dom/Element.html#new(context,server,element_id:String?=nil,**locator)-class-method" class="tooltip">
-      <span>new(context, server, element_id : String? = <span class="n">nil</span>, **locator)</span>
+    <a href="../../Webdriver/Dom/ElementCollection.html#new(context:Browser%7CElement,server:Server,**locator)-class-method" class="tooltip">
+      <span>new(context : Browser | Element, server : Server, **locator)</span>
     new</a>
     
   
+
+
+    
+
+
+  
+    
+
+
+    
 
 
     
@@ -1590,6 +1550,32 @@
   
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(context:Browser|Element,server:Server,**locator)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(context : <a href="../../Webdriver/Browser.html">Browser</a> | <a href="../../Webdriver/Dom/Element.html">Element</a>, server : <a href="../../Webdriver/Server.html">Server</a>, **locator)
+
+        <a class="method-permalink" href="#new(context:Browser%7CElement,server:Server,**locator)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/skinnyjames/selenium_webdriver/blob/61651d05fead458f88770cced3aced58fca1f600/src/webdriver/element.cr#L96" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
