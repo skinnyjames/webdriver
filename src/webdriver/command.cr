@@ -24,6 +24,25 @@ module Webdriver
     
     @session_id : String?
 
+    macro generate_error_handling(klass_map)
+      {% for k, v in klass_map %}
+        class {{ v }} < Exception; end
+      {% end %}
+
+      private def handle_error(body)
+        if body["value"]? && body["value"].as_h? && body["value"]["error"]?
+          error = body["value"]
+          {% begin %}
+            case error["error"]?
+              {% for k, v in klass_map %}
+              when {{k}} then raise {{v}}.new(error["message"].as_s)
+              {% end %}
+            end
+          {% end %}
+        end
+      end
+    end
+
     def initialize(@base_url : String)
     end
 
@@ -52,18 +71,37 @@ module Webdriver
       get_value_from_response HTTP::Client.post("#{session_url}/#{path}", body: body)
     end
 
-    private def handle_error(body)
-      if body["value"]? && body["value"].as_h? && body["value"]["error"]?
-        error = body["value"]
-        raise InvalidSelectorException.new(error["message"].as_s) if error["error"]? == "invalid selector"
-        raise ElementNotFoundException.new(error["message"].as_s) if error["error"]? == "no such element"
-        raise InvalidArgumentException.new(error["message"].as_s) if error["error"]? == "invalid argument"
-        raise UnexpectedAlertException.new(error["message"].as_s) if error["error"]? == "unexpected alert open"
-        raise UnknownException.new(error["message"].as_s) if error["error"]? == "unknown error"
-        raise SessionNotCreatedException.new(error["message"].as_s) if error["error"]? == "session not created"
-        raise StaleElementReferenceException.new(error["message"].as_s) if error["error"]? == "stale element reference"
-      end
-    end
+    generate_error_handling(
+    {
+      "invalid selector" => InvalidSelectorException,
+      "no such element" => ElementNotFoundException,
+      "invalid argument" => InvalidArgumentException,
+      "unexpected alert open" => UnexpectedAlertException,
+      "unknown error" => UnknownException,
+      "session not created" => SessionNotCreatedException,
+      "stale element reference" => StaleElementReferenceException,
+      "element click intercepted" => ElementClickInterceptedException,
+      "element not interactable" => ElementNotInteractableException,
+      "insecure certificate" => InsecureCertificateException,
+      "invalid cookie domain" => InvalidCookieDomainException,
+      "invalid element state" => InvalidElementStateException,
+      "invalid session id" => InvalidSessionIdException,
+      "javascript error" => JavascriptException,
+      "move target out of bounds" => TargetOutOfBoundsException,
+      "no such alert" => AlertNotFoundException,
+      "no such cookie" => CookieNotFoundException,
+      "no such frame" => FrameNotFoundException,
+      "no such window" => WindowNotFoundException,
+      "no such shadow root" => ShadowRootNotFoundException,
+      "script timeout" => ScriptTimeoutException,
+      "detached shadow root" => ShadowRootDetachedException,
+      "timeout" => TimeoutException,
+      "unable to set cookie" => UnableToSetCookieException,
+      "unable to capture sreen" => UnableToCaptureScreenException,
+      "unknown command" => UnknownCommandException,
+      "unknown method" => UnknownMethodException,
+      "unsupported operation" => UnsupportedOperationException
+    })
   
     private def empty_body
       JSON.build do |json|

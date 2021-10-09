@@ -46,7 +46,7 @@ module Webdriver
         server.command.capture_element_screenshot(locate_or_throw_error).as_s
       end
 
-      def locate(force : Bool = false)
+      protected def locate(force : Bool = false)
         ctx = context
         return @id unless @id.nil? || force
         if ctx.is_a? Browser
@@ -104,7 +104,7 @@ module Webdriver
         end
       end
 
-      def locate(force : Bool = false)
+      protected def locate(force : Bool = false)
         ctx = @context
         return @ids unless !@located || force
         if ctx.is_a? Browser
@@ -197,10 +197,11 @@ module Webdriver
     register_html_element Fieldset, "fieldset"
     register_html_element Legend, "legend"
     register_html_element Label, "label"
-    register_html_element SelectList, "select"
-    register_html_element SelectOption, "option"
-    register_html_element Radio, "input"
+    register_html_element SelectList, "select", [Selectable]
+    register_html_element SelectOption, "option", [Choosable]
+    register_html_element Radio, "input", [Radioable]
 
+    register_html_element Checkbox, "input", [Checkable]
     register_html_element Input, "input"
     register_html_element Button, "button"
     register_html_element TextField, "input", [Keyable, Inputable]
