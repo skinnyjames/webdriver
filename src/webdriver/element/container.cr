@@ -68,6 +68,7 @@ module Webdriver
       define_element_method select_list, Dom::SelectList
       define_element_method option, Dom::SelectOption
       define_element_method radio, Dom::Radio, type: "radio"
+      define_element_method checkbox, Dom::Checkbox, type: "checkbox"
       define_element_method input, Dom::Input
       define_element_method text_field, Dom::TextField, type: "text"
       define_element_method password_field, Dom::PasswordField, type: "password"
