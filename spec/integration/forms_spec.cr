@@ -7,6 +7,8 @@ describe Webdriver do
         text_field = browser.form.text_field(id: /first-name/i)
         text_field.set("Sean")
         text_field.value.should eq("Sean")
+        text_field.set :backspace, [:shift, "N"]
+        text_field.value.should eq("SeaN")
         checkbox = browser.checkbox(id: "like-blue")
         checkbox.checked?.should eq(false)
         checkbox.check
