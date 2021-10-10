@@ -82,8 +82,6 @@ module Webdriver
       numpad_delete: "\ue05D"
     }
 
-    alias KeyType = Array(String | Symbol | KeyType)
-
     def self.[](key : Symbol) : String
       return KEYS[key] if KEYS[key]
       
