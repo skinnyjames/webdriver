@@ -35,14 +35,12 @@ require "webdriver"
 
 browser = Webdriver::Browser.start :chrome
 browser.goto "https://www.google.com"
-browser.url # => https://www.google.com
-browser.goto "https://www.yahoo.com"
-browser.back
-browser.refresh
-browser.maximize
-window = browser.windows.new
-browser.use(window)
-browser.close(window)
+
+search = browser.text_field(title: /search/i)
+search.set("Crystal lang webdriver")
+search.blur
+browser.inputs(value: /Google Search/)[1].wait_until(&.click)
+
 browser.quit
 ```
 
