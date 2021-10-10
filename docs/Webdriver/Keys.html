@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="webdriver">
-  <title>Webdriver::Browser - webdriver wip-dev</title>
+  <title>Webdriver::Keys - webdriver wip-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -61,7 +61,7 @@
       
     </li>
   
-  <li class=" current" data-id="webdriver/Webdriver/Browser" data-name="webdriver::browser">
+  <li class=" " data-id="webdriver/Webdriver/Browser" data-name="webdriver::browser">
       <a href="../Webdriver/Browser.html">Browser</a>
       
     </li>
@@ -946,7 +946,7 @@
       
     </li>
   
-  <li class=" " data-id="webdriver/Webdriver/Keys" data-name="webdriver::keys">
+  <li class=" current" data-id="webdriver/Webdriver/Keys" data-name="webdriver::keys">
       <a href="../Webdriver/Keys.html">Keys</a>
       
     </li>
@@ -1035,43 +1035,17 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Webdriver::Browser
+  <span class="kind">module</span> Webdriver::Keys
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Webdriver/Browser.html">Webdriver::Browser</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
 
 
 
-
-
-  <h2>
-    <a id="included-modules" class="anchor" href="#included-modules">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Included Modules
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../Webdriver/Alerts.html">Webdriver::Alerts</a></li>
-    
-      <li class="other-type"><a href="../Webdriver/BrowserNavigation.html">Webdriver::BrowserNavigation</a></li>
-    
-      <li class="other-type"><a href="../Webdriver/BrowserWindow.html">Webdriver::BrowserWindow</a></li>
-    
-      <li class="other-type"><a href="../Webdriver/Cookies.html">Webdriver::Cookies</a></li>
-    
-      <li class="other-type"><a href="../Webdriver/Document.html">Webdriver::Document</a></li>
-    
-      <li class="other-type"><a href="../Webdriver/Dom/Container.html">Webdriver::Dom::Container</a></li>
-    
-  </ul>
 
 
 
@@ -1092,31 +1066,37 @@
   </h2>
   
     
-      webdriver/server.cr
+      webdriver/key.cr
     
     <br/>
   
 
 
 
-
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
+      Constant Summary
+    </h2>
+  
+  <dl>
     
-      <li class="entry-summary">
-        <a href="#new(server:Server)-class-method" class="signature"><strong>.new</strong>(server : Server)</a>
-        
-      </li>
+      <dt class="entry-const" id="KEYS">
+        <strong>KEYS</strong> = <code>{null: <span class="s">&quot;&quot;</span>, cancel: <span class="s">&quot;&quot;</span>, help: <span class="s">&quot;&quot;</span>, backspace: <span class="s">&quot;&quot;</span>, tab: <span class="s">&quot;&quot;</span>, clear: <span class="s">&quot;&quot;</span>, <span class="k">return</span>: <span class="s">&quot;&quot;</span>, enter: <span class="s">&quot;&quot;</span>, shift: <span class="s">&quot;&quot;</span>, left_shift: <span class="s">&quot;&quot;</span>, control: <span class="s">&quot;&quot;</span>, left_control: <span class="s">&quot;&quot;</span>, alt: <span class="s">&quot;&quot;</span>, left_alt: <span class="s">&quot;&quot;</span>, pause: <span class="s">&quot;&quot;</span>, escape: <span class="s">&quot;&quot;</span>, space: <span class="s">&quot;&quot;</span>, page_up: <span class="s">&quot;&quot;</span>, page_down: <span class="s">&quot;&quot;</span>, <span class="k">end</span>: <span class="s">&quot;&quot;</span>, home: <span class="s">&quot;&quot;</span>, left: <span class="s">&quot;&quot;</span>, arrow_left: <span class="s">&quot;&quot;</span>, up: <span class="s">&quot;&quot;</span>, arrow_up: <span class="s">&quot;&quot;</span>, right: <span class="s">&quot;&quot;</span>, arrow_right: <span class="s">&quot;&quot;</span>, down: <span class="s">&quot;&quot;</span>, arrow_down: <span class="s">&quot;&quot;</span>, insert: <span class="s">&quot;&quot;</span>, delete: <span class="s">&quot;&quot;</span>, semicolon: <span class="s">&quot;&quot;</span>, equals: <span class="s">&quot;&quot;</span>, numpad0: <span class="s">&quot;&quot;</span>, numpad1: <span class="s">&quot;&quot;</span>, numpad2: <span class="s">&quot;&quot;</span>, numpad3: <span class="s">&quot;&quot;</span>, numpad4: <span class="s">&quot;&quot;</span>, numpad5: <span class="s">&quot;&quot;</span>, numpad6: <span class="s">&quot;&quot;</span>, numpad7: <span class="s">&quot;&quot;</span>, numpad8: <span class="s">&quot;&quot;</span>, numpad9: <span class="s">&quot;&quot;</span>, multiply: <span class="s">&quot;&quot;</span>, add: <span class="s">&quot;&quot;</span>, separator: <span class="s">&quot;&quot;</span>, subtract: <span class="s">&quot;&quot;</span>, decimal: <span class="s">&quot;&quot;</span>, divide: <span class="s">&quot;&quot;</span>, f1: <span class="s">&quot;&quot;</span>, f2: <span class="s">&quot;&quot;</span>, f3: <span class="s">&quot;&quot;</span>, f4: <span class="s">&quot;&quot;</span>, f5: <span class="s">&quot;&quot;</span>, f6: <span class="s">&quot;&quot;</span>, f7: <span class="s">&quot;&quot;</span>, f8: <span class="s">&quot;&quot;</span>, f9: <span class="s">&quot;&quot;</span>, f10: <span class="s">&quot;&quot;</span>, f11: <span class="s">&quot;&quot;</span>, f12: <span class="s">&quot;&quot;</span>, meta: <span class="s">&quot;&quot;</span>, command: <span class="s">&quot;&quot;</span>, left_meta: <span class="s">&quot;&quot;</span>, right_shift: <span class="s">&quot;&quot;</span>, right_control: <span class="s">&quot;&quot;</span>, right_alt: <span class="s">&quot;&quot;</span>, right_meta: <span class="s">&quot;&quot;</span>, numpad_page_up: <span class="s">&quot;&quot;</span>, numpad_page_down: <span class="s">&quot;&quot;</span>, numpad_end: <span class="s">&quot;&quot;</span>, numpad_home: <span class="s">&quot;&quot;</span>, numpad_left: <span class="s">&quot;&quot;</span>, numpad_up: <span class="s">&quot;&quot;</span>, numpad_right: <span class="s">&quot;&quot;</span>, numpad_down: <span class="s">&quot;&quot;</span>, numpad_insert: <span class="s">&quot;&quot;</span>, numpad_delete: <span class="s">&quot;&quot;</span>}</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>hoisted from selenium</p>
+      </dd>
+      
     
-  </ul>
+  </dl>
+
+
 
 
 
@@ -1131,65 +1111,23 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#start(browser=:chrome,**opts)-class-method" class="signature"><strong>.start</strong>(browser = <span class="n">:chrome</span>, **opts)</a>
+        <a href="#[](key:Symbol):String-class-method" class="signature"><strong>.[]</strong>(key : Symbol) : String</a>
         
-          <div class="summary"><p>starts the <em>browser</em> browser with options</p></div>
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encode(keys)-class-method" class="signature"><strong>.encode</strong>(keys)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#encode_key(key)-class-method" class="signature"><strong>.encode_key</strong>(key)</a>
         
       </li>
     
   </ul>
 
 
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#close(window:Window)-instance-method" class="signature"><strong>#close</strong>(window : Window)</a>
-        
-          <div class="summary"><p>closes <em>window</em>:</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#quit-instance-method" class="signature"><strong>#quit</strong></a>
-        
-          <div class="summary"><p>stops the browser session</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#screenshot-instance-method" class="signature"><strong>#screenshot</strong></a>
-        
-          <div class="summary"><p>takes a screenshot</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#server:Webdriver::Server-instance-method" class="signature"><strong>#server</strong> : Webdriver::Server</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#use(window:Window)-instance-method" class="signature"><strong>#use</strong>(window : Window)</a>
-        
-          <div class="summary"><p>switches context to the <em>window</em></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#windows:Webdriver::Windows-instance-method" class="signature"><strong>#windows</strong> : Webdriver::Windows</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -1197,751 +1135,8 @@
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/Dom/Container.html">Webdriver::Dom::Container</a></code></h3>
-  
-  
-    <a href="../Webdriver/Dom/Container.html#abbr(**locator)-instance-method" class="tooltip">
-      <span>abbr(**locator)</span>
-    abbr</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#abbrs(**locator)-instance-method" class="tooltip">
-      <span>abbrs(**locator)</span>
-    abbrs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#address(**locator)-instance-method" class="tooltip">
-      <span>address(**locator)</span>
-    address</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#addresss(**locator)-instance-method" class="tooltip">
-      <span>addresss(**locator)</span>
-    addresss</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#article(**locator)-instance-method" class="tooltip">
-      <span>article(**locator)</span>
-    article</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#articles(**locator)-instance-method" class="tooltip">
-      <span>articles(**locator)</span>
-    articles</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#blockquote(**locator)-instance-method" class="tooltip">
-      <span>blockquote(**locator)</span>
-    blockquote</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#blockquotes(**locator)-instance-method" class="tooltip">
-      <span>blockquotes(**locator)</span>
-    blockquotes</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#body(**locator)-instance-method" class="tooltip">
-      <span>body(**locator)</span>
-    body</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#bodys(**locator)-instance-method" class="tooltip">
-      <span>bodys(**locator)</span>
-    bodys</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#button(**locator)-instance-method" class="tooltip">
-      <span>button(**locator)</span>
-    button</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#buttons(**locator)-instance-method" class="tooltip">
-      <span>buttons(**locator)</span>
-    buttons</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#caption(**locator)-instance-method" class="tooltip">
-      <span>caption(**locator)</span>
-    caption</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#captions(**locator)-instance-method" class="tooltip">
-      <span>captions(**locator)</span>
-    captions</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#checkbox(**locator)-instance-method" class="tooltip">
-      <span>checkbox(**locator)</span>
-    checkbox</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#checkboxs(**locator)-instance-method" class="tooltip">
-      <span>checkboxs(**locator)</span>
-    checkboxs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#code(**locator)-instance-method" class="tooltip">
-      <span>code(**locator)</span>
-    code</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#codes(**locator)-instance-method" class="tooltip">
-      <span>codes(**locator)</span>
-    codes</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dd(**locator)-instance-method" class="tooltip">
-      <span>dd(**locator)</span>
-    dd</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dds(**locator)-instance-method" class="tooltip">
-      <span>dds(**locator)</span>
-    dds</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#div(**locator)-instance-method" class="tooltip">
-      <span>div(**locator)</span>
-    div</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#divs(**locator)-instance-method" class="tooltip">
-      <span>divs(**locator)</span>
-    divs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dl(**locator)-instance-method" class="tooltip">
-      <span>dl(**locator)</span>
-    dl</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dls(**locator)-instance-method" class="tooltip">
-      <span>dls(**locator)</span>
-    dls</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dt(**locator)-instance-method" class="tooltip">
-      <span>dt(**locator)</span>
-    dt</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#dts(**locator)-instance-method" class="tooltip">
-      <span>dts(**locator)</span>
-    dts</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#element(**locator)-instance-method" class="tooltip">
-      <span>element(**locator)</span>
-    element</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#elements(**locator)-instance-method" class="tooltip">
-      <span>elements(**locator)</span>
-    elements</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#fieldset(**locator)-instance-method" class="tooltip">
-      <span>fieldset(**locator)</span>
-    fieldset</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#fieldsets(**locator)-instance-method" class="tooltip">
-      <span>fieldsets(**locator)</span>
-    fieldsets</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#figure(**locator)-instance-method" class="tooltip">
-      <span>figure(**locator)</span>
-    figure</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#figures(**locator)-instance-method" class="tooltip">
-      <span>figures(**locator)</span>
-    figures</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#footer(**locator)-instance-method" class="tooltip">
-      <span>footer(**locator)</span>
-    footer</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#footers(**locator)-instance-method" class="tooltip">
-      <span>footers(**locator)</span>
-    footers</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#form(**locator)-instance-method" class="tooltip">
-      <span>form(**locator)</span>
-    form</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#forms(**locator)-instance-method" class="tooltip">
-      <span>forms(**locator)</span>
-    forms</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h1(**locator)-instance-method" class="tooltip">
-      <span>h1(**locator)</span>
-    h1</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h1s(**locator)-instance-method" class="tooltip">
-      <span>h1s(**locator)</span>
-    h1s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h2(**locator)-instance-method" class="tooltip">
-      <span>h2(**locator)</span>
-    h2</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h2s(**locator)-instance-method" class="tooltip">
-      <span>h2s(**locator)</span>
-    h2s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h3(**locator)-instance-method" class="tooltip">
-      <span>h3(**locator)</span>
-    h3</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h3s(**locator)-instance-method" class="tooltip">
-      <span>h3s(**locator)</span>
-    h3s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h4(**locator)-instance-method" class="tooltip">
-      <span>h4(**locator)</span>
-    h4</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h4s(**locator)-instance-method" class="tooltip">
-      <span>h4s(**locator)</span>
-    h4s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h5(**locator)-instance-method" class="tooltip">
-      <span>h5(**locator)</span>
-    h5</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h5s(**locator)-instance-method" class="tooltip">
-      <span>h5s(**locator)</span>
-    h5s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h6(**locator)-instance-method" class="tooltip">
-      <span>h6(**locator)</span>
-    h6</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#h6s(**locator)-instance-method" class="tooltip">
-      <span>h6s(**locator)</span>
-    h6s</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#header(**locator)-instance-method" class="tooltip">
-      <span>header(**locator)</span>
-    header</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#headers(**locator)-instance-method" class="tooltip">
-      <span>headers(**locator)</span>
-    headers</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#img(**locator)-instance-method" class="tooltip">
-      <span>img(**locator)</span>
-    img</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#imgs(**locator)-instance-method" class="tooltip">
-      <span>imgs(**locator)</span>
-    imgs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#input(**locator)-instance-method" class="tooltip">
-      <span>input(**locator)</span>
-    input</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#inputs(**locator)-instance-method" class="tooltip">
-      <span>inputs(**locator)</span>
-    inputs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#label(**locator)-instance-method" class="tooltip">
-      <span>label(**locator)</span>
-    label</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#labels(**locator)-instance-method" class="tooltip">
-      <span>labels(**locator)</span>
-    labels</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#legend(**locator)-instance-method" class="tooltip">
-      <span>legend(**locator)</span>
-    legend</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#legends(**locator)-instance-method" class="tooltip">
-      <span>legends(**locator)</span>
-    legends</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#li(**locator)-instance-method" class="tooltip">
-      <span>li(**locator)</span>
-    li</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#link(**locator)-instance-method" class="tooltip">
-      <span>link(**locator)</span>
-    link</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#links(**locator)-instance-method" class="tooltip">
-      <span>links(**locator)</span>
-    links</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#lis(**locator)-instance-method" class="tooltip">
-      <span>lis(**locator)</span>
-    lis</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#nav(**locator)-instance-method" class="tooltip">
-      <span>nav(**locator)</span>
-    nav</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#navs(**locator)-instance-method" class="tooltip">
-      <span>navs(**locator)</span>
-    navs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#ol(**locator)-instance-method" class="tooltip">
-      <span>ol(**locator)</span>
-    ol</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#ols(**locator)-instance-method" class="tooltip">
-      <span>ols(**locator)</span>
-    ols</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#option(**locator)-instance-method" class="tooltip">
-      <span>option(**locator)</span>
-    option</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#options(**locator)-instance-method" class="tooltip">
-      <span>options(**locator)</span>
-    options</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#p(**locator)-instance-method" class="tooltip">
-      <span>p(**locator)</span>
-    p</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#password_field(**locator)-instance-method" class="tooltip">
-      <span>password_field(**locator)</span>
-    password_field</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#password_fields(**locator)-instance-method" class="tooltip">
-      <span>password_fields(**locator)</span>
-    password_fields</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#pre(**locator)-instance-method" class="tooltip">
-      <span>pre(**locator)</span>
-    pre</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#pres(**locator)-instance-method" class="tooltip">
-      <span>pres(**locator)</span>
-    pres</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#progress(**locator)-instance-method" class="tooltip">
-      <span>progress(**locator)</span>
-    progress</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#progresss(**locator)-instance-method" class="tooltip">
-      <span>progresss(**locator)</span>
-    progresss</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#ps(**locator)-instance-method" class="tooltip">
-      <span>ps(**locator)</span>
-    ps</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#radio(**locator)-instance-method" class="tooltip">
-      <span>radio(**locator)</span>
-    radio</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#radios(**locator)-instance-method" class="tooltip">
-      <span>radios(**locator)</span>
-    radios</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#section(**locator)-instance-method" class="tooltip">
-      <span>section(**locator)</span>
-    section</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#sections(**locator)-instance-method" class="tooltip">
-      <span>sections(**locator)</span>
-    sections</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#select_list(**locator)-instance-method" class="tooltip">
-      <span>select_list(**locator)</span>
-    select_list</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#select_lists(**locator)-instance-method" class="tooltip">
-      <span>select_lists(**locator)</span>
-    select_lists</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#small(**locator)-instance-method" class="tooltip">
-      <span>small(**locator)</span>
-    small</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#smalls(**locator)-instance-method" class="tooltip">
-      <span>smalls(**locator)</span>
-    smalls</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#span(**locator)-instance-method" class="tooltip">
-      <span>span(**locator)</span>
-    span</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#spans(**locator)-instance-method" class="tooltip">
-      <span>spans(**locator)</span>
-    spans</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#table(**locator)-instance-method" class="tooltip">
-      <span>table(**locator)</span>
-    table</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#tables(**locator)-instance-method" class="tooltip">
-      <span>tables(**locator)</span>
-    tables</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#td(**locator)-instance-method" class="tooltip">
-      <span>td(**locator)</span>
-    td</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#tds(**locator)-instance-method" class="tooltip">
-      <span>tds(**locator)</span>
-    tds</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#text_field(**locator)-instance-method" class="tooltip">
-      <span>text_field(**locator)</span>
-    text_field</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#text_fields(**locator)-instance-method" class="tooltip">
-      <span>text_fields(**locator)</span>
-    text_fields</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#tfoot(**locator)-instance-method" class="tooltip">
-      <span>tfoot(**locator)</span>
-    tfoot</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#tfoots(**locator)-instance-method" class="tooltip">
-      <span>tfoots(**locator)</span>
-    tfoots</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#th(**locator)-instance-method" class="tooltip">
-      <span>th(**locator)</span>
-    th</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#thead(**locator)-instance-method" class="tooltip">
-      <span>thead(**locator)</span>
-    thead</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#theads(**locator)-instance-method" class="tooltip">
-      <span>theads(**locator)</span>
-    theads</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#ths(**locator)-instance-method" class="tooltip">
-      <span>ths(**locator)</span>
-    ths</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#tr(**locator)-instance-method" class="tooltip">
-      <span>tr(**locator)</span>
-    tr</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#trs(**locator)-instance-method" class="tooltip">
-      <span>trs(**locator)</span>
-    trs</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#ul(**locator)-instance-method" class="tooltip">
-      <span>ul(**locator)</span>
-    ul</a>, 
-    
-  
-    <a href="../Webdriver/Dom/Container.html#uls(**locator)-instance-method" class="tooltip">
-      <span>uls(**locator)</span>
-    uls</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/Alerts.html">Webdriver::Alerts</a></code></h3>
-  
-  
-    <a href="../Webdriver/Alerts.html#accept_alert-instance-method" class="tooltip">
-      <span>accept_alert</span>
-    accept_alert</a>, 
-    
-  
-    <a href="../Webdriver/Alerts.html#alert-instance-method" class="tooltip">
-      <span>alert</span>
-    alert</a>, 
-    
-  
-    <a href="../Webdriver/Alerts.html#alert=(text:String)-instance-method" class="tooltip">
-      <span>alert=(text : String)</span>
-    alert=</a>, 
-    
-  
-    <a href="../Webdriver/Alerts.html#dismiss_alert-instance-method" class="tooltip">
-      <span>dismiss_alert</span>
-    dismiss_alert</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/Cookies.html">Webdriver::Cookies</a></code></h3>
-  
-  
-    <a href="../Webdriver/Cookies.html#add_cookie(cookie:HTTP::Cookie)-instance-method" class="tooltip">
-      <span>add_cookie(cookie : HTTP::Cookie)<br/>add_cookie(**opts)</span>
-    add_cookie</a>, 
-    
-  
-    <a href="../Webdriver/Cookies.html#add_cookies(cookies:Array(HTTP::Cookie))-instance-method" class="tooltip">
-      <span>add_cookies(cookies : Array(HTTP::Cookie))</span>
-    add_cookies</a>, 
-    
-  
-    <a href="../Webdriver/Cookies.html#cookies-instance-method" class="tooltip">
-      <span>cookies</span>
-    cookies</a>, 
-    
-  
-    <a href="../Webdriver/Cookies.html#delete_all_cookies-instance-method" class="tooltip">
-      <span>delete_all_cookies</span>
-    delete_all_cookies</a>, 
-    
-  
-    <a href="../Webdriver/Cookies.html#delete_cookie(cookie:Webdriver::Cookie)-instance-method" class="tooltip">
-      <span>delete_cookie(cookie : Webdriver::Cookie)<br/>delete_cookie(name : String)</span>
-    delete_cookie</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/Document.html">Webdriver::Document</a></code></h3>
-  
-  
-    <a href="../Webdriver/Document.html#execute_script(script,*args)-instance-method" class="tooltip">
-      <span>execute_script(script, *args)</span>
-    execute_script</a>, 
-    
-  
-    <a href="../Webdriver/Document.html#html-instance-method" class="tooltip">
-      <span>html</span>
-    html</a>, 
-    
-  
-    <a href="../Webdriver/Document.html#pdf(**opts)-instance-method" class="tooltip">
-      <span>pdf(**opts)</span>
-    pdf</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/BrowserWindow.html">Webdriver::BrowserWindow</a></code></h3>
-  
-  
-    <a href="../Webdriver/BrowserWindow.html#fullscreen-instance-method" class="tooltip">
-      <span>fullscreen</span>
-    fullscreen</a>, 
-    
-  
-    <a href="../Webdriver/BrowserWindow.html#maximize-instance-method" class="tooltip">
-      <span>maximize</span>
-    maximize</a>, 
-    
-  
-    <a href="../Webdriver/BrowserWindow.html#minimize-instance-method" class="tooltip">
-      <span>minimize</span>
-    minimize</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../Webdriver/BrowserNavigation.html">Webdriver::BrowserNavigation</a></code></h3>
-  
-  
-    <a href="../Webdriver/BrowserNavigation.html#back-instance-method" class="tooltip">
-      <span>back</span>
-    back</a>, 
-    
-  
-    <a href="../Webdriver/BrowserNavigation.html#forward-instance-method" class="tooltip">
-      <span>forward</span>
-    forward</a>, 
-    
-  
-    <a href="../Webdriver/BrowserNavigation.html#goto(url:String)-instance-method" class="tooltip">
-      <span>goto(url : String)</span>
-    goto</a>, 
-    
-  
-    <a href="../Webdriver/BrowserNavigation.html#refresh-instance-method" class="tooltip">
-      <span>refresh</span>
-    refresh</a>, 
-    
-  
-    <a href="../Webdriver/BrowserNavigation.html#title-instance-method" class="tooltip">
-      <span>title</span>
-    title</a>, 
-    
-  
-    <a href="../Webdriver/BrowserNavigation.html#url-instance-method" class="tooltip">
-      <span>url</span>
-    url</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(server:Server)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(server : <a href="../Webdriver/Server.html">Server</a>)
-
-        <a class="method-permalink" href="#new(server:Server)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
@@ -1954,18 +1149,41 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="start(browser=:chrome,**opts)-class-method">
+    <div class="entry-detail" id="[](key:Symbol):String-class-method">
       <div class="signature">
         
-        def self.<strong>start</strong>(browser = <span class="n">:chrome</span>, **opts)
+        def self.<strong>[]</strong>(key : Symbol) : String
 
-        <a class="method-permalink" href="#start(browser=:chrome,**opts)-class-method">#</a>
+        <a class="method-permalink" href="#[](key:Symbol):String-class-method">#</a>
       </div>
       
-        <div class="doc">
-          
-          <p>starts the <em>browser</em> browser with options</p>
-        </div>
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encode(keys)-class-method">
+      <div class="signature">
+        
+        def self.<strong>encode</strong>(keys)
+
+        <a class="method-permalink" href="#encode(keys)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="encode_key(key)-class-method">
+      <div class="signature">
+        
+        def self.<strong>encode_key</strong>(key)
+
+        <a class="method-permalink" href="#encode_key(key)-class-method">#</a>
+      </div>
       
       <br/>
       <div>
@@ -1975,124 +1193,6 @@
   
 
 
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="close(window:Window)-instance-method">
-      <div class="signature">
-        
-        def <strong>close</strong>(window : <a href="../Webdriver/Window.html">Window</a>)
-
-        <a class="method-permalink" href="#close(window:Window)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>closes <em>window</em>:</p>
-
-<p>will try to switch the previous window/tab:</p>
-
-<p>if there is only one window, closing it will quit the browser</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="quit-instance-method">
-      <div class="signature">
-        
-        def <strong>quit</strong>
-
-        <a class="method-permalink" href="#quit-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>stops the browser session</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="screenshot-instance-method">
-      <div class="signature">
-        
-        def <strong>screenshot</strong>
-
-        <a class="method-permalink" href="#screenshot-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>takes a screenshot</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="server:Webdriver::Server-instance-method">
-      <div class="signature">
-        
-        def <strong>server</strong> : <a href="../Webdriver/Server.html">Webdriver::Server</a>
-
-        <a class="method-permalink" href="#server:Webdriver::Server-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="use(window:Window)-instance-method">
-      <div class="signature">
-        
-        def <strong>use</strong>(window : <a href="../Webdriver/Window.html">Window</a>)
-
-        <a class="method-permalink" href="#use(window:Window)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>switches context to the <em>window</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="windows:Webdriver::Windows-instance-method">
-      <div class="signature">
-        
-        def <strong>windows</strong> : <a href="../Webdriver/Windows.html">Webdriver::Windows</a>
-
-        <a class="method-permalink" href="#windows:Webdriver::Windows-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 

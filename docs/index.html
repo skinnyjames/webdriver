@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="forms">
+<meta name="crystal_docs.project_version" content="wip-dev">
 <meta name="crystal_docs.project_name" content="webdriver">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="webdriver">
-  <title>webdriver forms</title>
+  <title>webdriver wip-dev</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        forms
+        wip-dev
       </span>
     </div>
   </div>
@@ -946,6 +946,11 @@
       
     </li>
   
+  <li class=" " data-id="webdriver/Webdriver/Keys" data-name="webdriver::keys">
+      <a href="Webdriver/Keys.html">Keys</a>
+      
+    </li>
+  
   <li class=" " data-id="webdriver/Webdriver/LocatorHelper" data-name="webdriver::locatorhelper">
       <a href="Webdriver/LocatorHelper.html">LocatorHelper</a>
       
@@ -1040,6 +1045,18 @@
 
 <p>Implementation of a W3C compliant Webdriver client in Crystal, inspired by Watir</p>
 
+<h2><a id="why-selenium-crystal" class="anchor" href="#why-selenium-crystal">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Why Selenium + Crystal?</h2>
+
+<p>When doing e2e testing, it is often advantageous to perform arrangement on the server by
+interacting with databases and apis.  This library captializes on crystal's strengths by delivering a Watir like solution to 
+interact with w3c compliant browsers in your e2e tests.</p>
+
+<p>webdriver is in beta, feature requests are welcome and appreciated.</p>
+
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -1058,24 +1075,24 @@
 
 <ol><li>Run <code>shards install</code></li></ol>
 
-<h2><a id="usage" class="anchor" href="#usage">
+<h2><a id="basic-usage" class="anchor" href="#basic-usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Usage</h2>
+</a>Basic Usage</h2>
+
+<p>for more advanced usage, see the wiki and the api documentation</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;webdriver&quot;</span>
 
 browser <span class="o">=</span> <span class="t">Webdriver</span><span class="t">::</span><span class="t">Browser</span>.start <span class="n">:chrome</span>
 browser.goto <span class="s">&quot;https://www.google.com&quot;</span>
-browser.url <span class="c"># =&gt; https://www.google.com</span>
-browser.goto <span class="s">&quot;https://www.yahoo.com&quot;</span>
-browser.back
-browser.refresh
-browser.maximize
-window <span class="o">=</span> browser.windows.<span class="k">new</span>
-browser.use(window)
-browser.close(window)
+
+search <span class="o">=</span> browser.text_field(title: <span class="s">/search/</span>i)
+search.set(<span class="s">&quot;Crystal lang webdriver&quot;</span>)
+search.blur
+browser.inputs(aria_label: <span class="s">/Google Search/</span>)[<span class="n">1</span>].wait_until(<span class="o">&amp;</span>.click)
+
 browser.quit</code></pre>
 
 <h2><a id="development" class="anchor" href="#development">
@@ -1098,7 +1115,7 @@ browser.quit</code></pre>
   </svg>
 </a>Webdriver protocol</h3>
 
-<ul><li>[x] session</li><li>[x] navigation</li><li>[/] windows</li><ul><li>[x] window actions</li><li>[x] window sizing</li><li>[ ] frames </li></ul><li>[/] elements</li><li>[X] document</li><li>[X] cookies</li><li>[ ] actions</li><li>[X] user prompts</li><li>[X] screen capture</li><li>[ ] print</li></ul>
+<ul><li>[x] session</li><li>[x] navigation</li><li>[/] windows</li><ul><li>[x] window actions</li><li>[x] window sizing</li><li>[ ] frames </li></ul><li>[/] elements</li><li>[X] document</li><li>[X] cookies</li><li>[ ] actions</li><li>[X] user prompts</li><li>[X] screen capture</li><li>[X] print</li></ul>
 
 <h3><a id="browsers" class="anchor" href="#browsers">
   <svg class="octicon-link" aria-hidden="true">
@@ -1106,7 +1123,7 @@ browser.quit</code></pre>
   </svg>
 </a>Browsers</h3>
 
-<ul><li>[ ] chrome</li><li>[ ] firefox</li></ul>
+<ul><li>[/] chrome</li><li>[/] firefox</li></ul>
 
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
