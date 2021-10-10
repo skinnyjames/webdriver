@@ -39,7 +39,7 @@ browser.goto "https://www.google.com"
 search = browser.text_field(title: /search/i)
 search.set("Crystal lang webdriver")
 search.blur
-browser.inputs(value: /Google Search/)[1].wait_until(&.click)
+browser.inputs(aria_label: /Google Search/)[1].wait_until(&.click)
 
 browser.quit
 ```
