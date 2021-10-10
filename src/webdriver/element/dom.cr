@@ -1,3 +1,5 @@
+require "../key"
+
 module Webdriver
   module Dom
     module Checkable
@@ -75,8 +77,8 @@ module Webdriver
     end
 
     module Keyable
-      def send_keys(text, force : Bool = false)
-        server.command.send_keys_to_element locate_or_throw_error(force), Hash{ "text" => text }
+      def send_keys(*keys, force : Bool = false)
+        server.command.send_keys_to_element locate_or_throw_error(force), Hash{ "text" => Keys.encode(keys) }
       end
     end
 
@@ -85,8 +87,8 @@ module Webdriver
         server.command.get_element_property(locate_or_throw_error(force), "value")
       end
 
-      def set(text, force : Bool = false)
-        send_keys text, force: force
+      def set(*keys, force : Bool = false)
+        send_keys *keys, force: force
       end
     end
 
