@@ -17,7 +17,7 @@ module Webdriver
       end
 
       def tokenize
-        @scanner.scan /(?<start>\^)?(?<content>[a-zA-Z\-0-9]*)(?<end>\$$)?/
+        @scanner.scan /(?<start>\^)?(?<content>[a-zA-Z\-\s0-9]*)(?<end>\$$)?/
         @start_anchor = !!@scanner["start"]? 
         @end_anchor = !!@scanner["end"]?
         @content = sanitize_content @scanner["content"]?
@@ -36,8 +36,8 @@ module Webdriver
       paths = locator.map do |key, value|
         if key == :xpath
           nil
-        elsif key == :index && value.is_a? Int32
-          convert_index_to_xpath(key, value)
+        elsif key == :index
+          nil
         else
           value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
         end

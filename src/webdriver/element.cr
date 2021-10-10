@@ -1,7 +1,7 @@
 require "./helpers/locator_helper"
 require "./element/container"
 require "./element/dom"
-
+require "./document"
 module Webdriver
   module Dom
     macro register_html_element(class_name, node, mixins=[] of Dom)
@@ -19,6 +19,8 @@ module Webdriver
 
     class Element
       include Container
+
+      ELEMENT_KEY = "element-6066-11e4-a52e-4f735466cecf"
       
       getter :server, :context
       
@@ -65,13 +67,19 @@ module Webdriver
 
       protected def translate_locator(context : Element | Browser, **locator) : String
         if locator.has_key?(:xpath)
-          return "#{locator[:xpath]?}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          xpath =  "#{locator[:xpath]?}"
+          xpath = "(#{xpath})[#{locator[:index]?.try { |idx| idx + 1 }}]" if locator.has_key?(:index)
+          return xpath
         end
         if context.is_a? Browser
-          locator.empty? ? "//#{@@node}" : "//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          xpath = "//#{@@node}"
+          xpath = "#{xpath}[#{LocatorHelper.convert_all_to_xpath(**locator)}]" if !locator.empty? && (!locator[:index]? || locator.keys.size > 1) 
         else
-          locator.empty? ? ".//#{@@node}" : ".//#{@@node}[#{LocatorHelper.convert_all_to_xpath(**locator)}]"
+          xpath = ".//#{@@node}"
+          xpath = "#{xpath}[#{LocatorHelper.convert_all_to_xpath(**locator)}]" if !locator.empty? && (!locator[:index]? || locator.keys.size > 1)
         end
+        xpath = "(#{xpath})[#{locator[:index]?.try { |idx| idx + 1 }}]" if locator.has_key?(:index)
+        xpath
       end
 
       protected def locate_or_throw_error(force : Bool = false) : String
@@ -150,6 +158,18 @@ module Webdriver
       include Clickable
       include Waitable
       include Attributable
+      include Webdriver::Document
+
+      def blur(force : Bool = false)
+        js = <<-JS
+          return (
+            function blur() {
+              return arguments[0].blur()
+            }
+          ).apply(null, arguments)
+        JS
+        execute_script js, { ELEMENT_KEY => locate_or_throw_error(force: force) }
+      end
     end
 
     register_html_element Body, "body"
