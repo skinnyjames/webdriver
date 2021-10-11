@@ -69,6 +69,7 @@ module Webdriver
     include Cookies
     include Alerts
     include Dom::Container
+    include Dom::Actable
 
     getter :server, :windows
 

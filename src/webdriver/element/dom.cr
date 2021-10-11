@@ -1,7 +1,15 @@
 require "../key"
+require "../actions"
 
 module Webdriver
   module Dom
+    module Actable
+      def act
+        builder = yield Actions::ActionBuilder.new(server)
+        server.command.perform_action builder
+      end
+    end
+    
     module Checkable
       def checked?(force : Bool = false) : Bool
         server.command.get_element_selected(locate_or_throw_error(force)).as_bool
