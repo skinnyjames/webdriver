@@ -3,6 +3,7 @@ module Webdriver
     module BrowserScrollable
       def scroll_to(position : Symbol = :center, force : Bool = false)
         execute_script browser_scroll(position)
+        self
       end
 
       private def browser_scroll(position)
@@ -20,6 +21,7 @@ module Webdriver
     module ElementScrollable
       def scroll_to(position : Symbol = :center, force : Bool = false)
         execute_script element_scroll(position), { Webdriver::ELEMENT_KEY => locate_or_throw_error(force)}
+        self
       end
 
       private def element_scroll(position)
