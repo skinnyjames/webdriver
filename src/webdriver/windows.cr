@@ -1,12 +1,7 @@
 require "./command"
+require "./element/rect"
 
 module Webdriver
-  struct WindowRect
-    property :width, :height, :x, :y
-    def initialize(@width : Int32, @height : Int32, @x : Int32, @y : Int32)
-    end
-  end
-
   struct Window
     getter :handle, :type
     def initialize(@handle : String, @type : Symbol = :tab)
@@ -31,15 +26,11 @@ module Webdriver
     end
 
     def size
-      sizing = command.get_window_rect
-      width = sizing["width"].as_i
-      height = sizing["height"].as_i
-      x = sizing["x"].as_i
-      y = sizing["y"].as_i
-      WindowRect.new(width: width, height: height, x: x, y: y)
+      sizing = command.get_window_rect.as_h
+      Rect.from_size(sizing)
     end
 
-    def resize(rect : WindowRect)
+    def resize(rect : Rect)
       command.set_window_rect(rect)
     end 
 

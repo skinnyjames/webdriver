@@ -1,5 +1,6 @@
 require "uuid"
 require "./key"
+require "./element"
 
 module Webdriver
   module Actions
@@ -50,11 +51,11 @@ module Webdriver
 
 
     class PointerAction < Action
-      def self.up(button, duration : Time::Span = 1.seconds)
+      def self.up(button, duration : Time::Span = 0.seconds)
         new("pointerUp", button, duration)
       end
 
-      def self.down(button, duration : Time::Span = 1.seconds)
+      def self.down(button, duration : Time::Span = 0.seconds)
         new("pointerDown", button, duration)
       end
 
@@ -78,22 +79,67 @@ module Webdriver
       end
     end
 
+    struct Origin      
+      def initialize(@type : String, @id : String? = nil)
+      end
+
+      def to_json(json : JSON::Builder)
+        if @type === "element"
+          json.object do 
+            json.field Webdriver::ELEMENT_KEY, @id
+          end
+        else
+          json.string @type
+        end
+      end
+    end
+
+    class WheelAction < Action
+      
+      getter name = "scroll"
+
+      def self.from_viewport(x, y, delta_x : Int32 = 0, delta_y : Int32 = 0, duration : Time::Span=0.seconds)
+        new(x, y, Origin.new("viewport"), delta_x: delta_x, delta_y: delta_y, duration: duration)
+      end
+
+      def self.from_element(x, y, id, delta_x : Int32 = 0, delta_y : Int32 = 0, duration : Time::Span=0.seconds)
+        new(x, y, Origin.new("element", id), delta_x: delta_x, delta_y: delta_y, duration: duration)
+      end
+
+      def initialize(@x : Int32, @y : Int32, @origin : Origin, @delta_x : Int32, @delta_y : Int32, @duration : Time::Span=0.seconds)
+      end
+
+      def to_json(json : JSON::Builder)
+        json.object do 
+          json.field "type", name
+          json.field "x", @x.to_i
+          json.field "y", @y.to_i
+          json.field "deltaX", @delta_x
+          json.field "deltaY", @delta_y
+          json.field "duration", @duration.total_milliseconds.to_i
+          json.field "origin" do 
+            @origin.to_json(json)
+          end
+        end
+      end
+    end
+
     class PointerMoveAction < Action
       getter name = "pointerMove"
 
       def self.from_viewport(x, y, duration)
-        new(x, y, duration, "viewport")
+        new(x, y, duration, Origin.new("viewport"))
       end
 
       def self.from_pointer(x, y, duration)
-        new(x, y, duration, "pointer")
+        new(x, y, duration, Origin.new("pointer"))
       end
 
       def self.from_element(x, y, duration, element)
-        new(x, y, duration, element)
+        new(x, y, duration, Origin.new("element", element))
       end
 
-      def initialize(@x : Float64, @y : Float64, @duration : Time::Span, @origin : Webdriver::Element | String)
+      def initialize(@x : Int32, @y : Int32, @duration : Time::Span, @origin : Origin)
       end
 
       def to_json(json : JSON::Builder)
@@ -102,13 +148,11 @@ module Webdriver
           json.field "duration", @duration.total_milliseconds.to_i
           json.field "x", @x
           json.field "y", @y
-          #json.field "origin", @origin
+          json.field "origin" do 
+            @origin.to_json(json)
+          end
         end
       end
-    end
-
-    class PointerCancelAction < PointerAction
-      getter name = "pointerCancel"
     end
 
     class ActionBuilder
@@ -118,7 +162,8 @@ module Webdriver
       def initialize(
         @server : Webdriver::Server, 
         @key_actions : Array(Action) = [] of Action,
-        @pointer_actions : Array(Action) = [] of Action
+        @pointer_actions : Array(Action) = [] of Action,
+        @wheel_actions : Array(Action) = [] of Action
       )
       end
 
@@ -128,41 +173,72 @@ module Webdriver
         self
       end
 
+      def pause(duration : Time::Span = 0.seconds)
+        @key_actions << PauseAction.pause(duration)
+        @pointer_actions << PauseAction.pause(duration)
+        @wheel_actions << PauseAction.pause(duration)
+        self
+      end
+
       def key_down(*keys)
         keys.each do |key|
           @key_actions << KeyboardAction.down(key)
           @pointer_actions << PauseAction.pause(0.seconds)
+          @wheel_actions << PauseAction.pause(0.seconds)
         end
         self
       end
 
       def key_up(*keys)
-        @key_actions.concat keys.map {|key| KeyboardAction.up(key) }
-        self
-      end
-
-      def right_click
+        keys.each do |key|
+          @key_actions << KeyboardAction.up(key)
+          @pointer_actions << PauseAction.pause(0.seconds)
+          @wheel_actions << PauseAction.pause(0.seconds)
+        end
         self
       end
 
       def pointer_down(button)
-        @pointer_actions << PointerAction.down(:right)
+        @pointer_actions << PointerAction.down(button)
         @key_actions << PauseAction.pause(0.seconds)
+        @wheel_actions << PauseAction.pause(0.seconds)
         self
       end
 
-      def pointer_up
-        @pointer_actions << PointerAction.up(:right)
+      def pointer_up(button)
+        @pointer_actions << PointerAction.up(button)
+        @key_actions << PauseAction.pause(0.seconds)
+        @wheel_actions << PauseAction.pause(0.seconds)
         self
       end
 
-      def pointer_move
+      def move_to_element(element)
+        @pointer_actions << PointerMoveAction.from_element(0, 0, 0.seconds, element)
+        @key_actions << PauseAction.pause(0.seconds)
+        @wheel_actions << PauseAction.pause(0.seconds)
+        self
       end
 
-      def pointer_cancel
+      def pointer_move(x, y, from="pointer")
+        if from === "pointer"
+          @pointer_actions << PointerMoveAction.from_pointer(x, y, 0.seconds)
+        else
+          @pointer_actions << PointerMoveAction.from_viewport(x, y, 0.seconds)
+        end
+        @key_actions << PauseAction.pause(0.seconds)
+        @wheel_actions << PauseAction.pause(0.seconds)
+        self
       end
 
-      def scroll
+      def scroll(x, y, delta_x : Int32 = 0, delta_y : Int32 = 0, duration : Time::Span = 0.seconds, element : Bool =  false, id : String? = nil)
+        if !!element && !id.nil?
+          @wheel_actions << WheelAction.from_element(x, y, id, delta_x: delta_x, delta_y: delta_y, duration: duration)
+        else
+          @wheel_actions << WheelAction.from_viewport(x, y,  delta_x: delta_x, delta_y: delta_y, duration: duration)
+        end
+        @key_actions << PauseAction.pause(0.seconds)
+        @pointer_actions << PauseAction.pause(0.seconds)
+        self
       end
 
       def to_json(json : JSON::Builder)
@@ -175,6 +251,15 @@ module Webdriver
                 json.field "actions" do 
                   json.array do 
                     @key_actions.map(&.to_json(json))
+                  end
+                end
+              end
+              json.object do 
+                json.field "type", "wheel"
+                json.field "id", UUID.random.to_s
+                json.field "actions" do 
+                  json.array do 
+                    @wheel_actions.map(&.to_json(json))
                   end
                 end
               end
@@ -195,65 +280,6 @@ module Webdriver
             end
           end
         end
-      end
-    end
-
-    class NullInputSource
-      
-      @type : String = "none"
-
-      def pause
-      end
-
-      def to_json(json : JSON::Builder)
-        json.object do 
-        end
-      end
-    end
-
-
-
-    class KeyInputSource < NullInputSource
-      
-      @type : String = "key"
-      
-      def initialize(*args)
-        @alt = true if args.include?(:alt)
-        @shift = true if args.include?(:shift)
-        @ctrl = true if args.include?(:ctrl)
-        @meta = true if args.include?(:meta)
-      end
-
-      def to_json(json : JSON::Builder)
-        json.object do 
-          json.field "pressed" do
-            json.object do 
-              json.field "alt", @alt
-              json.field "shift", @shift
-              json.field "ctrl", @ctrl
-              json.field "meta", @meta
-            end
-          end
-        end
-      end
-    end
-
-    class PointerInputSource < NullInputSource
-      def pointer_down
-      end
-
-      def pointer_up
-      end
-
-      def pointer_move
-      end
-
-      def pointer_cancel
-      end
-    end
-
-    class WheelInputSoure < NullInputSource
-      def scroll
       end
     end
   end
