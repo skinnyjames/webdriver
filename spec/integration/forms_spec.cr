@@ -23,6 +23,8 @@ describe Webdriver do
         select_list.value.should eq("two")
         browser.radio(id: /IO-1$/i).attr("id").should eq("radio-1")
         browser.radio(id: /io-1$/).attr("id").should eq("radio-1")
+        browser.textarea.set("Hello stuff")
+        browser.textarea.value.should eq("Hello stuff")
       end
     end
   end

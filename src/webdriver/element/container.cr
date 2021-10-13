@@ -72,6 +72,7 @@ module Webdriver
       define_element_method input, Dom::Input
       define_element_method text_field, Dom::TextField, type: "text"
       define_element_method password_field, Dom::PasswordField, type: "password"
+      define_element_method textarea, Dom::Textarea
       define_element_method button, Dom::Button
     end
   end
