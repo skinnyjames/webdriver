@@ -17,6 +17,10 @@ module Webdriver
     # `browser.goto "https://www.google.com"`
     def goto(url : String)
       server.command.visit_url(url)
+      if server.debug_mouse
+        js = File.read(File.dirname(__FILE__) + "/js/debug.js")
+        execute_script js
+      end
     end
 
     # get the current url
@@ -69,6 +73,8 @@ module Webdriver
     include Cookies
     include Alerts
     include Dom::Container
+    include Dom::Actable
+    include Dom::BrowserScrollable
 
     getter :server, :windows
 
@@ -122,7 +128,7 @@ module Webdriver
     @@process : Process?
     @remote : String?
 
-    getter :command
+    getter :command, :debug_mouse
 
     def initialize(browser : Symbol, *,
       @host = "127.0.0.1",
@@ -132,6 +138,7 @@ module Webdriver
       @remote = nil,
       @background = true,
       @args : Array(String)? = nil,
+      @debug_mouse : Bool = false,
       @capabilities : Capabilities::Base = Capabilities::Base.default(browser, args: args)
     )
       @browser = browser

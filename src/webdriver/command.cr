@@ -8,6 +8,7 @@ require "./commands/cookies"
 require "./commands/alerts"
 require "./commands/screenshot"
 require "./commands/print"
+require "./commands/actions"
 require "./errors"
 
 module Webdriver
@@ -21,6 +22,7 @@ module Webdriver
     include Commands::Alerts
     include Commands::Screenshot
     include Commands::Print
+    include Commands::Actions
     
     @session_id : String?
 
@@ -67,7 +69,8 @@ module Webdriver
     end
 
     private def make_post_request(path, body = nil)
-      body = body ? body.to_json : empty_body
+      body = empty_body if body.nil?
+      body = body.to_json unless body.is_a? String
       get_value_from_response HTTP::Client.post("#{session_url}/#{path}", body: body)
     end
 

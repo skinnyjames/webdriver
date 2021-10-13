@@ -39,6 +39,7 @@ module Webdriver
         elsif key == :index
           nil
         else
+          key = "#{key}".split("_").join("-") unless key == :visible_text
           value.is_a?(Regex) ? convert_regex_to_xpath(key, value) : convert_string_to_xpath(key, value)
         end
       end.reject(&.nil?).join(" and ")
@@ -64,7 +65,6 @@ module Webdriver
           lexer.ignore_case ? "text()[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), '#{content.downcase}')]" : "text()[contains(., '#{content}')]"
         end
       else 
-        key = "#{key}".split("_").join("-")
         if lexer.start_anchor
           lexer.ignore_case ? "@#{key}[starts-with(normalize-space(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')), '#{content.downcase}')]" : "@#{key}[starts-with(normalize-space(.),'#{content}')]"
         elsif lexer.end_anchor

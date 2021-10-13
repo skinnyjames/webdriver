@@ -2,6 +2,7 @@ require "./helpers/locator_helper"
 require "./element/container"
 require "./element/dom"
 require "./document"
+
 module Webdriver
   module Dom
     macro register_html_element(class_name, node, mixins=[] of Dom)
@@ -19,10 +20,8 @@ module Webdriver
 
     class Element
       include Container
-
-      ELEMENT_KEY = "element-6066-11e4-a52e-4f735466cecf"
       
-      getter :server, :context
+      getter :server, :context, :id
       
       @@node : String = "*"
       @locator_value : String
@@ -159,6 +158,9 @@ module Webdriver
       include Waitable
       include Attributable
       include Webdriver::Document
+      include Actable
+      include ElementScrollable
+      include Sizeable
 
       def blur(force : Bool = false)
         js = <<-JS
@@ -168,7 +170,7 @@ module Webdriver
             }
           ).apply(null, arguments)
         JS
-        execute_script js, { ELEMENT_KEY => locate_or_throw_error(force: force) }
+        execute_script js, { Webdriver::ELEMENT_KEY => locate_or_throw_error(force: force) }
       end
     end
 
@@ -218,7 +220,7 @@ module Webdriver
     register_html_element Legend, "legend"
     register_html_element Label, "label"
     register_html_element SelectList, "select", [Selectable]
-    register_html_element SelectOption, "option", [Choosable]
+    register_html_element SelectOption, "option", [Chooseable]
     register_html_element Radio, "input", [Radioable]
 
     register_html_element Checkbox, "input", [Checkable]
