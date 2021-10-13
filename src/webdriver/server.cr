@@ -76,7 +76,7 @@ module Webdriver
     include Dom::Actable
     include Dom::BrowserScrollable
 
-    getter :server, :windows
+    getter :server
 
     # starts the *browser* browser with options
     def self.start(browser = :chrome, **opts)
@@ -84,8 +84,15 @@ module Webdriver
     end
 
     def initialize(@server : Server)
-      window_handle = current_window_handle
-      @windows = Windows.new([Window.new(window_handle)], command: server.command)
+      @windows = Windows.new([Window.new(current_window_handle)], command: server.command)
+    end
+    
+    def windows
+      handlers = server.command.get_all_window_handles.as_a.map do |handle|
+        Window.new(handle.as_s)
+      end
+      @windows = Windows.new(handlers, command: server.command)
+      @windows
     end
 
     # switches context to the *window*
@@ -101,11 +108,11 @@ module Webdriver
     def close(window : Window)
       use(window)
       server.command.delete_window
-      window_index = windows.index(window)
-      windows.remove(window)
+      window_index = @windows.index(window)
+      @windows.remove(window)
       if window_index
-        switch_to = windows.find_closest_index(window_index)
-        switch_to.nil? ? quit : use(windows[switch_to])
+        switch_to = @windows.find_closest_index(window_index)
+        switch_to.nil? ? quit : use(@windows[switch_to])
       end
     end
 

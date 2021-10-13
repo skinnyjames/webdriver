@@ -10,10 +10,11 @@ module Webdriver
       def dblclick(*keys, force : Bool = false)
         act do |builder|
           builder.key_down(*keys)
-          builder.pointer_down(0.seconds)
-          builder.pointer_up(0.seconds)
-          builder.pointer_down(0.seconds)
-          builder.pointer_up(0.seconds)
+          builder.move_to_element locate_or_throw_error(force)
+          builder.pointer_down(:left)
+          builder.pointer_up(:left)
+          builder.pointer_down(:left)
+          builder.pointer_up(:left)
           builder.key_up(*keys)
         end
       end
