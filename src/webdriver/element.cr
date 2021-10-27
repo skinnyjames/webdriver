@@ -161,6 +161,7 @@ module Webdriver
       include Actable
       include ElementScrollable
       include Sizeable
+      include Presence
 
       def blur(force : Bool = false)
         js = <<-JS

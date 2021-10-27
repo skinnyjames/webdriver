@@ -72,6 +72,10 @@ module Webdriver
       def click_element(element_id : String)
         make_post_request("element/#{element_id}/click")
       end
+
+      def is_element_displayed(element_id : String)
+        make_get_request("element/#{element_id}/displayed")
+      end
     end
   end
 end
