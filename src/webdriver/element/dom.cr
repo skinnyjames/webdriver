@@ -7,6 +7,7 @@ require "./dom/checkable"
 require "./dom/selectable"
 require "./dom/chooseable"
 require "./dom/clickable"
+require "./dom/presence"
 
 module Webdriver
   module Dom
