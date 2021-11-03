@@ -2,10 +2,15 @@
   <head></head>
   <body>
     <div id="element"></div>
+    <div id="while"></div>
     <script>
        setTimeout(() => {
         document.querySelector('div#element').innerHTML = "<h1>Present</h1>"
        }, 1000)
+
+       setTimeout(() => {
+         document.querySelector('div#while').remove()
+       }, 2000)
     </script>
   </body>
 </html>
