@@ -100,6 +100,16 @@ module Webdriver
       server.command.use_window(window.handle)
     end
 
+    # switches context to the *frame*
+    def use(frame : Dom::Frame | Dom::IFrame)
+      server.command.use_frame frame.id
+    end
+
+    # switches context to the parent *frame*
+    def switch_to_parent_frame
+      server.command.use_parent_frame
+    end
+
     # closes *window*:
     #
     # will try to switch the previous window/tab:

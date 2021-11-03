@@ -20,5 +20,16 @@ describe Webdriver do
         browser.title.should eq "Window 2"
       end
     end
+
+    it "should handle frames" do 
+      with_browser("windows/frame.html") do |browser|
+        browser.div(id: "window-2-element").exists?.should eq(false)
+        frame = browser.iframe(id: "window-2")
+        browser.use(frame)
+        browser.div(id: "window-2-element").exists?.should eq(true)
+        browser.switch_to_parent_frame
+        browser.div(id: "window-2-element").exists?.should eq(false)
+      end
+    end
   end
 end
