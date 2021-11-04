@@ -74,6 +74,8 @@ module Webdriver
       define_element_method password_field, Dom::PasswordField, type: "password"
       define_element_method textarea, Dom::Textarea
       define_element_method button, Dom::Button
+      define_element_method frame, Dom::Frame
+      define_element_method iframe, Dom::IFrame
     end
   end
 end

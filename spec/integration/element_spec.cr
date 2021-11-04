@@ -6,7 +6,7 @@ describe Webdriver do
       with_browser("link_start.html") do |browser|
         browser.link.click
         h1 = browser.element(id: "destination")
-        h1.text.should eq "Link Destination" 
+        h1.text.should eq "Link Destination"
       end
     end
   end

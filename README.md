@@ -46,7 +46,7 @@ browser.quit
 
 ## Development
 
-currently in wip
+currently in beta
 
 
 ## Todo
@@ -56,11 +56,11 @@ currently in wip
 * [/] windows
   * [x] window actions
   * [x] window sizing
-  * [ ] frames 
+  * [x] frames 
 * [/] elements
 * [X] document
 * [X] cookies
-* [ ] actions
+* [x] actions
 * [X] user prompts
 * [X] screen capture
 * [X] print

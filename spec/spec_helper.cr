@@ -2,7 +2,7 @@ require "spec"
 require "../src/webdriver"
 require "http/server"
 
-PORT = 8083
+PORT = 8084
 
 SERVER_URL = "http://localhost:#{PORT}"
 

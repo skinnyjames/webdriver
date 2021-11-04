@@ -55,6 +55,12 @@ module Webdriver
           yield element
         end
       end
+
+      def wait_while(interval : Float64 = 0.5, timeout : Int32 = 60, &block)
+        Webdriver::Wait.wait_while(interval, timeout, object: self) do |element|
+          yield element
+        end
+      end
     end
   end
 end

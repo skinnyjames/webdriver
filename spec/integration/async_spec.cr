@@ -17,5 +17,12 @@ describe Webdriver do
         browser.h1.wait_until(&.present?).text.should eq("Present")
       end
     end
+
+    it "should wait while present" do 
+      with_browser("async/present.html") do |browser|
+        browser.div(id: /while/).wait_while(&.present?)
+        browser.h1.text.should eq("Present")
+      end
+    end
   end  
 end

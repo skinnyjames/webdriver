@@ -2,7 +2,8 @@ require "./element"
 module Webdriver
   class TimeoutException < Exception; end
   module Wait
-    def self.wait_while(interval : Float, timeout : Int32, object : Object = nil, &block)
+
+    def self.wait_while(interval : Float, timeout : Int32, object : Object = nil, &block) 
       wait(interval: interval, timeout: timeout, object: object, negate: true) do |object|
         yield object
       end
@@ -22,7 +23,11 @@ module Webdriver
           return object if (negate ? !result : !!result)
         rescue ex : Exception
           Log.info { ex }
-          sleep interval
+          if negate 
+            return object
+          else
+            sleep interval
+          end
         end
       end
       raise TimeoutException.new("timed out after #{timeout}")

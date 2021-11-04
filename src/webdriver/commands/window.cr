@@ -35,7 +35,15 @@ module Webdriver
   
       def get_window_rect
         make_get_request("window/rect")
-      end  
+      end
+
+      def use_frame(id)
+        make_post_request("frame", { id: { Webdriver::ELEMENT_KEY => id } })
+      end
+    
+      def use_parent_frame
+        make_post_request("frame/parent")
+      end
     end
   end
 end
