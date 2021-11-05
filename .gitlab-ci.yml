@@ -1,0 +1,23 @@
+image: "crystallang/crystal:latest"
+
+before_script:
+  - shards install
+
+cache:
+  paths:
+  - lib/
+
+spec & format:
+  script:
+  - crystal spec
+  - crystal tool format --check
+
+pages:
+  stage: deploy
+  script:
+  - crystal docs -o public src/webdriver.cr
+  artifacts:
+    paths:
+    - public
+  only:
+  - wip
