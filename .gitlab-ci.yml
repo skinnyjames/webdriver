@@ -7,10 +7,6 @@ cache:
   paths:
   - lib/
 
-spec & format:
-  script:
-  - crystal spec
-
 pages:
   stage: deploy
   script:
