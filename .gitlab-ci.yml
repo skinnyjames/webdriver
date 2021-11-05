@@ -10,7 +10,6 @@ cache:
 spec & format:
   script:
   - crystal spec
-  - crystal tool format --check
 
 pages:
   stage: deploy
