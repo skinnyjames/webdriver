@@ -21,7 +21,7 @@ webdriver is in beta, feature requests are welcome and appreciated.
    ```yaml
    dependencies:
      webdriver:
-       github: skinnyjames/webdriver
+       gitlab: seanchristophergregory/webdriver
    ```
 
 2. Run `shards install`
@@ -46,28 +46,29 @@ browser.quit
 
 ## Development
 
-currently in wip
+currently in beta
 
 
 ## Todo
 ### Webdriver protocol
 * [x] session
 * [x] navigation
-* [/] windows
+* [x] windows
   * [x] window actions
   * [x] window sizing
-  * [ ] frames 
-* [/] elements
+  * [x] frames 
+* [x] elements
+* [ ] shadow dom
 * [X] document
 * [X] cookies
-* [ ] actions
+* [x] actions
 * [X] user prompts
 * [X] screen capture
 * [X] print
 
 ### Browsers
-* [/] chrome
-* [/] firefox
+* [x] chrome
+* [x] firefox
 
 ## Contributing
 
@@ -79,4 +80,4 @@ currently in wip
 
 ## Contributors
 
-- [Sean Gregory](https://github.com/skinnyjames) - creator and maintainer
+- [Sean Gregory](https://gitlab.com/seanchristophergregory) - creator and maintainer

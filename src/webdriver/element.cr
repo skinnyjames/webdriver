@@ -21,8 +21,8 @@ module Webdriver
     class Element
       include Container
       
-      getter :server, :context, :id
-      
+      getter :server, :context
+
       @@node : String = "*"
       @locator_value : String
       @locator_by : String
@@ -45,6 +45,10 @@ module Webdriver
       
       def screenshot
         server.command.capture_element_screenshot(locate_or_throw_error).as_s
+      end
+
+      def id(force : Bool = false)
+        locate_or_throw_error(force)
       end
 
       protected def locate(force : Bool = false)
@@ -230,5 +234,8 @@ module Webdriver
     register_html_element TextField, "input", [Keyable, Inputable]
     register_html_element Textarea, "textarea", [Keyable, Inputable]
     register_html_element PasswordField, "input"
+
+    register_html_element Frame, "frame"
+    register_html_element IFrame, "iframe"
   end
 end
