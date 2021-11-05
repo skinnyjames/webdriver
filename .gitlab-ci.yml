@@ -9,6 +9,6 @@ pages:
     - jekyll build -d docs
   artifacts:
     paths:
-      - docs
+      - public
   rules:
     - if: '$CI_COMMIT_BRANCH == "wip"'
