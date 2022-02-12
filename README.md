@@ -1,8 +1,8 @@
 # webdriver
 
-[![Build Status](http://drone.skinnyjames.net/api/badges/seanchristophergregory/webdriver/status.svg?ref=refs/heads/wip)](http://drone.skinnyjames.net/seanchristophergregory/webdriver)
+[![Build Status](http://drone.skinnyjames.net/api/badges/skinnyjames/webdriver/status.svg?ref=refs/heads/wip)](http://drone.skinnyjames.net/skinnyjames/webdriver)
 
-[API Documentation](https://seanchristophergregory.gitlab.io/webdriver)
+[API Documentation](https://skinnyjames.gitlab.io/webdriver)
 
 Implementation of a W3C compliant Webdriver client in Crystal, inspired by Watir
 
@@ -21,7 +21,7 @@ webdriver is in beta, feature requests are welcome and appreciated.
    ```yaml
    dependencies:
      webdriver:
-       gitlab: seanchristophergregory/webdriver
+       gitlab: skinnyjames/webdriver
    ```
 
 2. Run `shards install`
@@ -72,7 +72,7 @@ currently in beta
 
 ## Contributing
 
-1. Fork it (<https://gitlab.com/seanchristophergregory/webdriver/-/forks/new>)
+1. Fork it (<https://gitlab.com/skinnyjames/webdriver/-/forks/new>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -80,4 +80,4 @@ currently in beta
 
 ## Contributors
 
-- [Sean Gregory](https://gitlab.com/seanchristophergregory) - creator and maintainer
+- [Sean Gregory](https://gitlab.com/skinnyjames) - creator and maintainer
