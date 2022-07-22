@@ -4,7 +4,7 @@ require "./element"
 
 module Webdriver
   module Actions
-  
+
     abstract class Action
     end
 
@@ -40,27 +40,31 @@ module Webdriver
       getter :name, :value
       def initialize(@name : String, @value : Symbol | String)
       end
-      
+
       def to_json(json : JSON::Builder)
-        json.object do 
+        json.object do
           json.field "type", name
           json.field "value", Keys.encode_key(value)
         end
       end
     end
 
-
+    # Mouse pointer action
     class PointerAction < Action
-      def self.up(button, duration : Time::Span = 0.seconds)
+      # Mouse up
+      # :nodoc:
+      def self.up(button : Symbol, duration : Time::Span = 0.seconds)
         new("pointerUp", button, duration)
       end
 
-      def self.down(button, duration : Time::Span = 0.seconds)
+      # Mouse down
+      # :nodoc:
+      def self.down(button : Symbol, duration : Time::Span = 0.seconds)
         new("pointerDown", button, duration)
       end
 
       def self.[](button)
-        { 
+        {
           left: 1,
           right: 2,
           middle: 3
@@ -71,7 +75,7 @@ module Webdriver
       end
 
       def to_json(json : JSON::Builder)
-        json.object do 
+        json.object do
           json.field "type", @name
           json.field "duration", @duration.total_milliseconds.to_i
           json.field "button", PointerAction[@button]
@@ -79,13 +83,13 @@ module Webdriver
       end
     end
 
-    struct Origin      
+    struct Origin
       def initialize(@type : String, @id : String? = nil)
       end
 
       def to_json(json : JSON::Builder)
         if @type === "element"
-          json.object do 
+          json.object do
             json.field Webdriver::ELEMENT_KEY, @id
           end
         else
@@ -95,7 +99,7 @@ module Webdriver
     end
 
     class WheelAction < Action
-      
+
       getter name = "scroll"
 
       def self.from_viewport(x, y, delta_x : Int32 = 0, delta_y : Int32 = 0, duration : Time::Span=0.seconds)
@@ -110,14 +114,14 @@ module Webdriver
       end
 
       def to_json(json : JSON::Builder)
-        json.object do 
+        json.object do
           json.field "type", name
-          json.field "x", @x.to_i
-          json.field "y", @y.to_i
+          json.field "x", @x
+          json.field "y", @y
           json.field "deltaX", @delta_x
           json.field "deltaY", @delta_y
           json.field "duration", @duration.total_milliseconds.to_i
-          json.field "origin" do 
+          json.field "origin" do
             @origin.to_json(json)
           end
         end
@@ -143,12 +147,12 @@ module Webdriver
       end
 
       def to_json(json : JSON::Builder)
-        json.object do 
+        json.object do
           json.field "type", @name
           json.field "duration", @duration.total_milliseconds.to_i
           json.field "x", @x
           json.field "y", @y
-          json.field "origin" do 
+          json.field "origin" do
             @origin.to_json(json)
           end
         end
@@ -160,7 +164,7 @@ module Webdriver
       getter :key_actions, :pointer_actions
 
       def initialize(
-        @server : Webdriver::Server, 
+        @server : Webdriver::Server,
         @key_actions : Array(Action) = [] of Action,
         @pointer_actions : Array(Action) = [] of Action,
         @wheel_actions : Array(Action) = [] of Action
@@ -168,7 +172,7 @@ module Webdriver
       end
 
       def key_press(*keys)
-        @key_actions.concat 
+        @key_actions.concat
         @key_actions.concat keys.map {|key| }
         self
       end
@@ -242,37 +246,37 @@ module Webdriver
       end
 
       def to_json(json : JSON::Builder)
-        json.object do 
-          json.field "actions" do 
+        json.object do
+          json.field "actions" do
             json.array do
-              json.object do 
+              json.object do
                 json.field "type", "key"
                 json.field "id", UUID.random.to_s
-                json.field "actions" do 
-                  json.array do 
+                json.field "actions" do
+                  json.array do
                     @key_actions.map(&.to_json(json))
                   end
                 end
               end
-              json.object do 
+              json.object do
                 json.field "type", "wheel"
                 json.field "id", UUID.random.to_s
-                json.field "actions" do 
-                  json.array do 
+                json.field "actions" do
+                  json.array do
                     @wheel_actions.map(&.to_json(json))
                   end
                 end
               end
-              json.object do 
+              json.object do
                 json.field "type", "pointer"
                 json.field "id", UUID.random.to_s
-                json.field "parameters" do 
-                  json.object do 
+                json.field "parameters" do
+                  json.object do
                     json.field "pointerType", "mouse"
                   end
                 end
-                json.field "actions" do 
-                  json.array do 
+                json.field "actions" do
+                  json.array do
                     @pointer_actions.map(&.to_json(json))
                   end
                 end
