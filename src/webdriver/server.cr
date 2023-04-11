@@ -83,6 +83,10 @@ module Webdriver
       Server.new(browser, **opts).run!
     end
 
+    def self.stop
+      Server.stop
+    end
+
     def initialize(@server : Server)
       @windows = Windows.new([Window.new(current_window_handle)], command: server.command)
     end
@@ -145,6 +149,12 @@ module Webdriver
     @@process : Process?
     @remote : String?
 
+    def self.stop
+      Log.info { "Shutting down" }
+      @@process.try(&.terminate)
+      @@process = nil
+    end
+
     getter :command, :debug_mouse
 
     def initialize(browser : Symbol, *,
@@ -206,3 +216,4 @@ module Webdriver
     end
   end
 end
+

@@ -39,7 +39,8 @@ end
 
 puts "after spawn"
 
-at_exit do
+Spec.after_suite do
+  Webdriver::Browser.stop
   TestServer.close
 end
 
