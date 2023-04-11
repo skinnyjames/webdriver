@@ -16,10 +16,11 @@ module Webdriver
     end
 
     protected def self.wait(interval : Float, timeout : Int32, object : Object = nil, negate : Bool = false, &block)
-      time = Time.local
-      while (Time.local - time).seconds < timeout
+      time = Time.monotonic
+      while (Time.monotonic - time).total_seconds < timeout
         begin
           result = yield(object)
+
           return object if (negate ? !result : !!result)
         rescue ex : Exception
           Log.info { ex }

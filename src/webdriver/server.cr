@@ -140,6 +140,12 @@ module Webdriver
       server.command.delete_session
     end
 
+    def quit!
+      quit
+
+      Browser.stop
+    end
+
     private def current_window_handle
       server.command.get_window_handle.as_s
     end
@@ -151,7 +157,10 @@ module Webdriver
 
     def self.stop
       Log.info { "Shutting down" }
-      @@process.try(&.terminate)
+      if @@process.try(&.exists?)
+        @@process.try(&.terminate)
+      end
+
       @@process = nil
     end
 
