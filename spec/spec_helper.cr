@@ -1,6 +1,9 @@
 require "spec"
 require "../src/webdriver"
+require "../src/page"
 require "http/server"
+
+include Webdriver::PageFactory
 
 PORT = 8084
 
@@ -43,7 +46,6 @@ Spec.after_suite do
   Webdriver::Browser.stop
   TestServer.close
 end
-
 
 def with_browser(page, &block)
   if ENV["CI"]?

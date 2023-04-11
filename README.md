@@ -39,9 +39,55 @@ browser.goto "https://www.google.com"
 search = browser.text_field(title: /search/i)
 search.set("Crystal lang webdriver")
 search.blur
-browser.inputs(aria_label: /Google Search/)[1].wait_until(&.click)
+browser.input(aria_label: /Google Search/, index: 1).wait_while(&.click)
 
 browser.quit
+```
+
+## Page Object usage
+
+This library exports a module that can be mixed into classes to make page objects.
+
+The mixin exposes macros that create methods on the objects to interact with page elements
+
+```crystal
+require "webdriver"
+require "webdriver/page"
+
+class GooglePage
+  include Webdriver::PageObject
+  
+  textarea(:query, title: /search/i)
+  
+  input(:submit, aria_label: /Google Search/, index: 1)
+
+  def search(term : String) : Nil
+    self.query = term
+    submit_element.wait_while(&.click)
+  end
+end
+
+browser = Webdriver::Browser.start(:chrome)
+page = GooglePage.new(browser)
+
+begin
+  browser.goto "https://www.google.com"
+  page.search("cats")
+ensure 
+  browser.quit
+end
+```
+
+There is also a factory mixin for spec, to reduce boilerplate in instantiating pages.
+
+```crystal
+include Webdriver::PageFactory
+
+with_browser("https://google.com", :chrome) do |browser|
+  on(GooglePage, browser) do |page|
+    page.search("cats")
+  end
+end
 ```
 
 ## Development
