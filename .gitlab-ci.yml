@@ -1,4 +1,4 @@
-image: "crystallang/crystal:latest"
+image: skinnyjames/crystal-chromedriver
 
 before_script:
   - shards install
@@ -8,13 +8,6 @@ cache:
   - lib/
 
 test:
-  variables:
-    CI: "true"
-    LOG_LEVEL: "debug"
-  services:
-    - name: selenium/standalone-chrome:4.0.0-rc-2-20210930
-      alias: selenium
-
   script:
     - crystal spec
   rules:
