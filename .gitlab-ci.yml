@@ -7,6 +7,21 @@ cache:
   paths:
   - lib/
 
+test:
+  variables:
+    CI: "true"
+    LOG_LEVEL: "debug"
+  services:
+    - name: selenium/standalone-chrome:4.0.0-rc-2-20210930
+      alias: selenium
+
+  script:
+    - crystal spec
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+    - when: never
+
 pages:
   stage: deploy
   script:

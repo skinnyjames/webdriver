@@ -47,7 +47,7 @@ end
 
 def with_browser(page, &block)
   if ENV["CI"]?
-    browser = Webdriver::Browser.start(:chrome, remote: "http://localhost:4444", args: ["no-sandbox","headless", "disable-dev-shm-usage"])
+    browser = Webdriver::Browser.start(:chrome, remote: "http://selenium:4444", args: ["no-sandbox","headless", "disable-dev-shm-usage"])
   else
     browser = Webdriver::Browser.start(:chrome)
   end
