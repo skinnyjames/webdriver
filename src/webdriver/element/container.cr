@@ -50,6 +50,7 @@ module Webdriver
       define_element_method figure, Dom::Figure
       define_element_method caption, Dom::FigureCaption
       define_element_method table, Dom::Table
+      define_element_method tbody, Dom::TableBody
       define_element_method thead, Dom::TableHeader
       define_element_method tr, Dom::TableRow
       define_element_method th, Dom::TableHead
