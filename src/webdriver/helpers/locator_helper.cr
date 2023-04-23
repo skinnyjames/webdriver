@@ -17,7 +17,7 @@ module Webdriver
       end
 
       def tokenize
-        @scanner.scan /(?<start>\^)?(?<content>[a-zA-Z\-\s0-9]*)(?<end>\$$)?/
+        @scanner.scan /(?<start>\^)?(?<content>[a-zA-Z\-\s0-9_]*)(?<end>\$$)?/
         @start_anchor = !!@scanner["start"]? 
         @end_anchor = !!@scanner["end"]?
         @content = sanitize_content @scanner["content"]?

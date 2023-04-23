@@ -171,6 +171,30 @@ module Webdriver
       )
       end
 
+      def send_keys(string : String)
+        send_keys(string.split(""))
+      end
+
+      def send_keys(chars : Array(String))
+        chars.each do |char|
+          char = case char
+                  when "\r"
+                    :return
+                  when "\n"
+                    :enter
+                  when "\t"
+                    :tab
+                  else
+                    char
+                  end
+
+          key_down(char)
+          key_up(char)
+        end
+
+        self
+      end
+
       def key_press(*keys)
         @key_actions.concat
         @key_actions.concat keys.map {|key| }

@@ -5,7 +5,15 @@ require "./document"
 
 module Webdriver
   module Dom
+    @@element_klasses = {} of String => HtmlElement.class
+    
+    def self.element(str : String)
+      @@element_klasses[str]
+    end
+
     macro register_html_element(class_name, node, mixins=[] of Dom)
+      @@element_klasses[{{ node }}] = {{ class_name }}
+
       class {{ class_name }} < HtmlElement
         @@node = {{ node }}
         {% for mixin in mixins %}
@@ -65,7 +73,19 @@ module Webdriver
 
       def text(force : Bool = false)
         id = locate_or_throw_error(force)
-        server.command.get_element_text(id) 
+        server.command.get_element_text(id).as_s
+      end
+
+      def parent(**locator)
+        xpath = LocatorHelper.convert_all_to_xpath(**locator)
+
+        parent_xpath = "./ancestor::*[position()=1]"
+        parent_xpath += "[#{xpath}]" unless [nil, ""].includes?(xpath) 
+
+        parent_id = server.command.find_element_from_element(id, using: "xpath", value: parent_xpath).as_h.values.first.as_s
+        type = server.command.get_element_tag_name(parent_id).as_s
+
+        Dom.element(type).new(self, server, parent_id, **locator)
       end
 
       protected def translate_locator(context : Element | Browser, **locator) : String

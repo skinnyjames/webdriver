@@ -99,6 +99,18 @@ module Webdriver
       @windows
     end
 
+    def send_keys(string : String)
+      act do |builder|
+        builder.send_keys(string)
+      end
+    end
+
+    def send_keys(parts : Array(String))
+      act do |builder|
+        builder.send_keys(parts)
+      end
+    end
+
     # switches context to the *window*
     def use(window : Window)
       server.command.use_window(window.handle)
